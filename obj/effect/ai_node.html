@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;obj&#x2F;effect&#x2F;ai_node - byond</title>
+</head>
+<body>
+<header>
+    <a href="index.html">byond</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="obj/effect/ai_node.html#var">Var Details</a> - <a href="obj/effect/ai_node.html#proc">Proc Details</a></header>
+<main>
+<h1>ai_node <aside>/<a href="obj.html">obj</a>/<a href="obj/effect/ai_node.html">effect/ai_node</a></aside>
+        
+    
+            <a href="https://github.com/tgstation/TerraGov-Marine-Corps/blob/cf8625cf2a1ba761becf7b119e1f1e51563e33c3/code/modules/ai/effect_node.dm#L4">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;effect_node.dm 4"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="obj/effect/ai_node.html#var/adjacent_nodes">adjacent_nodes</a></th><td>list of adjacent landmark nodes</td></tr>
+            <tr><th><a href="obj/effect/ai_node.html#var/weights">weights</a></th><td>List of weights for scoring stuff happening here; ultilizes &quot;identifiers&quot; to differentiate different kinds of AI types looking at the same node.</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="obj/effect/ai_node.html#proc/get_best_adj_node">get_best_adj_node</a></th><td>A proc that gets the &quot;best&quot; adjacent node in src based on score
+The score is calculated by what weights are inside of the list/weight_modifiers
+The highest number after multiplying each list/weight by the ones in the above parameter will be the node that's chosen; any nodes that have the same score won't override that node
+Generally the number that the weight has before being multiplied by weight modifiers is the &quot;user friendly&quot; edition; NODE_LAST_VISITED represents in deciseconds the time before
+the node has been visited by a particular thing, while something like NODE_ENEMY_COUNT represents the amount of enemies
+Parameter call example
+GetBestAdjNode(list(NODE_LAST_VISITED = -1), IDENTIFIER_XENO)
+Returns an adjacent node that was last visited; when a AI visits a node, it will set NODE_LAST_VISITED to world.time</td></tr>
+            <tr><th><a href="obj/effect/ai_node.html#proc/get_node_in_dir_in_adj">get_node_in_dir_in_adj</a></th><td>Returns a node that is in the direction of this node; must be in the src's adjacent node list</td></tr>
+            <tr><th><a href="obj/effect/ai_node.html#proc/increment_weight">increment_weight</a></th><td>Adds to the specific weight of a specific identifier of this node</td></tr>
+            <tr><th><a href="obj/effect/ai_node.html#proc/make_adjacents">make_adjacents</a></th><td>Clears the adjacencies of src and repopulates it, it will consider nodes &quot;adjacent&quot; to src should it be less 15 turfs away and get_dir(src, potential_adjacent_node) returns a cardinal direction</td></tr>
+            <tr><th><a href="obj/effect/ai_node.html#proc/set_weight">set_weight</a></th><td>Sets the specific weight of a specific identifier of this node</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/adjacent_nodes"><aside class="declaration">var </aside>adjacent_nodes
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/tgstation/TerraGov-Marine-Corps/blob/cf8625cf2a1ba761becf7b119e1f1e51563e33c3/code/modules/ai/effect_node.dm#L11">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;effect_node.dm 11"/></a></h3>
+        <p>list of adjacent landmark nodes</p><h3 id="var/weights"><aside class="declaration">var </aside>weights
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/tgstation/TerraGov-Marine-Corps/blob/cf8625cf2a1ba761becf7b119e1f1e51563e33c3/code/modules/ai/effect_node.dm#L14">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;effect_node.dm 14"/></a></h3>
+        <p>List of weights for scoring stuff happening here; ultilizes &quot;identifiers&quot; to differentiate different kinds of AI types looking at the same node.</p><h2 id="proc">Proc Details</h2><h3 id="proc/get_best_adj_node"><aside class="declaration">proc </aside>get_best_adj_node<aside>(/list/weight_modifiers, identifier) 
+        
+    
+            <a href="https://github.com/tgstation/TerraGov-Marine-Corps/blob/cf8625cf2a1ba761becf7b119e1f1e51563e33c3/code/modules/ai/effect_node.dm#L62">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;effect_node.dm 62"/></a></aside>
+        </h3>
+        <p>A proc that gets the &quot;best&quot; adjacent node in src based on score
+The score is calculated by what weights are inside of the list/weight_modifiers
+The highest number after multiplying each list/weight by the ones in the above parameter will be the node that's chosen; any nodes that have the same score won't override that node
+Generally the number that the weight has before being multiplied by weight modifiers is the &quot;user friendly&quot; edition; NODE_LAST_VISITED represents in deciseconds the time before
+the node has been visited by a particular thing, while something like NODE_ENEMY_COUNT represents the amount of enemies
+Parameter call example
+GetBestAdjNode(list(NODE_LAST_VISITED = -1), IDENTIFIER_XENO)
+Returns an adjacent node that was last visited; when a AI visits a node, it will set NODE_LAST_VISITED to world.time</p><h3 id="proc/get_node_in_dir_in_adj"><aside class="declaration">proc </aside>get_node_in_dir_in_adj<aside>(dir) 
+        
+    
+            <a href="https://github.com/tgstation/TerraGov-Marine-Corps/blob/cf8625cf2a1ba761becf7b119e1f1e51563e33c3/code/modules/ai/effect_node.dm#L42">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;effect_node.dm 42"/></a></aside>
+        </h3>
+        <p>Returns a node that is in the direction of this node; must be in the src's adjacent node list</p><h3 id="proc/increment_weight"><aside class="declaration">proc </aside>increment_weight<aside>(identifier, name, amount) 
+        
+    
+            <a href="https://github.com/tgstation/TerraGov-Marine-Corps/blob/cf8625cf2a1ba761becf7b119e1f1e51563e33c3/code/modules/ai/effect_node.dm#L26">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;effect_node.dm 26"/></a></aside>
+        </h3>
+        <p>Adds to the specific weight of a specific identifier of this node</p><h3 id="proc/make_adjacents"><aside class="declaration">proc </aside>make_adjacents<aside>() 
+        
+    
+            <a href="https://github.com/tgstation/TerraGov-Marine-Corps/blob/cf8625cf2a1ba761becf7b119e1f1e51563e33c3/code/modules/ai/effect_node.dm#L86">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;effect_node.dm 86"/></a></aside>
+        </h3>
+        <p>Clears the adjacencies of src and repopulates it, it will consider nodes &quot;adjacent&quot; to src should it be less 15 turfs away and get_dir(src, potential_adjacent_node) returns a cardinal direction</p><h3 id="proc/set_weight"><aside class="declaration">proc </aside>set_weight<aside>(identifier, name, amount) 
+        
+    
+            <a href="https://github.com/tgstation/TerraGov-Marine-Corps/blob/cf8625cf2a1ba761becf7b119e1f1e51563e33c3/code/modules/ai/effect_node.dm#L30">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;ai&#x2F;effect_node.dm 30"/></a></aside>
+        </h3>
+        <p>Sets the specific weight of a specific identifier of this node</p></main>
+<footer>
+    tgmc.dme
+    <a href="https://github.com/tgstation/TerraGov-Marine-Corps/tree/cf8625cf2a1ba761becf7b119e1f1e51563e33c3">cf8625c</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.3.0</a></footer>
+</body>
+</html>
