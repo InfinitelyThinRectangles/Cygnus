@@ -17,6 +17,9 @@ map debugdalus
 	voteweight 0
 endmap
 
+map lucifer
+endmap
+
 map theseus
 endmap
 
@@ -27,4 +30,8 @@ map risingstar
 endmap
 
 map sulaco
+endmap
+
+map twin_pillars
+	voteweight 0
 endmap

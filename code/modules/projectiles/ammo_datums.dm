@@ -1,4 +1,4 @@
-#define DEBUG_STAGGER_SLOWDOWN	0
+#define DEBUG_STAGGER_SLOWDOWN 0
 
 GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/facehugger, /obj/effect/alien/egg, /obj/structure/mineral_door, /obj/effect/alien/resin, /obj/structure/bed/nest))) //For sticky/acid spit
 
@@ -7,7 +7,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/icon 		= 'icons/obj/items/projectiles.dmi'
 	var/icon_state 	= "bullet"
 	///used in icons/obj/items/ammo for use in generating handful sprites
-	var/handful_icon_state = "bullet" 
+	var/handful_icon_state = "bullet"
 	///how much of this ammo you can carry in a handful
 	var/handful_amount = 8
 	var/hud_state   = "unknown"  //Bullet type on the Ammo HUD
@@ -91,6 +91,11 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 		if(xeno_victim.fortify) //If we're fortified we don't give a shit about staggerstun.
 			impact_message += "<span class='xenodanger'>Your fortified stance braces you against the impact.</span>"
 			return
+
+		if(xeno_victim.endure) //Endure allows us to ignore staggerstun.
+			impact_message += "<span class='xenodanger'>You endure the impact from [proj], shrugging off its effects.</span>"
+			return
+
 		if(xeno_victim.crest_defense) //Crest defense halves all effects, and protects us from the stun.
 			impact_message += "<span class='xenodanger'>Your crest protects you against some of the impact.</span>"
 			slowdown *= 0.5
@@ -281,6 +286,16 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	shrapnel_chance = 25
 	sundering = 2.15
 
+/datum/ammo/bullet/pistol/superheavy
+	name = "high impact pistol bullet"
+	hud_state = "pistol_hollow"
+	damage = 45
+	penetration = 15
+	sundering = 3.5
+
+/datum/ammo/bullet/pistol/superheavy/on_hit_mob(mob/M,obj/projectile/P)
+	staggerstun(M, P, stagger = 1, slowdown = 1, shake = 0)
+
 /datum/ammo/bullet/pistol/incendiary
 	name = "incendiary pistol bullet"
 	hud_state = "pistol_fire"
@@ -327,17 +342,30 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	hud_state = "revolver"
 	hud_state_empty = "revolver_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
-	damage = 40
+	damage = 45
 	penetration = 10
 	sundering = 3
 
 /datum/ammo/bullet/revolver/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, stagger = 1, slowdown = 0.5, knockback = 1, shake = 0.5)
+	staggerstun(M, P, stagger = 1, slowdown = 0.5, knockback = 1)
+
+datum/ammo/bullet/revolver/tp44
+	name = "standard revolver bullet"
+	damage = 40
+
+/datum/ammo/bullet/revolver/tp44/on_hit_mob(mob/M,obj/projectile/P)
+	if(SEND_SIGNAL(P.shot_from, COMSIG_REVOLVER_AMMO_HIT_MOB) & COMSIG_REVOLVER_AMMO_SNUBNOSE_BARREL)
+		staggerstun(M, P, stagger = 1, slowdown = 0.5, knockback = 1, shake = 0)
+	else
+		staggerstun(M, P, slowdown = 0.5, shake = 0)
 
 /datum/ammo/bullet/revolver/small
 	name = "small revolver bullet"
 	hud_state = "revolver_small"
 	damage = 30
+
+/datum/ammo/bullet/revolver/small/on_hit_mob(mob/M,obj/projectile/P)
+	staggerstun(M, P, slowdown = 0.5)
 
 /datum/ammo/bullet/revolver/marksman
 	name = "slimline revolver bullet"
@@ -357,9 +385,6 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	penetration = 5
 	accuracy = -15
 
-/datum/ammo/bullet/revolver/heavy/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, stagger = 1, slowdown = 0.5, knockback = 1)
-
 /datum/ammo/bullet/revolver/highimpact
 	name = "high-impact revolver bullet"
 	hud_state = "revolver_impact"
@@ -369,7 +394,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sundering = 3
 
 /datum/ammo/bullet/revolver/highimpact/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, weaken = 1, stagger = 1, slowdown = 1, knockback = 1)
+	staggerstun(M, P, weaken = 1, stagger = 1, slowdown = 1, knockback = 1, shake = 0.5)
 
 
 /datum/ammo/bullet/revolver/ricochet
@@ -386,6 +411,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/bullet/revolver/ricochet/four
 	bonus_projectiles_type = /datum/ammo/bullet/revolver/ricochet/three
+
+/datum/ammo/bullet/revolver/ricochet/on_hit_mob(mob/M,obj/projectile/P)
+	staggerstun(M, P, slowdown = 0.5)
 
 /datum/ammo/bullet/revolver/ricochet/on_hit_turf(turf/T, obj/projectile/proj)
 	. = ..()
@@ -969,6 +997,12 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	penetration = 15
 	sundering = 2
 
+/datum/ammo/bullet/smartgun/smartrifle
+	name = "smartrifle bullet"
+	damage = 15
+	penetration = 15
+	sundering = 1
+
 /datum/ammo/bullet/smartgun/lethal
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
 	icon_state 	= "bullet"
@@ -1022,6 +1056,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	name = "machinegun bullet"
 	icon_state 	= "bullet" // Keeping it bog standard with the turret but allows it to be changed.
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	hud_state   = "smartgun"
+	hud_state_empty = "smartgun_empty"
 	accurate_range = 15
 	damage = 40 //Reduced damage due to vastly increased mobility
 	penetration = 40 //Reduced penetration due to vastly increased mobility
@@ -1047,14 +1083,14 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_state 	= "blue_bullet"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
 	shell_speed = 4
-	max_range = 12
-	damage = 100
+	max_range = 9
+	damage = 150
 	penetration = 70
-	sundering = 70
+	sundering = 90
 	bullet_color = COLOR_PULSE_BLUE
 
 /datum/ammo/bullet/railgun/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, weaken = 1, stagger = 3, slowdown = 2, knockback = 4)
+	staggerstun(M, P, weaken = 1, stagger = 3, slowdown = 2, knockback = 3, shake = 0)
 
 /*
 //================================================
@@ -1143,14 +1179,34 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	name = "thermobaric rocket"
 	hud_state = "rocket_thermobaric"
 	flags_ammo_behavior = AMMO_ROCKET
-	damage = 200
+	damage = 40
+	penetration = 25
 	max_range = 30
+	sundering = 2
 
-/datum/ammo/rocket/wp/quad/drop_nade(turf/T, radius = 3)
-	. = ..()
-	if(!.)
-		return
-	explosion(T, 0, 3, 5, 5, throw_range = 0)
+	///The smoke system that the WP gas uses to spread.
+	var/datum/effect_system/smoke_spread/smoke_system
+
+/datum/ammo/rocket/wp/quad/set_smoke()
+	smoke_system = new /datum/effect_system/smoke_spread/phosphorus()
+
+/datum/ammo/rocket/wp/quad/drop_nade(turf/T, atom/firer, range = 3, radius = 3)
+	set_smoke()
+	smoke_system.set_up(range, T)
+	smoke_system.start()
+	T.visible_message("<span class='danger'>The rocket explodes into white gas!</span>")
+	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 50, 1, 4)
+	flame_radius(radius, T, 27, 27, 27, 17)
+
+
+/datum/ammo/rocket/wp/quad/ds
+	name = "super thermobaric rocket"
+	hud_state = "rocket_thermobaric"
+	flags_ammo_behavior = AMMO_ROCKET
+	damage = 200
+	penetration = 75
+	max_range = 30
+	sundering = 100
 
 /datum/ammo/rocket/recoilless
 	name = "high explosive shell"
@@ -1504,18 +1560,18 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_state = "overchargedlaser"
 	hud_state = "laser_sniper"
 	damage = 40
-	max_range = 40
+	max_range = 7
 	penetration = 5
 	shell_speed = 1.5
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_EXPLOSIVE
 	bullet_color = COLOR_VIBRANT_LIME
 
 	///Fire burn time
-	var/heat = 12 
+	var/heat = 12
 	///Fire damage
 	var/burn_damage = 9
 	///Fire color
-	var/fire_color = "green" 
+	var/fire_color = "green"
 
 /datum/ammo/energy/plasma_pistol/on_hit_turf(turf/T, obj/projectile/proj)
 	T.ignite(heat, burn_damage, fire_color)
@@ -1779,6 +1835,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/acid/medium
 	name = "acid spatter"
 	damage = 30
+	flags_ammo_behavior = AMMO_XENO
 
 /datum/ammo/xeno/acid/heavy
 	name = "acid splash"
@@ -1931,6 +1988,23 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 					Misc Ammo
 //================================================
 */
+
+/datum/ammo/bullet/pepperball
+	name = "pepperball"
+	hud_state = "grenade_frag"
+	hud_state_empty = "battery_empty"
+	flags_ammo_behavior = AMMO_BALLISTIC
+	accurate_range = 15
+	damage_type = STAMINA
+	armor_type = "bio"
+	damage = 70
+	penetration = 0
+	shrapnel_chance = 0
+
+/datum/ammo/bullet/pepperball/on_hit_mob(mob/living/victim, obj/projectile/proj)
+	if(isxeno(victim))
+		var/mob/living/carbon/xenomorph/X = victim
+		X.use_plasma(50)
 
 /datum/ammo/alloy_spike
 	name = "alloy spike"

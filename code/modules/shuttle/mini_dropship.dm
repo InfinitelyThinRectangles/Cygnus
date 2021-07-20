@@ -66,7 +66,7 @@
 	for(var/datum/action/action_from_shuttle_docker AS in actions)
 		action_from_shuttle_docker.remove_action(user)
 	actions.Cut()
-	
+
 	if(off_action)
 		off_action.target = user
 		off_action.give_action(user)
@@ -74,7 +74,7 @@
 
 	if(fly_state != SHUTTLE_IN_ATMOSPHERE)
 		return
-	
+
 	if(rotate_action)
 		rotate_action.target = user
 		rotate_action.give_action(user)
@@ -136,7 +136,7 @@
 	if(!origin_port_id)
 		return
 	open_prompt = FALSE
-	remove_eye_control(ui_user)
+	clean_ui_user()
 	SSshuttle.moveShuttle(shuttleId, origin_port_id, TRUE)
 
 /// Toggle the vision between small nightvision and turf vision
@@ -152,12 +152,12 @@
 	if(damaged)
 		return
 	X.visible_message("[X] begins to slash delicately at the computer",
-	"You start slashing delicately at the computer.")
+	"We start slashing delicately at the computer. This will take a while.")
 	if(!do_after(X, 10 SECONDS, TRUE, src, BUSY_ICON_DANGER, BUSY_ICON_HOSTILE))
 		return
 	visible_message("The inner wiring is visible, it can be slashed!")
 	X.visible_message("[X] continue to slash at the computer",
-	"You continue slashing at the computer.")
+	"We continue slashing at the computer. If we stop now we will have to start all over again.")
 	var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
@@ -168,7 +168,20 @@
 	s2.set_up(3, 1, src)
 	s2.start()
 	damaged = TRUE
-	remove_eye_control(ui_user)
+	open_prompt = FALSE
+	clean_ui_user()
+
+	if(fly_state == SHUTTLE_IN_ATMOSPHERE && last_valid_ground_port)
+		visible_message("Autopilot detects loss of helm control. INITIATING EMERGENCY LANDING!")
+		shuttle_port.callTime = SHUTTLE_LANDING_CALLTIME
+		next_fly_state = SHUTTLE_ON_GROUND
+		shuttle_port.set_mode(SHUTTLE_CALL)
+		SSshuttle.moveShuttleToDock(shuttleId, last_valid_ground_port, TRUE)
+		return
+
+	if(next_fly_state == SHUTTLE_IN_ATMOSPHERE)
+		shuttle_port.set_idle() // don't go up with a broken console, cencel spooling
+		visible_message("Autopilot detects loss of helm control. Halting take off!")
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/ui_state(mob/user)
 	return GLOB.dropship_state
@@ -176,23 +189,26 @@
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
+	if(ui_user)
+		return
 
 	if(!ui)
-		if(ui_user)
-			UnregisterSignal(ui_user, COMSIG_PARENT_QDELETING)
 		ui_user = user
-		RegisterSignal(ui_user, COMSIG_PARENT_QDELETING, .proc/clean_ui_user)
+		RegisterSignal(ui_user, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED), .proc/clean_ui_user)
 		ui = new(user, src, "Minidropship", name)
 		ui.open()
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/ui_close(mob/user)
 	. = ..()
-	remove_eye_control(ui_user)
+	clean_ui_user()
 
 /// Set ui_user to null to prevent hard del
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/clean_ui_user()
-	UnregisterSignal(ui_user, COMSIG_PARENT_QDELETING)
-	ui_user = null
+	SIGNAL_HANDLER
+	if(ui_user)
+		remove_eye_control(ui_user)
+		UnregisterSignal(ui_user, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED))
+		ui_user = null
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/ui_data(mob/user)
 	. = list()
@@ -244,6 +260,7 @@
 	origin.shuttle_port.callTime = SHUTTLE_LANDING_CALLTIME
 	origin.next_fly_state = SHUTTLE_ON_GROUND
 	origin.open_prompt = FALSE
-	origin.remove_eye_control(origin.ui_user)
+	origin.clean_ui_user()
 	origin.shuttle_port.set_mode(SHUTTLE_CALL)
+	origin.last_valid_ground_port = origin.my_port
 	SSshuttle.moveShuttleToDock(origin.shuttleId, origin.my_port, TRUE)

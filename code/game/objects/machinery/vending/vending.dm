@@ -1,9 +1,9 @@
 #define CAT_NORMAL 0
 #define CAT_HIDDEN 1
-#define CAT_COIN   2
+#define CAT_COIN 2
 
 #define MAKE_VENDING_RECORD_DATA(record) list(\
-		"product_name" = adminscrub(record.product_name),\
+		"product_name" = record.product_name,\
 		"product_color" = record.display_color,\
 		"prod_price" = record.price,\
 		"prod_desc" = initial(record.product_path.desc),\
@@ -159,6 +159,9 @@
 
 	/// How much damage we can take before tipping over.
 	var/knockdown_threshold = 100
+
+	///Faction of the vendor. Can be null
+	var/faction
 
 
 /obj/machinery/vending/Initialize(mapload, ...)
@@ -539,7 +542,9 @@
 			if(!istype(R) || !R.product_path || R.amount == 0)
 				return
 
-			if(R.price == null)
+			if(isAI(usr))
+				vend(R, usr)
+			else if(R.price == null)
 				vend(R, usr)
 			else
 				currently_vending = R
@@ -561,7 +566,12 @@
 /obj/machinery/vending/proc/vend(datum/vending_product/R, mob/user)
 	if(!allowed(user) && (!wires.is_cut(WIRE_IDSCAN) || hacking_safety)) //For SECURE VENDING MACHINES YEAH
 		to_chat(user, "<span class='warning'>Access denied.</span>")
-		flick(src.icon_deny,src)
+		flick(icon_deny, src)
+		return
+
+	if(SSticker.mode?.flags_round_type & MODE_HUMAN_ONLY && is_type_in_typecache(R.product_path, GLOB.hvh_restricted_items_list))
+		to_chat(user, "<span class='warning'>This item is banned by the Space Geneva Convention.</span>")
+		flick(icon_deny, src)
 		return
 
 	if(R.category == CAT_HIDDEN && !extended_inventory)
@@ -591,13 +601,19 @@
 			src.last_reply = world.time
 
 	var/obj/item/new_item = release_item(R, vend_delay)
+	if(faction)
+		if(ismodulararmorarmorpiece(new_item))
+			var/obj/item/armor_module/armor/armorpiece = new_item
+			armorpiece.limit_colorable_colors(faction)
+		if(ismodularhelmet(new_item))
+			var/obj/item/clothing/head/modular/helmet = new_item
+			helmet.limit_colorable_colors(faction)
 	if(istype(new_item))
 		user.put_in_any_hand_if_possible(new_item, warning = FALSE)
 	vend_ready = 1
 	updateUsrDialog()
 
 /obj/machinery/vending/proc/release_item(datum/vending_product/R, delay_vending = 0, dump_product = 0)
-	set waitfor = 0
 	if(delay_vending)
 		if(powered(power_channel))
 			use_power(active_power_usage)	//actuators and stuff
@@ -654,8 +670,8 @@
 			if(A.current_rounds < A.max_rounds)
 				to_chat(user, "<span class='warning'>[A] isn't full. Fill it before you can restock it.</span>")
 				return
-		else if(istype(item_to_stock, /obj/item/smartgun_powerpack))
-			var/obj/item/smartgun_powerpack/P = item_to_stock
+		else if(istype(item_to_stock, /obj/item/minigun_powerpack))
+			var/obj/item/minigun_powerpack/P = item_to_stock
 			if(!P.pcell)
 				to_chat(user, "<span class='warning'>The [P] doesn't have a cell. You must put one in before you can restock it.</span>")
 				return
@@ -674,7 +690,7 @@
 
 		if(istype(item_to_stock.loc, /obj/item/storage)) //inside a storage item
 			var/obj/item/storage/S = item_to_stock.loc
-			S.remove_from_storage(item_to_stock, user.loc)
+			S.remove_from_storage(item_to_stock, user.loc, user)
 
 		qdel(item_to_stock)
 		if(!recharge)
