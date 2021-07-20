@@ -60,6 +60,7 @@
 #define UNDERFLOOR_OBJ_LAYER 2.5 //bluespace beacon, navigation beacon, etc
 
 #define CATWALK_LAYER 2.51 //catwalk overlay of /turf/open/floor/plating/plating_catwalk
+#define HOLOPAD_LAYER 2.515 //layer for the holopads so they render over catwalks, yet still get covered like regular floor.
 #define XENO_WEEDS_LAYER 2.52 //weed layer so that it goes above catwalks
 
 #define ATMOS_DEVICE_LAYER 2.53 //vents, connector ports, atmos devices that should be above pipe layer.
@@ -110,7 +111,7 @@
 #define POWERLOADER_LAYER 3.6 //above windows and wall mounts so the top of the loader doesn't clip.
 
 #define BELOW_MOB_LAYER 3.79
-#define LYING_MOB_LAYER	3.8
+#define LYING_MOB_LAYER 3.8
 
 #define ABOVE_LYING_MOB_LAYER 3.9 //drone (not the xeno)
 
@@ -177,11 +178,11 @@
 #define FULLSCREEN_IMPAIRED_LAYER 18.02 //visual impairment from wearing welding helmet, etc
 #define FULLSCREEN_DRUGGY_LAYER 18.03
 #define FULLSCREEN_BLURRY_LAYER 18.04
-#define FULLSCREEN_INFECTION_LAYER	18.041 //purple cloud
+#define FULLSCREEN_INFECTION_LAYER 18.041 //purple cloud
 #define FULLSCREEN_FLASH_LAYER 18.05 //flashed
 #define FULLSCREEN_DAMAGE_LAYER 18.1 //red circles when hurt
 #define FULLSCREEN_BLIND_LAYER 18.15 //unconscious
-#define FULLSCREEN_PAIN_LAYER	18.2 //pain flashes
+#define FULLSCREEN_PAIN_LAYER 18.2 //pain flashes
 #define FULLSCREEN_CRIT_LAYER 18.25 //in critical
 #define FULLSCREEN_MACHINE_LAYER 18.3
 #define FULLSCREEN_INTRO_LAYER 18.4 //black screen when you spawn

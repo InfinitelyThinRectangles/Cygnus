@@ -325,7 +325,7 @@
 	var/turf/T = get_turf(src)
 	hold.hide_from(usr)
 	for(var/obj/item/I in hold.contents)
-		hold.remove_from_storage(I, T)
+		hold.remove_from_storage(I, T, user)
 
 /obj/item/clothing/tie/storage/webbing
 	name = "webbing"
@@ -409,7 +409,7 @@
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
 	new /obj/item/tool/surgery/cautery(src)
 	new /obj/item/tool/surgery/circular_saw(src)
-	new /obj/item/tool/surgery/surgicaldrill(src)
+	new /obj/item/tool/surgery/suture(src)
 	new /obj/item/tool/surgery/bonegel(src)
 	new /obj/item/tool/surgery/bonesetter(src)
 	new /obj/item/tool/surgery/FixOVein(src)

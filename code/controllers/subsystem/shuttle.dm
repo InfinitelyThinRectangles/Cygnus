@@ -131,7 +131,7 @@ SUBSYSTEM_DEF(shuttle)
 
 /**
  * Generate a transit and set it as a destination. The shuttle will stay in that transit until it is called again
- * Because it uses standard shuttle code, the shuttle will do this : 
+ * Because it uses standard shuttle code, the shuttle will do this :
  * Originport -> transit -> arrived to destination(will actually not move from transit, because destiantion = the transit)
  * shuttleId : Id of the shuttle to move
  * timed : If FALSE, the shuttle will instantly move to its destination
@@ -259,7 +259,7 @@ SUBSYSTEM_DEF(shuttle)
 		log_debug("generate_transit_dock() failed to get a midpoint")
 		return FALSE
 	var/area/shuttle/transit/A = new()
-	//A.parallax_movedir = travel_dir
+	A.parallax_movedir = travel_dir
 	A.contents = proposal.reserved_turfs
 	var/obj/docking_port/stationary/transit/new_transit_dock = new(midpoint)
 	new_transit_dock.reserved_area = proposal

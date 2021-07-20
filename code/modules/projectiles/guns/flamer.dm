@@ -318,7 +318,7 @@
 			var/mob/living/carbon/xenomorph/X = M
 			if(X.xeno_caste.caste_flags & CASTE_FIRE_IMMUNE)
 				continue
-			fire_mod = clamp(X.xeno_caste.fire_resist + X.fire_resist_modifier, 0, 1)
+			fire_mod = X.get_fire_resist()
 		else if(ishuman(M))
 			var/mob/living/carbon/human/H = M //fixed :s
 
@@ -499,9 +499,10 @@
 
 
 /obj/item/weapon/gun/flamer/marinestandard/unique_action(mob/user)
+	. = ..()
 	var/obj/item/attachable/hydro_cannon/hydro = LAZYACCESS(attachments, ATTACHMENT_SLOT_UNDER)
 	if(!istype(hydro))
-		return
+		return FALSE
 	playsound(user, hydro.activation_sound, 15, 1)
 	if (hydro.activate_attachment(user))
 		hydro_active = TRUE
@@ -513,6 +514,7 @@
 	var/obj/screen/ammo/A = user.hud_used.ammo
 	A.update_hud(user)
 	SEND_SIGNAL(src, COMSIG_ITEM_HYDRO_CANNON_TOGGLED)
+	return TRUE
 
 /obj/item/weapon/gun/flamer/marinestandard/attach_fueltank(mob/user, obj/item/ammo_magazine/flamer_tank/backtank/fueltank)
 	if (!istype(fueltank))
@@ -680,7 +682,7 @@
 /mob/living/carbon/xenomorph/flamer_fire_crossed(burnlevel, firelevel, fire_mod = 1)
 	if(xeno_caste.caste_flags & CASTE_FIRE_IMMUNE)
 		return
-	fire_mod = clamp(xeno_caste.fire_resist + fire_resist_modifier, 0, 1)
+	fire_mod = get_fire_resist()
 	return ..()
 
 
@@ -752,7 +754,7 @@
 /mob/living/carbon/xenomorph/flamer_fire_act(burnlevel, firelevel)
 	if(xeno_caste.caste_flags & CASTE_FIRE_IMMUNE)
 		return
-	burnlevel *= clamp(xeno_caste.fire_resist + fire_resist_modifier, 0, 1)
+	burnlevel *= get_fire_resist()
 	. = ..()
 	updatehealth()
 
