@@ -430,3 +430,10 @@
   QualityVan:
   - bugfix: Vali should have fewer typos and more accurately express the current power
       level.
+2021-07-21:
+  BraveMole:
+  - bugfix: Fix mines not blowing up xeno
+  Surrealaser:
+  - bugfix: Fixes issue where light neurotoxin wasn't being reported by Xeno Toxin
+      HUD.
+  - qol: HUD elements for high concentrations of xeno toxins (more than 10U) now blink.
