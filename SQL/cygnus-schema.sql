@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `mission_log` (
   `patrol_id` int(11) NOT NULL,
   `round_id` int(11) NOT NULL,
   `mission_type` varchar(128) NOT NULL,
-  `objective_results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT 'JSON object { "objective datum id" : success factor value }\r\nSuccess factor is from -2 to 2 with corresponding weights in the datums',
+  `objective_results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT 'JSON object { "objective datum type" : success factor index }',
   `json` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT 'all other mission data',
   `last_edit` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `patrol` (
   `last_round_id` int(11) DEFAULT NULL,
   `start_datetime` datetime NOT NULL,
   `end_datetime` datetime DEFAULT NULL,
+  `rating` INT(11) NULL DEFAULT NULL,
   `json` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT 'additional data',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

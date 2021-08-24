@@ -96,10 +96,10 @@
 	var/sql
 	if(SSticker.mode)
 		sql += "game_mode = '[SSticker.mode]'"
-	if(GLOB.revdata.originmastercommit)
+	if(GLOB.revdata.commit) //CYGNUS EDIT - save the relevant local commit hash
 		if(sql)
 			sql += ", "
-		sql += "commit_hash = '[GLOB.revdata.originmastercommit]'"
+		sql += "commit_hash = '[GLOB.revdata.commit]'" //CYGNUS EDIT - save the relevant local commit hash
 	if(sql)
 		var/datum/db_query/query_round_game_mode = SSdbcore.NewQuery("UPDATE [format_table_name("round")] SET [sql] WHERE id = :roundid", list("roundid" = GLOB.round_id))
 		query_round_game_mode.Execute()
