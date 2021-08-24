@@ -35,9 +35,7 @@
 	name = "Corporate Liaison Office"
 	icon_state = "corporatespace"
 
-/area/mainship/command/bridge
-	name = "Bridge"
-	icon_state = "bridge"
+/area/mainship/command/corporateliaison/rebel
 
 /area/mainship/engineering/upper_engineering
 	name = "Upper Engineering"
@@ -57,10 +55,6 @@
 
 /area/mainship/engineering/lower_engine_monitoring/rebel
 
-/area/mainship/engineering/upper_engine_monitoring
-	name = "Engine Reactor Monitoring"
-	icon_state = "uppermonitoring"
-
 /area/mainship/engineering/lower_engineering
 	name = "Engineering Lower"
 	icon_state = "lowerengineering"
@@ -77,21 +71,15 @@
 	name = "Engine Reactor Core Room"
 	icon_state = "coreroom"
 
-/area/mainship/engineering/engine_core/lower
-
 /area/mainship/engineering/engine_core/rebel
 
 /area/mainship/engineering/starboard_atmos
 	name = "Atmospherics Starboard"
 	icon_state = "starboardatmos"
 
-/area/mainship/engineering/starboard_atmos/lower
-
 /area/mainship/engineering/port_atmos
 	name = "Atmospherics Port"
 	icon_state = "portatmos"
-
-/area/mainship/engineering/port_atmos/lower
 
 /area/mainship/engineering/port_atmos/rebel
 
@@ -145,7 +133,7 @@
 	name = "Firing Range"
 	icon_state = "firingrange"
 
-/area/mainship/shipboard/firing_range/rebel
+/area/mainship/shipboard/firing_range/rebel 
 
 /area/mainship/shipboard/sensors
 	name = "Sensor Room"
@@ -156,6 +144,10 @@
 	icon_state = "hangar"
 
 /area/mainship/hallways/hangar/rebel
+
+/area/mainship/living/tankerbunks
+	name = "Vehicle Crew Bunks"
+	icon_state = "livingspace"
 
 /area/mainship/hallways/exoarmor
 	name = "Vehicle Armor Storage"
@@ -183,19 +175,11 @@
 	name = "Umbilical Aft"
 	icon_state = "aft"
 
-/area/mainship/hallways/bow_hallway
-	name = "Hallway Bow"
-	icon_state = "bow"
-
-/area/mainship/hallways/bow_hallway/lower
-
 /area/mainship/hallways/port_umbilical/rebel
 
 /area/mainship/hallways/aft_hallway
 	name = "Hallway Aft"
 	icon_state = "aft"
-
-/area/mainship/hallways/aft_hallway/lower
 
 /area/mainship/hallways/aft_hallway/rebel
 
@@ -203,21 +187,17 @@
 	name = "Hallway Stern"
 	icon_state = "stern"
 
-/area/mainship/hallways/stern_hallway/rebel
+/area/mainship/hallways/stern_hallway/rebel 
 
 /area/mainship/hallways/port_hallway
 	name = "Hallway Port"
 	icon_state = "port"
-
-/area/mainship/hallways/port_hallway/lower
 
 /area/mainship/hallways/port_hallway/rebel
 
 /area/mainship/hallways/starboard_hallway
 	name = "Hallway Starboard"
 	icon_state = "starboard"
-
-/area/mainship/hallways/starboard_hallway/lower
 
 /area/mainship/hallways/starboard_hallway/rebel
 
@@ -289,10 +269,6 @@
 	name = "Officer's Study"
 	icon_state = "officerstudy"
 
-/area/mainship/living/cafeteria
-	name = "Cafeteria"
-	icon_state = "food"
-
 /area/mainship/living/cafeteria_port
 	name = "Cafeteria Port"
 	icon_state = "food"
@@ -320,10 +296,6 @@
 	icon_state = "livingspace"
 
 /area/mainship/living/pilotbunks/rebel
-
-/area/mainship/living/tankerbunks
-	name = "Vehicle Crew Bunks"
-	icon_state = "livingspace"
 
 /area/mainship/living/bridgebunks
 	name = "Staff Officer Bunks"
