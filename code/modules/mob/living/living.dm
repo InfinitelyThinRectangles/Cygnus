@@ -1,5 +1,5 @@
 /mob/living/proc/Life()
-	if(stat == DEAD || notransform) //If we're dead or notransform don't bother processing life
+	if(stat == DEAD || notransform || HAS_TRAIT(src, TRAIT_STASIS)) //If we're dead or notransform don't bother processing life
 		return
 
 	handle_status_effects() //all special effects, stun, knockdown, jitteryness, hallucination, sleeping, etc
@@ -248,7 +248,7 @@
 		return FALSE
 	TIMER_COOLDOWN_START(src, COOLDOWN_RESIST, CLICK_CD_RESIST)
 	if(pulledby.grab_state >= GRAB_AGGRESSIVE)
-		visible_message("<span class='danger'>[src] resists against [pulledby]'s grip!</span>")
+		visible_message(span_danger("[src] resists against [pulledby]'s grip!"))
 	return resist_grab()
 
 
@@ -259,7 +259,7 @@
 		return FALSE
 	TIMER_COOLDOWN_START(src, COOLDOWN_RESIST, CLICK_CD_RESIST)
 	if(pulledby.grab_state >= GRAB_AGGRESSIVE)
-		visible_message("<span class='danger'>[src] struggles to break free of [pulledby]'s grip!</span>", null, null, 5)
+		visible_message(span_danger("[src] struggles to break free of [pulledby]'s grip!"), null, null, 5)
 	return resist_grab()
 
 
@@ -272,7 +272,7 @@
 		return FALSE
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, TRUE, 7)
 	if(pulledby.grab_state >= GRAB_AGGRESSIVE)
-		visible_message("<span class='danger'>[src] has broken free of [pulledby]'s grip!</span>", null, null, 5)
+		visible_message(span_danger("[src] has broken free of [pulledby]'s grip!"), null, null, 5)
 	pulledby.stop_pulling()
 	grab_resist_level = 0 //zero it out.
 	return TRUE
@@ -326,7 +326,7 @@
 
 		if(L.pulledby && L.pulledby != src && L.restrained())
 			if(!(world.time % 5))
-				to_chat(src, "<span class='warning'>[L] is restrained, you cannot push past.</span>")
+				to_chat(src, span_warning("[L] is restrained, you cannot push past."))
 			return
 
 		if(L.pulling)
@@ -334,7 +334,7 @@
 				var/mob/P = L.pulling
 				if(P.restrained())
 					if(!(world.time % 5))
-						to_chat(src, "<span class='warning'>[L] is restraining [P], you cannot push past.</span>")
+						to_chat(src, span_warning("[L] is restraining [P], you cannot push past."))
 					return
 
 		if(moving_diagonally)//no mob swap during diagonal moves.
@@ -444,7 +444,7 @@
 
 /mob/living/proc/offer_mob()
 	GLOB.offered_mob_list += src
-	notify_ghosts("<span class='boldnotice'>A mob is being offered! Name: [name][job ? " Job: [job.title]" : ""] </span>", enter_link = "claim=[REF(src)]", source = src, action = NOTIFY_ORBIT)
+	notify_ghosts(span_boldnotice("A mob is being offered! Name: [name][job ? " Job: [job.title]" : ""] "), enter_link = "claim=[REF(src)]", source = src, action = NOTIFY_ORBIT)
 
 //used in datum/reagents/reaction() proc
 /mob/living/proc/get_permeability_protection()
@@ -500,6 +500,8 @@
 	XI.remove_from_hud(src)
 	var/datum/atom_hud/xeno_reagents/RE = GLOB.huds[DATA_HUD_XENO_REAGENTS]
 	RE.remove_from_hud(src)
+	var/datum/atom_hud/xeno_debuff/xeno_debuff_visuals = GLOB.huds[DATA_HUD_XENO_DEBUFF]
+	xeno_debuff_visuals.remove_from_hud(src)
 
 	smokecloaked = TRUE
 
@@ -516,6 +518,8 @@
 	XI.add_to_hud(src)
 	var/datum/atom_hud/xeno_reagents/RE = GLOB.huds[DATA_HUD_XENO_REAGENTS]
 	RE.add_to_hud(src)
+	var/datum/atom_hud/xeno_debuff/xeno_debuff_visuals = GLOB.huds[DATA_HUD_XENO_DEBUFF]
+	xeno_debuff_visuals.add_to_hud(src)
 
 	smokecloaked = FALSE
 
@@ -581,21 +585,21 @@ below 100 is not dizzy
 
 /mob/living/proc/take_over(mob/M, bypass)
 	if(!M.mind)
-		to_chat(M, "<span class='warning'>You don't have a mind.</span>")
+		to_chat(M, span_warning("You don't have a mind."))
 		return FALSE
 
 	if(!bypass)
 		if(client)
-			to_chat(M, "<span class='warning'>That mob has already been taken.</span>")
+			to_chat(M, span_warning("That mob has already been taken."))
 			GLOB.offered_mob_list -= src
 			return FALSE
 
 		if(job && is_banned_from(M.ckey, job.title))
-			to_chat(M, "<span class='warning'>You are jobbanned from that role.</span>")
+			to_chat(M, span_warning("You are jobbanned from that role."))
 			return FALSE
 
 		if(stat == DEAD)
-			to_chat(M, "<span class='warning'>That mob has died.</span>")
+			to_chat(M, span_warning("That mob has died."))
 			GLOB.offered_mob_list -= src
 			return FALSE
 
@@ -789,7 +793,7 @@ below 100 is not dizzy
 	lying_angle = new_lying
 	update_transform()
 	lying_prev = lying_angle
-
+	SEND_SIGNAL(src, COMSIG_LIVING_SET_LYING_ANGLE)
 	if(lying_angle)
 		density = FALSE
 		drop_all_held_items()
@@ -830,3 +834,8 @@ below 100 is not dizzy
 	else if(. >= GRAB_NECK) //Released from neckgrab.
 		REMOVE_TRAIT(pulling, TRAIT_IMMOBILE, NECKGRAB_TRAIT)
 		REMOVE_TRAIT(pulling, TRAIT_FLOORED, NECKGRAB_TRAIT)
+
+///Set the remote_control and reset the perspective
+/mob/living/proc/set_remote_control(atom/movable/controlled)
+	remote_control = controlled
+	reset_perspective(controlled)

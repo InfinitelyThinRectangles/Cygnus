@@ -42,6 +42,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!allowed(H))
+			to_chat(user, span_warning("Access denied. Your assigned role doesn't have access to this machinery."))
 			return FALSE
 
 		var/obj/item/card/id/I = H.get_idcard()
@@ -52,9 +53,11 @@
 			return FALSE
 
 		if(lock_flags & JOB_LOCK && vendor_role && !istype(H.job, vendor_role))
+			to_chat(user, span_warning("Access denied. This vendor is heavily restricted."))
 			return FALSE
 
 		if(lock_flags & SQUAD_LOCK && (!H.assigned_squad || (squad_tag && H.assigned_squad.name != squad_tag)))
+			to_chat(user, span_warning("Access denied. Your assigned squad isn't allowed to access this machinery."))
 			return FALSE
 
 	return TRUE
@@ -110,7 +113,7 @@
 	switch(action)
 		if("vend")
 			if(!allowed(usr))
-				to_chat(usr, "<span class='warning'>Access denied.</span>")
+				to_chat(usr, span_warning("Access denied."))
 				if(icon_deny)
 					flick(icon_deny, src)
 				return
@@ -121,15 +124,21 @@
 			var/list/L = listed_products[idx]
 			var/cost = L[3]
 
+			if(SSticker.mode?.flags_round_type & MODE_HUMAN_ONLY && is_type_in_typecache(idx, GLOB.hvh_restricted_items_list))
+				to_chat(usr, span_warning("This item is banned by the Space Geneva Convention."))
+				if(icon_deny)
+					flick(icon_deny, src)
+				return
+
 			if(use_points && I.marine_points < cost)
-				to_chat(usr, "<span class='warning'>Not enough points.</span>")
+				to_chat(usr, span_warning("Not enough points."))
 				if(icon_deny)
 					flick(icon_deny, src)
 				return
 
 			var/turf/T = loc
 			if(length(T.contents) > 25)
-				to_chat(usr, "<span class='warning'>The floor is too cluttered, make some space.</span>")
+				to_chat(usr, span_warning("The floor is too cluttered, make some space."))
 				if(icon_deny)
 					flick(icon_deny, src)
 				return
@@ -152,7 +161,7 @@
 					else
 						I.marine_buy_flags &= ~bitf
 				else
-					to_chat(usr, "<span class='warning'>You can't buy things from this category anymore.</span>")
+					to_chat(usr, span_warning("You can't buy things from this category anymore."))
 					return
 
 			var/obj/item/vended_item
@@ -391,10 +400,10 @@
 		/obj/effect/modular_set/eva = list(CAT_AMR, "Medium EVA Jaeger kit", 0, "black"),
 		/obj/effect/modular_set/assault = list(CAT_AMR, "Heavy Assault Jaeger kit", 0, "black"),
 		/obj/effect/modular_set/eod = list(CAT_AMR, "Heavy EOD Jaeger kit", 0, "black"),
-		/obj/item/clothing/suit/storage/marine/pasvest = list(CAT_AMR, "Regular armor", 0, "orange"),
+		/obj/item/clothing/suit/modular/pas11x = list(CAT_AMR, "PAS-11X pattern armor", 0, "orange"),
 		/obj/item/storage/backpack/marine/satchel = list(CAT_BAK, "Satchel", 0, "black"),
 		/obj/item/storage/backpack/marine/standard = list(CAT_BAK, "Backpack", 0, "black"),
-		/obj/item/storage/large_holster/machete/full = list(CAT_BAK, "Machete scabbard", 0, "black"),
+		/obj/item/storage/large_holster/blade/machete/full = list(CAT_BAK, "Machete scabbard", 0, "black"),
 		/obj/item/clothing/tie/storage/black_vest = list(CAT_WEB, "Tactical black vest", 0, "black"),
 		/obj/item/clothing/tie/storage/webbing = list(CAT_WEB, "Tactical webbing", 0, "black"),
 		/obj/item/clothing/tie/storage/holster = list(CAT_WEB, "Shoulder handgun holster", 0, "black"),
@@ -410,7 +419,7 @@
 		/obj/item/helmet_module/antenna = list(CAT_HEL, "Jaeger Antenna module", 0, "orange"),
 		/obj/item/clothing/head/headband/red = list(CAT_HEL, "FC Headband", 0, "black"),
 		/obj/item/clothing/head/tgmcberet/fc = list(CAT_HEL, "FC Beret", 0, "black"),
-		/obj/item/clothing/head/helmet/marine/leader = list(CAT_HEL, "FC Helmet", 0, "black"),
+		/obj/item/clothing/head/modular/marine/m10x/leader = list(CAT_HEL, "FC Helmet", 0, "black"),
 		/obj/item/armor_module/storage/medical = list(CAT_MOD, "Medical Storage Module", 0, "black"),
 		/obj/item/armor_module/storage/general = list(CAT_MOD, "General Purpose Storage Module", 0, "black"),
 		/obj/item/armor_module/storage/engineering = list(CAT_MOD, "Engineering Storage Module", 0, "black"),
@@ -429,7 +438,7 @@
 		/obj/item/storage/pouch/explosive = list(CAT_POU, "Explosive pouch", 0, "black"),
 		/obj/effect/essentials_set/mimir = list(CAT_ARMMOD, "Mark 1 Mimir Resistance set", 0,"black"),
 		/obj/item/armor_module/attachable/ballistic_armor = list(CAT_ARMMOD, "Ballistic armor module", 0,"black"),
-		/obj/item/armor_module/attachable/tyr_extra_armor/mark1 = list(CAT_ARMMOD, "Mark 1 Tyr extra armor module", 0,"black"),
+		/obj/effect/essentials_set/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
 		/obj/item/armor_module/attachable/better_shoulder_lamp/mark1 = list(CAT_ARMMOD, "Mark 1 Baldur light armor module", 0,"black"),
 		/obj/effect/essentials_set/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
 		/obj/item/clothing/mask/gas = list(CAT_MAS, "Transparent gas mask", 0,"black"),
@@ -625,21 +634,9 @@
 	vendor_role = /datum/job/terragov/squad/smartgunner
 	req_access = list(ACCESS_MARINE_SMARTPREP)
 
-	listed_products = list(
-		/obj/item/storage/box/t26_system = list(CAT_ESS, "T-26 Smartmachinegun Set", 0, "white"),
-		/obj/item/storage/box/t25_system = list(CAT_ESS, "T-25 Smartrifle Set", 0, "white"),
-
-
-		/obj/item/attachable/extended_barrel = list(CAT_ATT, "Extended barrel", 0, "orange"),
-		/obj/item/attachable/compensator = list(CAT_ATT, "Recoil compensator", 0, "black"),
-		/obj/item/attachable/magnetic_harness = list(CAT_ATT, "Magnetic harness", 0, "orange"),
-		/obj/item/attachable/reddot = list(CAT_ATT, "Red dot sight", 0, "black"),
-		/obj/item/attachable/lasersight = list(CAT_ATT, "Laser sight", 0, "black"),
-		/obj/item/attachable/verticalgrip = list(CAT_ATT, "Vertical grip", 0, "black"),
-		/obj/item/attachable/angledgrip = list(CAT_ATT, "Angled grip", 0, "orange"),
-		/obj/item/attachable/stock/t35stock = list(CAT_ATT, "T-35 stock", 0, "black"),
-		/obj/item/attachable/stock/t19stock = list(CAT_ATT, "T-19 machine pistol stock", 0, "black"),
-	)
+/obj/machinery/marine_selector/gear/smartgun/Initialize()
+	. = ..()
+	listed_products = GLOB.smartgunner_gear_listed_products
 
 /obj/machinery/marine_selector/gear/smartgun/rebel
 	req_access = list(ACCESS_MARINE_SMARTPREP_REBEL)
@@ -786,8 +783,8 @@
 		/obj/item/beacon/orbital_bombardment_beacon,
 		/obj/item/whistle,
 		/obj/item/radio,
-		/obj/item/motiondetector,
 		/obj/item/binoculars/tactical,
+		/obj/item/attachable/motiondetector,
 		/obj/item/pinpointer/pool,
 		/obj/item/clothing/glasses/hud/health,
 	)
@@ -800,7 +797,7 @@
 		/obj/item/roller/medevac,
 		/obj/item/medevac_beacon,
 		/obj/item/whistle,
-		/obj/item/motiondetector,
+		/obj/item/attachable/motiondetector,
 		/obj/item/clothing/suit/modular,
 		/obj/item/facepaint/green,
 	)
@@ -811,6 +808,7 @@
 		/obj/item/stack/sheet/metal/large_stack,
 		/obj/item/lightreplacer,
 		/obj/item/healthanalyzer,
+		/obj/item/tool/handheld_charger,
 		/obj/item/defibrillator,
 		/obj/item/medevac_beacon,
 		/obj/item/roller/medevac,
@@ -907,8 +905,15 @@
 	desc = "A set of specialized gear for close-quarters combat and enhanced chemical effectiveness."
 	spawned_gear_list = list(
 		/obj/item/armor_module/attachable/chemsystem,
-		/obj/item/storage/large_holster/machete/full_harvester,
+		/obj/item/storage/large_holster/blade/machete/full_harvester,
 		/obj/item/paper/chemsystem,
+	)
+
+/obj/effect/essentials_set/tyr
+	desc = "A set of specialized gear for improved close-quarters combat longevitiy."
+	spawned_gear_list = list(
+		/obj/item/helmet_module/attachable/tyr_head,
+		/obj/item/armor_module/attachable/tyr_extra_armor/mark1,
 	)
 
 #undef MARINE_CAN_BUY_UNIFORM

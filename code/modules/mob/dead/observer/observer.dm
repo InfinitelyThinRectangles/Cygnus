@@ -37,7 +37,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	var/lastsetting = null	//Stores the last setting that ghost_others was set to, for a little more efficiency when we update ghost images. Null means no update is necessary
 
 	var/inquisitive_ghost = FALSE
-	var/can_reenter_corpse = FALSE
+	///A weakref to the original corpse of the observer
+	var/datum/weakref/can_reenter_corpse
 	var/started_as_observer //This variable is set to 1 when you enter the game as an observer.
 							//If you died in the game and are a ghsot - this will remain as null.
 							//Note that this is not a reliable way to determine if admins started as observers, since they change mobs a lot.
@@ -180,7 +181,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	else if(href_list["claim"])
 		var/mob/living/target = locate(href_list["claim"]) in GLOB.offered_mob_list
 		if(!istype(target))
-			to_chat(usr, "<span class='warning'>Invalid target.</span>")
+			to_chat(usr, span_warning("Invalid target."))
 			return
 
 		target.take_over(src)
@@ -256,14 +257,12 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	ghost.name = ghost.real_name
 	ghost.gender = gender
 	ghost.alpha = 127
-	ghost.can_reenter_corpse = can_reenter_corpse
+	ghost.can_reenter_corpse = can_reenter_corpse ? WEAKREF(src) : null
 	ghost.timeofdeath = timeofdeath
 	ghost.mind = mind
 	mind = null
 	ghost.key = key
-
-	if(!can_reenter_corpse)
-		ghost.mind?.current = ghost
+	ghost.mind?.current = ghost
 
 	if(!T)
 		T = SAFEPICK(GLOB.latejoin)
@@ -326,17 +325,13 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 			if(siloless_countdown)
 				stat("<b>Silo less hive collapse timer:</b>", siloless_countdown)
 		if(GLOB.respawn_allowed)
-			status_value = (timeofdeath + GLOB.respawntime - world.time) * 0.1
+			status_value = (timeofdeath + SSticker.mode?.respawn_time - world.time) * 0.1
 			if(status_value <= 0)
 				stat("Respawn timer:", "<b>READY</b>")
 			else
 				stat("Respawn timer:", "[(status_value / 60) % 60]:[add_leading(num2text(status_value % 60), 2, "0")]")
 			if(SSticker.mode?.flags_round_type & MODE_INFESTATION)
-				status_value = (timeofdeath + GLOB.xenorespawntime - world.time) * 0.1
-				if(status_value <= 0)
-					stat("Xeno respawn timer:", "<b>READY</b>")
-				else
-					stat("Xeno respawn timer:", "[(status_value / 60) % 60]:[add_leading(num2text(status_value % 60), 2, "0")]")
+				stat("Xeno respawn timer:", "<b>READY</b>") // There is no longer a timer for xeno respawn. It is always READY.
 				if(larva_position)
 					stat("Position in larva candidate queue: ", "[larva_position]")
 				var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
@@ -355,21 +350,22 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	if(!client)
 		return FALSE
 
-	if(!mind || QDELETED(mind.current))
-		to_chat(src, "<span class='warning'>You have no body.</span>")
+	if(isnull(can_reenter_corpse))
+		to_chat(src, span_warning("You cannot re-enter your body."))
 		return FALSE
 
+	var/mob/old_mob = can_reenter_corpse.resolve()
 
-	if(!can_reenter_corpse)
-		to_chat(src, "<span class='warning'>You cannot re-enter your body.</span>")
+	if(!mind || QDELETED(old_mob))
+		to_chat(src, span_warning("You have no body."))
 		return FALSE
 
-	if(mind.current.key && !isaghost(mind.current))
-		to_chat(src, "<span class='warning'>Another consciousness is in your body...It is resisting you.</span>")
+	if(old_mob.key)
+		to_chat(src, span_warning("Another consciousness is in your body...It is resisting you."))
 		return FALSE
 
 	client.view_size.set_default(get_screen_size(client.prefs.widescreenpref))//Let's reset so people can't become allseeing gods
-	mind.transfer_to(mind.current, TRUE)
+	mind.transfer_to(old_mob, TRUE)
 	return TRUE
 
 
@@ -391,14 +387,14 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 			ghost_medhud ? H.add_hud_to(src) : H.remove_hud_from(src)
 			client.prefs.ghost_hud ^= GHOST_HUD_MED
 			client.prefs.save_preferences()
-			to_chat(src, "<span class='boldnotice'>[hud_choice] [ghost_medhud ? "Enabled" : "Disabled"]</span>")
+			to_chat(src, span_boldnotice("[hud_choice] [ghost_medhud ? "Enabled" : "Disabled"]"))
 		if("Security HUD")
 			ghost_sechud = !ghost_sechud
 			H = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
 			ghost_sechud ? H.add_hud_to(src) : H.remove_hud_from(src)
 			client.prefs.ghost_hud ^= GHOST_HUD_SEC
 			client.prefs.save_preferences()
-			to_chat(src, "<span class='boldnotice'>[hud_choice] [ghost_sechud ? "Enabled": "Disabled"]</span>")
+			to_chat(src, span_boldnotice("[hud_choice] [ghost_sechud ? "Enabled": "Disabled"]"))
 		if("Squad HUD")
 			ghost_squadhud = !ghost_squadhud
 			H = GLOB.huds[DATA_HUD_SQUAD_TERRAGOV]
@@ -407,21 +403,21 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 			ghost_squadhud ? H.add_hud_to(src) : H.remove_hud_from(src)
 			client.prefs.ghost_hud ^= GHOST_HUD_SQUAD
 			client.prefs.save_preferences()
-			to_chat(src, "<span class='boldnotice'>[hud_choice] [ghost_squadhud ? "Enabled": "Disabled"]</span>")
+			to_chat(src, span_boldnotice("[hud_choice] [ghost_squadhud ? "Enabled": "Disabled"]"))
 		if("Xeno Status HUD")
 			ghost_xenohud = !ghost_xenohud
 			H = GLOB.huds[DATA_HUD_XENO_STATUS]
 			ghost_xenohud ? H.add_hud_to(src) : H.remove_hud_from(src)
 			client.prefs.ghost_hud ^= GHOST_HUD_XENO
 			client.prefs.save_preferences()
-			to_chat(src, "<span class='boldnotice'>[hud_choice] [ghost_xenohud ? "Enabled" : "Disabled"]</span>")
+			to_chat(src, span_boldnotice("[hud_choice] [ghost_xenohud ? "Enabled" : "Disabled"]"))
 		if("Order HUD")
 			ghost_orderhud = !ghost_orderhud
 			H = GLOB.huds[DATA_HUD_ORDER]
 			ghost_orderhud ? H.add_hud_to(src) : H.remove_hud_from(src)
 			client.prefs.ghost_hud ^= GHOST_HUD_ORDER
 			client.prefs.save_preferences()
-			to_chat(src, "<span class='boldnotice'>[hud_choice] [ghost_orderhud ? "Enabled" : "Disabled"]</span>")
+			to_chat(src, span_boldnotice("[hud_choice] [ghost_orderhud ? "Enabled" : "Disabled"]"))
 
 
 
@@ -461,7 +457,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		observers[name] = O
 
 	if(!length(observers))
-		to_chat(usr, "<span class='warning'>There are no ghosts at the moment.</span>")
+		to_chat(usr, span_warning("There are no ghosts at the moment."))
 		return
 
 	var/selected = tgui_input_list(usr, "Please select a Ghost:", "Follow Ghost", observers)
@@ -509,7 +505,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		xenos[name] = X
 
 	if(!length(xenos))
-		to_chat(usr, "<span class='warning'>There are no xenos at the moment.</span>")
+		to_chat(usr, span_warning("There are no xenos at the moment."))
 		return
 
 
@@ -565,7 +561,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		humans[name] = H
 
 	if(!length(humans))
-		to_chat(usr, "<span class='warning'>There are no living humans at the moment.</span>")
+		to_chat(usr, span_warning("There are no living humans at the moment."))
 		return
 
 	var/selected = tgui_input_list(usr, "Please select a Living Human:", "Follow Living Human", humans)
@@ -601,7 +597,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		dead[name] = M
 
 	if(!length(dead))
-		to_chat(usr, "<span class='warning'>There are no dead mobs at the moment.</span>")
+		to_chat(usr, span_warning("There are no dead mobs at the moment."))
 		return
 
 	var/selected = tgui_input_list(usr, "Please select a Dead Mob:", "Follow Dead", dead)
@@ -626,7 +622,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	set name = "Take Offered Mob"
 
 	if(!length(GLOB.offered_mob_list))
-		to_chat(src, "<span class='warning'>There are currently no mobs being offered.</span>")
+		to_chat(src, span_warning("There are currently no mobs being offered."))
 		return
 
 	var/mob/living/L = tgui_input_list(usr, "Choose which mob you want to take over.", "Offered Mob", sortNames(GLOB.offered_mob_list))
@@ -634,7 +630,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		return
 
 	if(!istype(L))
-		to_chat(src, "<span class='warning'>Mob already taken.</span>")
+		to_chat(src, span_warning("Mob already taken."))
 		return
 
 	switch(tgui_alert(usr, "Take over mob named: [L.real_name][L.job ? " | Job: [L.job]" : ""]", "Offered Mob", list("Yes", "No", "Follow")))
@@ -731,7 +727,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		client.prefs.ghost_vision = ghost_vision
 		client.prefs.save_preferences()
 
-	to_chat(src, "<span class='notice'>You [(ghost_vision ? "now" : "no longer")] have ghost vision.</span>")
+	to_chat(src, span_notice("You [(ghost_vision ? "now" : "no longer")] have ghost vision."))
 
 
 /mob/dead/observer/update_sight()
@@ -805,11 +801,11 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		return
 
 	if(!SSticker?.mode || SSticker.current_state < GAME_STATE_PLAYING)
-		to_chat(src, "<span class='warning'>The game hasn't started yet!</span>")
+		to_chat(src, span_warning("The game hasn't started yet!"))
 		return
 
 	if(is_banned_from(ckey, ROLE_XENOMORPH))
-		to_chat(src, "<span class='warning'>You are jobbaned from the [ROLE_XENOMORPH] role.</span>")
+		to_chat(src, span_warning("You are jobbaned from the [ROLE_XENOMORPH] role."))
 		return
 
 	var/choice = tgui_alert(usr, "Would you like to join as a larva or as a xeno?", "Join as Xeno", list("Xeno", "Larva", "Cancel"), 0)
@@ -856,12 +852,12 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	set name = "Do Not Revive"
 	set desc = "Noone will be able to revive you."
 
-	if(can_reenter_corpse && tgui_alert(usr, "Are you sure? You won't be able to get revived.", "Confirmation", list("Yes", "No")) == "Yes")
-		can_reenter_corpse = FALSE
-		to_chat(usr, "<span class='notice'>You can no longer be revived.</span>")
+	if(!isnull(can_reenter_corpse) && tgui_alert(usr, "Are you sure? You won't be able to get revived.", "Confirmation", list("Yes", "No")) == "Yes")
+		can_reenter_corpse = null
+		to_chat(usr, span_notice("You can no longer be revived."))
 		mind.current.med_hud_set_status()
-	else if(!can_reenter_corpse)
-		to_chat(usr, "<span class='warning'>You already can't be revived.</span>")
+		return
+	to_chat(usr, span_warning("You already can't be revived."))
 
 
 /mob/dead/observer/verb/toggle_inquisition()
@@ -872,9 +868,9 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	inquisitive_ghost = !inquisitive_ghost
 
 	if(inquisitive_ghost)
-		to_chat(src, "<span class='notice'>You will now examine everything you click on.</span>")
+		to_chat(src, span_notice("You will now examine everything you click on."))
 	else
-		to_chat(src, "<span class='notice'>You will no longer examine things you click on.</span>")
+		to_chat(src, span_notice("You will no longer examine things you click on."))
 
 
 /mob/dead/observer/reset_perspective(atom/A)
@@ -910,7 +906,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	client.prefs.save_preferences()
 
 
-	to_chat(src, "<span class='notice'>You will [client.prefs.observer_actions ? "now" : "no longer"] get the static observer action buttons.</span>")
+	to_chat(src, span_notice("You will [client.prefs.observer_actions ? "now" : "no longer"] get the static observer action buttons."))
 
 	if(!client.prefs.observer_actions)
 		for(var/datum/action/observer_action/A in actions)
