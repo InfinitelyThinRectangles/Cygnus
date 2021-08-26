@@ -54,12 +54,12 @@ SUBSYSTEM_DEF(mapping)
 			if(!configs || configs[i].defaulted)
 				to_chat(world, span_boldannounce("Unable to load next or default map config, defaulting."))
 				configs[i] = old_config
-	/* CYGNUS REMOVAL - lazy load groundmap (code moved to InitGroundmap at bottom of file)
+	/* CYGNUS REMOVAL BEGIN - lazy load groundmap (code moved to InitGroundmap at bottom of file)
 	if(configs[GROUND_MAP])
 		for(var/datum/game_mode/M AS in config.votable_modes)
 			if(!(M.config_tag in configs[GROUND_MAP].gamemodes))
 				config.votable_modes -= M // remove invalid modes
-	*/
+	*/ //CYGNUS REMOVAL END
 
 	loadWorld()
 	repopulate_sorted_areas()
@@ -162,7 +162,7 @@ SUBSYSTEM_DEF(mapping)
 	if(!silent)
 		INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!")
 	return parsed_maps
-/* CYGNUS REMOVAL - lazy load groundmap (see modified loadWorld proc at bottom of file)
+/* CYGNUS OVERRIDE BEGIN - lazy load groundmap (see modified loadWorld proc at bottom of file)
 /datum/controller/subsystem/mapping/proc/loadWorld()
 	//if any of these fail, something has gone horribly, HORRIBLY, wrong
 	var/list/FailedZs = list()
@@ -199,7 +199,7 @@ SUBSYSTEM_DEF(mapping)
 				msg += ", [FailedZs[I]]"
 		msg += ". Yell at your server host!"
 		INIT_ANNOUNCE(msg)
-*/
+*/ //CYGNUS OVERRIDE END
 #undef INIT_ANNOUNCE
 
 /datum/controller/subsystem/mapping/proc/changemap(datum/map_config/VM, maptype = GROUND_MAP)
