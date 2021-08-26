@@ -25,7 +25,7 @@
 			cached_map = parsed
 	return bounds
 
-/datum/parsed_map/proc/initTemplateBounds()
+/datum/parsed_map/proc/initTemplateBounds(build_lighting = FALSE) // CYGNUS EDIT - added build_lighting arg for lazy load groundmap
 	var/list/obj/machinery/atmospherics/atmos_machines = list()
 	var/list/obj/structure/cable/cables = list()
 	var/list/atom/atoms = list()
@@ -35,6 +35,10 @@
 							locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ]))
 	for(var/L in turfs)
 		var/turf/B = L
+		// CYGNUS ADDITION BEGIN - lazy load groundmap
+		if(build_lighting)
+			B.lighting_build_overlay()
+		// CYGNUS ADDITION END
 		atoms += B
 		areas |= B.loc
 		for(var/A in B)

@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `mission_log` (
   `patrol_id` int(11) NOT NULL,
   `round_id` int(11) NOT NULL,
   `mission_type` varchar(128) NOT NULL,
-  `objective_results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT 'JSON object { "objective datum type" : success factor index }',
+  `objective_results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT 'JSON object { "objective datum type" : completion_factor }',
   `json` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT 'all other mission data',
   `last_edit` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),

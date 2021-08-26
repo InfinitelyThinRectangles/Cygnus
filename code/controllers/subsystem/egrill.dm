@@ -22,6 +22,10 @@ SUBSYSTEM_DEF(egrill)
 		if(!C)
 			continue
 		var/datum/powernet/PN = C.powernet
+		// CYGNUS ADDITION BEGIN - support lazy loading powernets
+		if(!PN)
+			continue
+		// CYGNUS ADDITION END
 		if(PN.delayedload >= PN.newavail)
 			continue
 		PN.delayedload += (min(idle_usage, max(PN.newavail - PN.delayedload, 0)))

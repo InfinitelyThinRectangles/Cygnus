@@ -51,8 +51,6 @@
 	to_chat(world, "<b>Good luck and godspeed!</b>")
 
 datum/game_mode/patrol/pre_setup()
-	. = ..()
-
 	var/datum/db_query/rating_query = SSdbcore.NewQuery({"
 		SELECT rating
 		FROM [format_table_name("patrol")]
@@ -70,6 +68,8 @@ datum/game_mode/patrol/pre_setup()
 		// todo: calculation stuff with the rating values in rating_query.item[1]
 	qdel(rating_query)
 
+	// todo: override map_configs[GROUND_MAP] with the missions JSON file
+	return ..() // lazy load the mission "gorundmap"
 
 /datum/game_mode/patrol/check_finished()
 	if(!round_finished)
