@@ -46,6 +46,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 	minimap_icon = "private"
 
 /datum/job/terragov/squad/standard/rebel
+	title = REBEL_SQUAD_MARINE
 	faction = FACTION_TERRAGOV_REBEL
 	access = list(ACCESS_MARINE_PREP_REBEL)
 	outfit = /datum/outfit/job/marine/standard/rebel
@@ -138,6 +139,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 	minimap_icon = "engi"
 
 /datum/job/terragov/squad/engineer/rebel
+	title = REBEL_SQUAD_ENGINEER
 	faction = FACTION_TERRAGOV_REBEL
 	outfit = /datum/outfit/job/marine/engineer/rebel
 	access = list(ACCESS_MARINE_PREP_REBEL, ACCESS_MARINE_ENGPREP_REBEL, ACCESS_CIVILIAN_ENGINEERING, ACCESS_MARINE_REMOTEBUILD_REBEL, ACCESS_MARINE_ENGINEERING_REBEL)
@@ -208,8 +210,8 @@ Your squaddies will look to you when it comes to construction in the field of ba
 	paygrade = "E3"
 	comm_title = "Med"
 	total_positions = 16
-	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_MEDPREP, ACCESS_MARINE_MEDBAY)
-	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_MEDPREP, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_DROPSHIP)
+	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_MEDPREP, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY)
+	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_MEDPREP, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_DROPSHIP)
 	skills_type = /datum/skills/combat_medic
 	display_order = JOB_DISPLAY_ORDER_SQUAD_CORPSMAN
 	outfit = /datum/outfit/job/marine/corpsman
@@ -227,6 +229,7 @@ Your squaddies will look to you when it comes to construction in the field of ba
 	minimap_icon = "medic"
 
 /datum/job/terragov/squad/corpsman/rebel
+	title = REBEL_SQUAD_CORPSMAN
 	faction = FACTION_TERRAGOV_REBEL
 	outfit = /datum/outfit/job/marine/corpsman/rebel
 	access = list(ACCESS_MARINE_PREP_REBEL, ACCESS_MARINE_MEDPREP_REBEL, ACCESS_MARINE_MEDBAY_REBEL)
@@ -256,7 +259,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	wear_suit = /obj/item/clothing/suit/storage/marine
 	shoes = /obj/item/clothing/shoes/marine/full
 	gloves =/obj/item/clothing/gloves/marine
-	head = /obj/item/clothing/head/helmet/marine/corpsman
+	head = /obj/item/clothing/head/modular/marine/m10x/corpsman
 	l_store = /obj/item/storage/pouch/medkit/equippedcorpsman
 	r_store = /obj/item/storage/pouch/medical/equippedcorpsman
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -326,6 +329,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	minimap_icon = "smartgunner"
 
 /datum/job/terragov/squad/smartgunner/rebel
+	title = REBEL_SQUAD_SMARTGUNNER
 	faction = FACTION_TERRAGOV_REBEL
 	outfit = /datum/outfit/job/marine/smartgunner/rebel
 	access = list(ACCESS_MARINE_PREP_REBEL, ACCESS_MARINE_SMARTPREP_REBEL)
@@ -369,7 +373,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	wear_suit = /obj/item/clothing/suit/storage/marine/smartgunner
 	shoes = /obj/item/clothing/shoes/marine/full
 	gloves =/obj/item/clothing/gloves/marine
-	head = /obj/item/clothing/head/helmet/marine
+	head = /obj/item/clothing/head/modular/marine/m10x/standard
 	l_store = /obj/item/storage/pouch/firstaid/full
 	suit_store = /obj/item/weapon/gun/rifle/standard_smartmachinegun
 	glasses = /obj/item/clothing/glasses/night/m56_goggles
@@ -430,12 +434,12 @@ You can serve a variety of roles, so choose carefully."})
 	title = SQUAD_LEADER
 	req_admin_notify = TRUE
 	paygrade = "E5"
-	comm_title = "SL"
+	comm_title = JOB_COMM_TITLE_SQUAD_LEADER
 	total_positions = 4
 	supervisors = "the acting field commander"
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_LEADER, ACCESS_MARINE_DROPSHIP)
 	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_LEADER, ACCESS_MARINE_DROPSHIP)
-	skills_type = /datum/skills/SL
+	skills_type = /datum/skills/sl
 	display_order = JOB_DISPLAY_ORDER_SQUAD_LEADER
 	outfit = /datum/outfit/job/marine/leader
 	exp_requirements = XP_REQ_INTERMEDIATE
@@ -458,6 +462,7 @@ You can serve a variety of roles, so choose carefully."})
 	minimap_icon = "leader"
 
 /datum/job/terragov/squad/leader/rebel
+	title = REBEL_SQUAD_LEADER
 	faction = FACTION_TERRAGOV_REBEL
 	outfit = /datum/outfit/job/marine/leader/rebel
 	access = list(ACCESS_MARINE_PREP_REBEL, ACCESS_MARINE_LEADER_REBEL, ACCESS_MARINE_DROPSHIP_REBEL)
@@ -491,7 +496,7 @@ You are also in charge of communicating with command and letting them know about
 	wear_suit = /obj/item/clothing/suit/storage/marine/leader
 	shoes = /obj/item/clothing/shoes/marine/full
 	gloves =/obj/item/clothing/gloves/marine
-	head = /obj/item/clothing/head/helmet/marine/leader
+	head = /obj/item/clothing/head/modular/marine/m10x/leader
 	glasses = /obj/item/clothing/glasses/hud/health
 	suit_store = /obj/item/weapon/gun/rifle/standard_assaultrifle/rifleman
 	l_store = /obj/item/storage/pouch/firstaid/full
@@ -511,7 +516,6 @@ You are also in charge of communicating with command and letting them know about
 
 	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/motiondetector, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/whistle, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)

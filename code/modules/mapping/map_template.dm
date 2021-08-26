@@ -37,7 +37,7 @@
 		var/turf/B = L
 		// CYGNUS ADDITION BEGIN - lazy load groundmap
 		if(build_lighting)
-			B.lighting_build_overlay()
+			B.static_lighting_build_overlay()
 		// CYGNUS ADDITION END
 		atoms += B
 		areas |= B.loc

@@ -545,13 +545,16 @@
 
 /obj/item/storage/pouch/flare
 	name = "flare pouch"
-	desc = "A pouch designed to hold flares. Refillable with a M94 flare pack."
+	desc = "A pouch designed to hold flares and a single flaregun. Refillable with a M94 flare pack."
 	max_w_class = 2
 	storage_slots = 7
 	draw_mode = 1
 	icon_state = "flare"
+	storage_type_limits = list(/obj/item/weapon/gun/launcher/m81/flare = 1)
+
 	can_hold = list(
 		/obj/item/flashlight/flare,
+		/obj/item/weapon/gun/launcher/m81/flare,
 		/obj/item/explosive/grenade/flare,
 	)
 
@@ -560,14 +563,14 @@
 	if(istype(I, /obj/item/storage/box/m94))
 		var/obj/item/storage/box/m94/M = I
 		if(!length(M.contents))
-			to_chat(user, "<span class='warning'>[M] is empty.</span>")
+			to_chat(user, span_warning("[M] is empty."))
 			return
 
 		if(length(contents) >= storage_slots)
-			to_chat(user, "<span class='warning'>[src] is full.</span>")
+			to_chat(user, span_warning("[src] is full."))
 			return
 
-		to_chat(user, "<span class='notice'>You start refilling [src] with [M].</span>")
+		to_chat(user, span_notice("You start refilling [src] with [M]."))
 
 		if(!do_after(user, 15, TRUE, src, BUSY_ICON_GENERIC))
 			return
@@ -605,7 +608,7 @@
 	draw_mode = 1
 	desc = "It can contain a motion detector, signaller, beacons, maps, flares, radios and other handy battlefield communication and detection devices."
 	can_hold = list(
-		/obj/item/motiondetector,
+		/obj/item/attachable/motiondetector,
 		/obj/item/radio,
 		/obj/item/assembly/signaler,
 		/obj/item/megaphone,
@@ -617,7 +620,7 @@
 
 /obj/item/storage/pouch/field_pouch/full/Initialize()
 	. = ..()
-	new /obj/item/motiondetector (src)
+	new /obj/item/attachable/motiondetector (src)
 	new /obj/item/whistle (src)
 	new /obj/item/radio (src)
 	new /obj/item/binoculars/tactical (src)
@@ -709,15 +712,15 @@
 
 		if(M.flags_magazine & AMMUNITION_REFILLABLE)
 			if(!M.current_rounds)
-				to_chat(user, "<span class='warning'>[M] is empty.</span>")
+				to_chat(user, span_warning("[M] is empty."))
 				return
 
 			if(length(contents) >= storage_slots)
-				to_chat(user, "<span class='warning'>[src] is full.</span>")
+				to_chat(user, span_warning("[src] is full."))
 				return
 
 
-			to_chat(user, "<span class='notice'>You start refilling [src] with [M].</span>")
+			to_chat(user, span_notice("You start refilling [src] with [M]."))
 			if(!do_after(user, 1.5 SECONDS, TRUE, src, BUSY_ICON_GENERIC))
 				return
 
@@ -727,7 +730,7 @@
 					break
 
 			playsound(user.loc, "rustle", 15, TRUE, 6)
-			to_chat(user, "<span class='notice'>You refill [src] with [M].</span>")
+			to_chat(user, span_notice("You refill [src] with [M]."))
 			return TRUE
 
 	return ..()
