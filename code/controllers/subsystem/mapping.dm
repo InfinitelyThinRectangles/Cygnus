@@ -365,7 +365,7 @@ SUBSYSTEM_DEF(mapping)
 		A.reg_in_areas_in_z()
 
 
-// CYGNUS ADDITIONS BEGIN - lazy load groundmap
+//CYGNUS ADDITIONS BEGIN - lazy load groundmap
 /datum/controller/subsystem/mapping/proc/InitGroundmap()
 	if(configs[GROUND_MAP])
 		for(var/datum/game_mode/M AS in config.votable_modes)

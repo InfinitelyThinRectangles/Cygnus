@@ -46,7 +46,8 @@
 		if(GLOB.round_id)
 			stat("Round ID:", GLOB.round_id)
 		stat("Operation Time:", stationTimestamp("hh:mm"))
-		stat("Current Map:", length(SSmapping.configs) && Master.current_runlevel > 2 ? SSmapping.configs[GROUND_MAP].map_name : "Loading...") // CYGNUS EDIT - show "Loading..." until lazy load groundmap completes
+		//stat("Current Map:", length(SSmapping.configs) ? SSmapping.configs[GROUND_MAP].map_name : "Loading...") - TGMC ORIGINAL
+		stat("Current Map:", length(SSmapping.configs) && Master.current_runlevel > 2 ? SSmapping.configs[GROUND_MAP].map_name : "Loading...") //CYGNUS EDIT - lazy load groundmap
 		stat("Current Ship:", length(SSmapping.configs) ? SSmapping.configs[SHIP_MAP].map_name : "Loading...")
 		stat("Game Mode:", "[GLOB.master_mode]")
 

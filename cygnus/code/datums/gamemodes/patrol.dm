@@ -2,6 +2,7 @@
 	name = "Patrol"
 	config_tag = "Patrol"
 	flags_xeno_abilities = ABILITY_DISTRESS
+	deploy_time_lock = 30 SECONDS
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
 		/datum/job/terragov/command/fieldcommander = 1,
