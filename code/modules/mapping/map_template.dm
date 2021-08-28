@@ -24,6 +24,7 @@
 		if(cache)
 			cached_map = parsed
 	return bounds
+
 // /datum/parsed_map/proc/initTemplateBounds() - TGMC ORIGINAL
 /datum/parsed_map/proc/initTemplateBounds(build_lighting = FALSE) //CYGNUS EDIT - lazy load groundmap
 	var/list/obj/machinery/atmospherics/atmos_machines = list()

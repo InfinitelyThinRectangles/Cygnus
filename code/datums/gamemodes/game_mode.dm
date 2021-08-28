@@ -71,6 +71,7 @@
 
 /datum/game_mode/proc/pre_setup()
 	SSmapping.InitGroundmap() //CYGNUS ADDITION - lazy load groundmap
+
 	if(flags_landmarks & MODE_LANDMARK_SPAWN_MAP_ITEM)
 		spawn_map_items()
 
