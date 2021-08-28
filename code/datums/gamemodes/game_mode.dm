@@ -39,6 +39,21 @@
 
 
 /datum/game_mode/proc/can_start(bypass_checks = FALSE)
+	//CYGNUS ADDITION BEGIN - lazy load groundmap
+	if(config_tag == "Patrol")
+		SSmapping.configs[GROUND_MAP].gamemodes += "Patrol"
+	else if(SSmapping.configs[GROUND_MAP].map_name == "None")
+		// non patrol modes won't update the groundmap config, so try to load next_map.json
+		var/datum/map_config/config = new
+		if(!config.LoadConfig(MAP_TO_FILENAME[GROUND_MAP], TRUE, GROUND_MAP, TRUE))
+			qdel(config)
+			config = global.config.defaultmaps[GROUND_MAP]
+			if(config.defaulted)
+				to_chat(world, span_boldannounce("Unable to load default map config, pan pan pan."))
+				stack_trace("Unable to load default map config, something may be very wrong.")
+		SSmapping.configs[GROUND_MAP] = config
+	//CYGNUS ADDITION END
+
 	if(!(config_tag in SSmapping.configs[GROUND_MAP].gamemodes) && !bypass_checks)
 		log_world("attempted to start [src.type] on "+SSmapping.configs[GROUND_MAP].map_name+" which doesn't support it.")
 		// start a gamemode vote, in theory this should never happen.
@@ -55,7 +70,7 @@
 
 
 /datum/game_mode/proc/pre_setup()
-	SSmapping.InitGroundmap() //CYGNUS ADDITION - lazy load groundmaps
+	SSmapping.InitGroundmap() //CYGNUS ADDITION - lazy load groundmap
 	if(flags_landmarks & MODE_LANDMARK_SPAWN_MAP_ITEM)
 		spawn_map_items()
 

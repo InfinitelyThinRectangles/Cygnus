@@ -13,7 +13,7 @@
 	var/voteweight = 1
 
 	// Config actually from the JSON - default values
-	var/map_name = "LV624"
+	var/map_name = "None" //CYGNUS EDIT - lazy load groundmap
 	var/map_path = "map_files/LV624"
 	var/map_file = "LV624.dmm"
 
@@ -52,6 +52,12 @@
 		if(default)
 			configs[i] = config
 			continue
+		//CYGNUS ADDITION BEGIN - lazy load groundmap
+		if(i == GROUND_MAP)
+			config.defaulted = FALSE
+			configs[i] = config
+			continue
+		//CYGNUS ADDITION END
 		if(!config.LoadConfig(filename, error_if_missing, i, TRUE))
 			qdel(config)
 			config = new /datum/map_config

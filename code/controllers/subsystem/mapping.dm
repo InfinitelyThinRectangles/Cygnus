@@ -54,6 +54,7 @@ SUBSYSTEM_DEF(mapping)
 			if(!configs || configs[i].defaulted)
 				to_chat(world, span_boldannounce("Unable to load next or default map config, defaulting."))
 				configs[i] = old_config
+
 	/* CYGNUS REMOVAL BEGIN - lazy load groundmap (code moved to InitGroundmap at bottom of file)
 	if(configs[GROUND_MAP])
 		for(var/datum/game_mode/M AS in config.votable_modes)
@@ -162,6 +163,7 @@ SUBSYSTEM_DEF(mapping)
 	if(!silent)
 		INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!")
 	return parsed_maps
+
 /* CYGNUS OVERRIDE BEGIN - lazy load groundmap (see modified loadWorld proc at bottom of file)
 /datum/controller/subsystem/mapping/proc/loadWorld()
 	//if any of these fail, something has gone horribly, HORRIBLY, wrong
@@ -388,11 +390,14 @@ SUBSYSTEM_DEF(mapping)
 		INIT_ANNOUNCE("Loading [ground_map.map_name]...")
 		var/list/parsed_maps = LoadGroup(FailedZs, ground_map.map_name, ground_map.map_path, ground_map.map_file, ground_map.traits, ZTRAITS_GROUND)
 		// ultra hack to lazy init all the things
+		var/init_hack_start_time = REALTIMEOFDAY
+		INIT_ANNOUNCE("Initializing [ground_map.map_name]...")
 		for(var/datum/parsed_map/parsed_map AS in parsed_maps)
 			parsed_map.initTemplateBounds(build_lighting = TRUE)
 		SSair.setup_atmos_machinery()
 		SSair.setup_pipenets()
 		SSminimaps.Initialize()
+		INIT_ANNOUNCE("Initialization completed in [(REALTIMEOFDAY - init_hack_start_time)/10]s!")
 	else
 		// ensure we have space_level datums for compiled-in maps
 		InitializeDefaultZLevels()

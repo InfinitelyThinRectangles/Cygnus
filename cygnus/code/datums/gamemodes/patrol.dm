@@ -47,10 +47,6 @@
 		return FALSE
 	qdel(verify_query)
 
-/datum/game_mode/patrol/announce()
-	to_chat(world, "<b>The current game mode is - Patrol!</b>")
-	to_chat(world, "<b>Good luck and godspeed!</b>")
-
 datum/game_mode/patrol/pre_setup()
 	var/datum/db_query/rating_query = SSdbcore.NewQuery({"
 		SELECT rating
@@ -66,11 +62,22 @@ datum/game_mode/patrol/pre_setup()
 		return FALSE
 
 	while(rating_query.NextRow())
-		// todo: calculation stuff with the rating values in rating_query.item[1]
+		// todo: calculate stuff with the rating values in rating_query.item[1]
 	qdel(rating_query)
 
-	// todo: override map_configs[GROUND_MAP] with the missions JSON file
-	return ..() // lazy load the mission "gorundmap"
+	var/datum/mission/selected_mission = new
+
+	var/datum/map_config/config = new
+	if(!config.LoadConfig(selected_mission.map_path, TRUE, GROUND_MAP, TRUE))
+		// todo: try blacklisting this mission and loading alternates?
+		to_chat(world, "<b>Unable to start.</b> Unable to load the mission map.")
+		return FALSE
+	SSmapping.configs[GROUND_MAP] = config
+	return ..() // lazy loads the mission "groundmap"
+
+/datum/game_mode/patrol/announce()
+	to_chat(world, "<b>The current game mode is - Patrol!</b>")
+	to_chat(world, "<b>Good luck and godspeed!</b>")
 
 /datum/game_mode/patrol/check_finished()
 	if(!round_finished)
