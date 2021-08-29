@@ -36,10 +36,13 @@
 /datum/objective/proc/end()
 	return
 
-/// Checks if the value is valid and if so updates completion_factor
-/datum/objective/proc/set_completion(factor_val)
-	if(!(factor_val in completion_ratings))
+/// Checks if the define has a value and if so updates completion_factor
+/datum/objective/proc/set_completion(factor)
+	if(!(factor in completion_ratings))
 		message_admins("Objective [name] tried to set an invalid value just now. Check error logs for more info.")
 		CRASH("Objective [name] tried to set an invalid value")
+	if(completion_factor == factor)
+		return
 
-	completion_factor = factor_val
+	completion_factor = factor
+	mission?.update_db_log()

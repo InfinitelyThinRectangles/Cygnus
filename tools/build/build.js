@@ -91,7 +91,7 @@ const DmTarget = Juke.createTarget({
   inputs: [
     '_maps/map_files/generic/**',
     'code/**',
-    'cygnus/code/**', // CYGNUS ADDITION - also check for cygnus code changes
+    'cygnus/code/**', //CYGNUS ADDITION - also check for cygnus code changes
     'goon/**',
     'html/**',
     'icons/**',

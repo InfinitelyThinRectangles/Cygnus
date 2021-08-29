@@ -20,6 +20,8 @@
 	var/list/datum/objective/current_objectives = list()
 	/// Typecache of all objective sub types
 	var/static/list/objectives_cache
+	/// Row id of this mission log in the database
+	var/mission_id
 
 /datum/mission/New()
 	. = ..()
@@ -59,12 +61,42 @@
 	roll_objectives()
 	add_forced_objectives()
 
+/datum/mission/proc/update_db_log()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	if(!SSdbcore.Connect() || !mission_id)
+		return
+
+	var/datum/db_query/update_mission = SSdbcore.NewQuery({"
+		UPDATE [format_table_name("mission_log")]
+		SET objective_results = :objective_results
+		WHERE id = :mission_id
+	"}, list("mission_id" = mission_id, "objective_results" = json_completion_list()))
+	update_mission.Execute(async = TRUE)
+	qdel(update_mission)
+
+/datum/mission/proc/json_completion_list()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	var/list/completions = list()
+	for(var/datum/objective/objective in current_objectives)
+		completions[objective.type] = objective.completion_factor
+	return json_encode(completions)
+
 /// Start the mission proper
-/datum/mission/proc/start()
+/datum/mission/proc/start(patrol_id)
+	SHOULD_CALL_PARENT(TRUE)
+	if(SSdbcore.Connect() && isnum(patrol_id))
+		var/datum/db_query/insert_mission = SSdbcore.NewQuery({"
+			INSERT INTO [format_table_name("mission_log")] (patrol_id, round_id, mission_type, objective_results)
+			VALUES (:patrol_id, :round_id, :mission_type, :objective_results)
+		"}, list("patrol_id" = patrol_id, "round_id" = GLOB.round_id, "mission_type" = type, "objective_results" = json_completion_list()))
+		insert_mission.Execute(async = FALSE)
+		mission_id = "[insert_mission.last_insert_id]"
+		qdel(insert_mission)
 	for(var/datum/objective/objective in current_objectives)
 		objective.start()
 
 /// End the mission proper
 /datum/mission/proc/end()
+	SHOULD_CALL_PARENT(TRUE)
 	for(var/datum/objective/objective in current_objectives)
 		objective.end()

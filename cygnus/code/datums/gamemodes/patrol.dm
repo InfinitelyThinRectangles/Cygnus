@@ -27,6 +27,8 @@
 	var/static/list/missions_cache
 	/// Initialized instance of the current mission datum
 	var/datum/mission/current_mission
+	/// Row id of this patrol in the database
+	var/patrol_id = 0
 
 /datum/game_mode/patrol/New()
 	. = ..()
@@ -46,7 +48,7 @@
 		WHERE TABLE_SCHEMA = :db_name
 		AND (TABLE_NAME = '[format_table_name("patrol")]'
 			OR TABLE_NAME = '[format_table_name("mission_log")]')"}, list("db_name" = CONFIG_GET(string/feedback_database)))
-	if(!verify_query.Execute(async = TRUE))
+	if(!verify_query.Execute(async = FALSE))
 		qdel(verify_query)
 		to_chat(world, "<b>Unable to start.</b> Database query failed.")
 		return FALSE
@@ -64,7 +66,7 @@
 		ORDER BY id DESC
 		LIMIT 4
 	"})
-	if(!rating_query.Execute(async = TRUE))
+	if(!rating_query.Execute(async = FALSE))
 		qdel(rating_query)
 		message_admins("Patrol pre_setup failed. Something is wrong check runtime errors for more info.")
 		stack_trace("rating_query failed - check logs") // most likely from bypass_checks with can_start()
@@ -92,7 +94,7 @@
 
 /datum/game_mode/patrol/post_setup()
 	. = ..()
-	current_mission.start()
+	current_mission.start(patrol_id)
 
 /datum/game_mode/patrol/announce()
 	to_chat(world, "<b>The current game mode is - Patrol!</b>")
