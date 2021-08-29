@@ -23,6 +23,15 @@
 		/datum/job/terragov/squad/leader = 4,
 		/datum/job/terragov/squad/standard = -1
 	)
+	/// Typecache of all mission sub types
+	var/static/list/missions_cache
+	/// Initialized instance of the current mission datum
+	var/datum/mission/current_mission
+
+/datum/game_mode/patrol/New()
+	. = ..()
+	if(!missions_cache)
+		missions_cache = typecacheof(/datum/mission, TRUE)
 
 /datum/game_mode/patrol/can_start(bypass_checks)
 	. = ..()
@@ -34,9 +43,9 @@
 	var/datum/db_query/verify_query = SSdbcore.NewQuery({"
 		SELECT TABLE_NAME
 		FROM INFORMATION_SCHEMA.TABLES
-		WHERE TABLE_SCHEMA = '[CONFIG_GET(string/feedback_database)]'
+		WHERE TABLE_SCHEMA = :db_name
 		AND (TABLE_NAME = '[format_table_name("patrol")]'
-			OR TABLE_NAME = '[format_table_name("mission_log")]')"})
+			OR TABLE_NAME = '[format_table_name("mission_log")]')"}, list("db_name" = CONFIG_GET(string/feedback_database)))
 	if(!verify_query.Execute(async = TRUE))
 		qdel(verify_query)
 		to_chat(world, "<b>Unable to start.</b> Database query failed.")
@@ -47,7 +56,7 @@
 		return FALSE
 	qdel(verify_query)
 
-datum/game_mode/patrol/pre_setup()
+/datum/game_mode/patrol/pre_setup()
 	var/datum/db_query/rating_query = SSdbcore.NewQuery({"
 		SELECT rating
 		FROM [format_table_name("patrol")]
@@ -58,22 +67,32 @@ datum/game_mode/patrol/pre_setup()
 	if(!rating_query.Execute(async = TRUE))
 		qdel(rating_query)
 		message_admins("Patrol pre_setup failed. Something is wrong check runtime errors for more info.")
-		stack_trace("rating_query failed check SQL logs") // most likely from bypass_checks with can_start()
+		stack_trace("rating_query failed - check logs") // most likely from bypass_checks with can_start()
 		return FALSE
 
+	var/tot_rating = 0
 	while(rating_query.NextRow())
-		// todo: calculate stuff with the rating values in rating_query.item[1]
+		tot_rating += rating_query.item[1]
 	qdel(rating_query)
 
-	var/datum/mission/selected_mission = new
+	// todo: mission selection logic using tot_rating
+	// for(var/_mission_path in missions_cache)
+	// 	var/datum/mission/mission_path = _mission_path
+
+	current_mission = new /datum/mission/example()
 
 	var/datum/map_config/config = new
-	if(!config.LoadConfig(selected_mission.map_path, TRUE, GROUND_MAP, TRUE))
-		// todo: try blacklisting this mission and loading alternates?
-		to_chat(world, "<b>Unable to start.</b> Unable to load the mission map.")
+	if(!config.LoadConfig(current_mission.current_map, TRUE, GROUND_MAP, TRUE))
+		// todo: try blacklisting this mission current_map and loading alternates?
+		to_chat(world, "<b>Failed to load the mission map.</b>")
 		return FALSE
 	SSmapping.configs[GROUND_MAP] = config
-	return ..() // lazy loads the mission "groundmap"
+
+	return ..() // lazy loads the current_mission "ground map"
+
+/datum/game_mode/patrol/post_setup()
+	. = ..()
+	current_mission.start()
 
 /datum/game_mode/patrol/announce()
 	to_chat(world, "<b>The current game mode is - Patrol!</b>")
@@ -85,13 +104,14 @@ datum/game_mode/patrol/pre_setup()
 	return TRUE
 
 /datum/game_mode/patrol/declare_completion()
+	current_mission.end()
 	. = ..()
 	to_chat(world, "<span class='round_header'>|Round Complete|</span>")
-	to_chat(world, "<span class='round_body'>Thus ends the story of the brave men and women of the [SSmapping.configs[SHIP_MAP].map_name] and their struggle on [SSmapping.configs[GROUND_MAP].map_name].</span>")
+	to_chat(world, "<span class='round_body'>Thus ends the story of the brave men and women of the [SSmapping.configs[SHIP_MAP].map_name].</span>")
 	var/sound/S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
 	SEND_SOUND(world, S)
 
-	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
+	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\\nTotal spawned: [GLOB.round_statistics.total_humans_created]")
 
 	announce_medal_awards()
 	announce_round_stats()

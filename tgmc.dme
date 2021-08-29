@@ -1694,6 +1694,7 @@
 #include "code\modules\vehicles\unmanned\unmanned_vehicle_remote.dm"
 #include "code\modules\xenomorph\xeno_structures.dm"
 #include "cygnus\code\__DEFINES\patrol.dm"
+#include "cygnus\code\controllers\subsystem\processing\veryslowprocess.dm"
 #include "cygnus\code\datums\gamemodes\patrol.dm"
 #include "cygnus\code\datums\missions\_mission.dm"
 #include "cygnus\code\datums\objectives\_objective.dm"

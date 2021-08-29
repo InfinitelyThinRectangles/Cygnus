@@ -7,11 +7,11 @@
 #define REPAIR (1<<5) // fix something
 #define RESEARCH (1<<6) // get some science done
 
-// Objective completion_factors
-#define SUPER_SUCCESS 3
-#define MAJOR_SUCCESS 2
-#define MINOR_SUCCESS 1
-#define NO_COMPLETION 0
-#define MINOR_FAILURE -1
-#define MAJOR_FAILURE -2
-#define SUPER_FAILURE -3
+// Objective completion_factors, some other perfect 5 letter prefixes if needed: hyper, ultra, turbo
+#define SUPER_SUCCESS "super_success"
+#define MAJOR_SUCCESS "major_success"
+#define MINOR_SUCCESS "minor_success"
+#define NO_COMPLETION "no_completion"
+#define MINOR_FAILURE "minor_failure"
+#define MAJOR_FAILURE "major_failure"
+#define SUPER_FAILURE "super_failure"

@@ -29,11 +29,13 @@
 	return
 
 /obj/screen/text/lobby/title
-	maptext = "<span class=menutitle>Welcome to TGMC</span>"
+	//maptext = "<span class=menutitle>Welcome to TGMC</span>" - TGMC ORIGINAL
+	maptext = "<span class=menutitle>Welcome to Cygnus</span>" // CYGNUS EDIT - name change
 
 /obj/screen/text/lobby/title/Initialize()
 	. = ..()
-	maptext = "<span class=menutitle>Welcome to TGMC[SSmapping?.configs ? " - [SSmapping.configs[SHIP_MAP].map_name]" : ""]</span>"
+	//maptext = "<span class=menutitle>Welcome to TGMC[SSmapping?.configs ? " - [SSmapping.configs[SHIP_MAP].map_name]" : ""]</span>" - TGMC ORIGINAL
+	maptext = "<span class=menutitle>Welcome to Cygnus[SSmapping?.configs ? " - [SSmapping.configs[SHIP_MAP].map_name]" : ""]</span>" // CYGNUS EDIT - name change
 
 
 /obj/screen/text/lobby/year
