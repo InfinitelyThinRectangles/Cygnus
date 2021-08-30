@@ -1,6 +1,13 @@
 // This file should be unchecked in DM i.e. excluded from the .dme file list
 /datum/objective/example/
 	theme_flags = ASSULT | DEFENSE | ESCORT | RESCUE | RETRIEVAL | REPAIR | RESEARCH
+	completion_ratings = list(
+		MAJOR_SUCCESS = 1000,
+		MINOR_SUCCESS = 400,
+		NO_COMPLETION = 0,
+		MINOR_FAILURE = -100,
+		MAJOR_FAILURE = -1337,
+	)
 
 // Each objective below demonstrates methods of operations which can be mixed and matched
 /datum/objective/example/processing
@@ -38,8 +45,8 @@
 	UnregisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGIN)
 
 /datum/objective/example/signaled/proc/mob_login(mob/logged_in)
-	message_admins("[name] - mob_login")
 	SIGNAL_HANDLER
+	message_admins("[name] - mob_login")
 	logins++
 	switch(logins)
 		if(1 to 3)

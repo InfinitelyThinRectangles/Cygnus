@@ -47,7 +47,7 @@
 		var/datum/objective/selected_objective = new selected(src)
 		current_objectives += selected_objective
 
-/// Find and adds all forced objectives to this mission
+/// Find and add all forced objectives to this mission
 /datum/mission/proc/add_forced_objectives()
 	for(var/_objective_path in objectives_cache)
 		var/datum/objective/objective_path = _objective_path
@@ -61,6 +61,7 @@
 	roll_objectives()
 	add_forced_objectives()
 
+/// Push the latest objective results to the database
 /datum/mission/proc/update_db_log()
 	SHOULD_NOT_OVERRIDE(TRUE)
 	if(!SSdbcore.Connect() || !mission_id)
@@ -70,27 +71,28 @@
 		UPDATE [format_table_name("mission_log")]
 		SET objective_results = :objective_results
 		WHERE id = :mission_id
-	"}, list("mission_id" = mission_id, "objective_results" = json_completion_list()))
+	"}, list("mission_id" = mission_id, "objective_results" = json_encode(get_completion_list())))
 	update_mission.Execute(async = TRUE)
 	qdel(update_mission)
 
-/datum/mission/proc/json_completion_list()
+/// Returns an assoc list of "[type]" = "[completion_factor]" for current_objectives
+/datum/mission/proc/get_completion_list()
 	SHOULD_NOT_OVERRIDE(TRUE)
 	var/list/completions = list()
 	for(var/datum/objective/objective in current_objectives)
 		completions[objective.type] = objective.completion_factor
-	return json_encode(completions)
+	return completions
 
-/// Start the mission proper
+/// Start the mission proper and create database record
 /datum/mission/proc/start(patrol_id)
 	SHOULD_CALL_PARENT(TRUE)
-	if(SSdbcore.Connect() && isnum(patrol_id))
+	if(SSdbcore.Connect())
 		var/datum/db_query/insert_mission = SSdbcore.NewQuery({"
-			INSERT INTO [format_table_name("mission_log")] (patrol_id, round_id, mission_type, objective_results)
-			VALUES (:patrol_id, :round_id, :mission_type, :objective_results)
-		"}, list("patrol_id" = patrol_id, "round_id" = GLOB.round_id, "mission_type" = type, "objective_results" = json_completion_list()))
+			INSERT INTO [format_table_name("mission_log")] (patrol_id, round_id, mission_type, objective_results, map_path)
+			VALUES (:patrol_id, :round_id, :mission_type, :objective_results, :map_path)
+		"}, list("patrol_id" = patrol_id, "round_id" = GLOB.round_id, "mission_type" = type, "objective_results" = json_encode(get_completion_list()), "map_path" = current_map))
 		insert_mission.Execute(async = FALSE)
-		mission_id = "[insert_mission.last_insert_id]"
+		mission_id = insert_mission.last_insert_id
 		qdel(insert_mission)
 	for(var/datum/objective/objective in current_objectives)
 		objective.start()
