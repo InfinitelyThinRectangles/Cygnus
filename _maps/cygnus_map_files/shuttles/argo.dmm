@@ -505,10 +505,82 @@
 	icon_state = "14,0"
 	},
 /area/shuttle/dropship/alamo)
+"gB" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"sW" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"ww" = (
+/obj/effect/attach_point/crew_weapon/dropship1,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"Bs" = (
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1
+	},
+/obj/machinery/camera/autoname/mainship/dropship_one{
+	pixel_x = -6;
+	pixel_y = -16
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"EW" = (
+/obj/machinery/computer/shuttle/marine_dropship/one,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"Fz" = (
+/obj/machinery/computer/dropship_weapons/dropship1,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"FO" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 2
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"GJ" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"HO" = (
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
 "Ki" = (
 /turf/closed/shuttle/science{
 	icon_state = "8,19"
 	},
+/area/shuttle/dropship/alamo)
+"Lc" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 2
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"Pm" = (
+/obj/structure/bed/chair/dropship/passenger,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"Wg" = (
+/obj/machinery/computer/security/dropship/one,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"XW" = (
+/obj/item/radio/intercom/dropship{
+	pixel_x = 21;
+	pixel_y = 16
+	},
+/turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/alamo)
 
 (1,1,1) = {"
@@ -545,7 +617,7 @@ aR
 aY
 ac
 al
-al
+Lc
 bi
 bn
 bt
@@ -564,19 +636,19 @@ ao
 ao
 az
 aI
-al
+ww
 al
 au
 al
 al
 aB
+Pm
 al
-al
-al
-al
-al
-al
-al
+gB
+gB
+gB
+gB
+gB
 bk
 cf
 "}
@@ -587,13 +659,13 @@ aj
 ar
 aA
 aJ
-al
+Pm
 al
 aS
 al
 al
 bj
-al
+Pm
 al
 al
 al
@@ -607,20 +679,20 @@ cg
 ab
 af
 ak
-al
-al
+Wg
+HO
 aK
 as
-al
+sW
 bd
 al
 al
 aC
+Pm
 al
-al
-al
-al
-al
+GJ
+GJ
+GJ
 al
 bY
 bo
@@ -630,43 +702,43 @@ bx
 aa
 ag
 Ki
+EW
+XW
+sW
+al
+al
+FO
+al
+al
+FO
 al
 al
 al
 al
 al
 al
+FO
 al
-al
-al
-al
-al
-al
-al
-al
-al
-al
-al
-al
+FO
 "}
 (7,1,1) = {"
 ad
 ah
 am
-al
-al
+Fz
+Bs
 aq
 at
-al
+sW
 be
 al
 al
 aD
+Pm
 al
-al
-al
-al
-al
+gB
+gB
+gB
 al
 bZ
 bp
@@ -679,13 +751,13 @@ an
 av
 aE
 aM
-al
+Pm
 al
 aw
 al
 al
 bl
-al
+Pm
 al
 al
 al
@@ -702,19 +774,19 @@ ao
 ao
 ap
 aN
-al
+ww
 al
 ax
 al
 al
 aG
+Pm
 al
-al
-al
-al
-al
-al
-al
+GJ
+GJ
+GJ
+GJ
+GJ
 bq
 cj
 "}
@@ -729,7 +801,7 @@ aV
 ba
 bc
 al
-al
+Lc
 bm
 br
 aQ
