@@ -501,8 +501,8 @@
 /area/mainship/living/officer_rnr)
 "aCg" = (
 /obj/docking_port/stationary/marine_dropship/hangar/argo,
-/turf/open/space/basic,
-/area/space)
+/turf/open/floor/plating,
+/area/mainship/hallways/hangar)
 "aCx" = (
 /turf/closed/wall/mainship,
 /area/mainship/hallways/hangar/droppod)
@@ -11118,12 +11118,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
-"uUZ" = (
-/obj/docking_port/stationary/marine_dropship/minidropship/snubship{
-	dir = 4
-	},
-/turf/open/space/basic,
-/area/space)
 "uWN" = (
 /obj/structure/sink/bathroom,
 /obj/structure/mirror,
@@ -51566,7 +51560,7 @@ aKj
 aKj
 aKj
 aKj
-aKj
+aCg
 aKj
 aKj
 aKj
@@ -58482,7 +58476,7 @@ kUh
 kUh
 kUh
 kUh
-uUZ
+kUh
 kUh
 kUh
 kUh
@@ -60810,7 +60804,7 @@ kUh
 kUh
 kUh
 kUh
-aCg
+kUh
 kUh
 kUh
 kUh
