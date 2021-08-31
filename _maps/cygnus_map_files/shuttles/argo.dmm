@@ -30,6 +30,7 @@
 	},
 /area/shuttle/dropship/alamo)
 "ag" = (
+/obj/machinery/telecomms/relay/preset/telecomms/onboard,
 /turf/closed/shuttle/science{
 	icon_state = "8,20"
 	},
@@ -556,6 +557,10 @@
 /obj/machinery/light,
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/alamo)
+"IY" = (
+/obj/docking_port/mobile/marine_dropship/argo,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
 "Ki" = (
 /turf/closed/shuttle/science{
 	icon_state = "8,19"
@@ -709,7 +714,7 @@ al
 al
 FO
 al
-al
+IY
 FO
 al
 al

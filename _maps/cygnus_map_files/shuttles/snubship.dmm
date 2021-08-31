@@ -95,8 +95,8 @@
 /turf/open/space/basic,
 /area/shuttle/minidropship)
 "F" = (
-/obj/docking_port/mobile/marine_dropship/minidropship,
 /obj/structure/bed/chair/dropship/passenger,
+/obj/docking_port/mobile/marine_dropship/minidropship/snubship,
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/minidropship)
 "H" = (

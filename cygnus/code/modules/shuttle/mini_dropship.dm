@@ -3,6 +3,6 @@
 	id = "snubship"
 	roundstart_template = /datum/map_template/shuttle/minidropship/snubship
 
-/obj/docking_port/mobile/marine_dropship/minidropship
+/obj/docking_port/mobile/marine_dropship/minidropship/snubship
 	name = "Snubship"
 	id = "snubship"
