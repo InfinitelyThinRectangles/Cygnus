@@ -1,3 +1,13 @@
+/obj/docking_port/stationary/marine_dropship/hangar/argo
+	name = "Shipside 'Argo' Hangar Pad"
+	id = "argo"
+	roundstart_template = /datum/map_template/shuttle/argo
+
+/obj/docking_port/mobile/marine_dropship/argo
+	name = "Argo"
+	id = "argo"
+	control_flags = SHUTTLE_MARINE_PRIMARY_DROPSHIP
+
 /obj/structure/dropship_piece/lucifer
 	icon = 'cygnus/icons/turf/lucifer.dmi'
 	opacity = FALSE
