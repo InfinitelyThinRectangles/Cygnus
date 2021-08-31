@@ -1,5 +1,5 @@
 /obj/structure/dropship_piece/lucifer
-	icon = 'icons/turf/lucifer.dmi'
+	icon = 'cygnus/icons/turf/lucifer.dmi'
 	opacity = FALSE
 
 /obj/structure/dropship_piece/lucifer/l2
