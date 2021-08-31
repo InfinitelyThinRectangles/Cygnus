@@ -1,0 +1,766 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/closed/shuttle/science{
+	icon_state = "8,21"
+	},
+/area/shuttle/dropship/alamo)
+"ab" = (
+/turf/closed/shuttle/science{
+	icon_state = "7,21"
+	},
+/area/shuttle/dropship/alamo)
+"ac" = (
+/turf/closed/shuttle/science{
+	icon_state = "4,13"
+	},
+/area/shuttle/dropship/alamo)
+"ad" = (
+/turf/closed/shuttle/science{
+	icon_state = "9,21"
+	},
+/area/shuttle/dropship/alamo)
+"ae" = (
+/turf/closed/shuttle/science{
+	icon_state = "6,20"
+	},
+/area/shuttle/dropship/alamo)
+"af" = (
+/turf/closed/shuttle/science{
+	icon_state = "7,20"
+	},
+/area/shuttle/dropship/alamo)
+"ag" = (
+/turf/closed/shuttle/science{
+	icon_state = "8,20"
+	},
+/area/shuttle/dropship/alamo)
+"ah" = (
+/turf/closed/shuttle/science{
+	icon_state = "9,20"
+	},
+/area/shuttle/dropship/alamo)
+"ai" = (
+/turf/closed/shuttle/science{
+	icon_state = "10,20"
+	},
+/area/shuttle/dropship/alamo)
+"aj" = (
+/turf/closed/shuttle/science{
+	icon_state = "6,19"
+	},
+/area/shuttle/dropship/alamo)
+"ak" = (
+/turf/closed/shuttle/science{
+	icon_state = "7,19"
+	},
+/area/shuttle/dropship/alamo)
+"al" = (
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
+"am" = (
+/turf/closed/shuttle/science{
+	icon_state = "9,19"
+	},
+/area/shuttle/dropship/alamo)
+"an" = (
+/turf/closed/shuttle/science{
+	icon_state = "10,19"
+	},
+/area/shuttle/dropship/alamo)
+"ao" = (
+/turf/template_noop,
+/area/template_noop)
+"ap" = (
+/turf/closed/shuttle/science{
+	icon_state = "11,17"
+	},
+/area/shuttle/dropship/alamo)
+"aq" = (
+/turf/closed/shuttle/science{
+	icon_state = "9,16"
+	},
+/area/shuttle/dropship/alamo)
+"ar" = (
+/turf/closed/shuttle/science{
+	icon_state = "6,18"
+	},
+/area/shuttle/dropship/alamo)
+"as" = (
+/turf/closed/shuttle/science{
+	icon_state = "7,15"
+	},
+/area/shuttle/dropship/alamo)
+"at" = (
+/turf/closed/shuttle/science{
+	icon_state = "9,15"
+	},
+/area/shuttle/dropship/alamo)
+"au" = (
+/turf/closed/shuttle/science{
+	icon_state = "5,13"
+	},
+/area/shuttle/dropship/alamo)
+"av" = (
+/turf/closed/shuttle/science{
+	icon_state = "10,18"
+	},
+/area/shuttle/dropship/alamo)
+"aw" = (
+/turf/closed/shuttle/science{
+	icon_state = "10,13"
+	},
+/area/shuttle/dropship/alamo)
+"ax" = (
+/turf/closed/shuttle/science{
+	icon_state = "11,13"
+	},
+/area/shuttle/dropship/alamo)
+"ay" = (
+/turf/closed/shuttle/science{
+	icon_state = "4,17"
+	},
+/area/shuttle/dropship/alamo)
+"az" = (
+/turf/closed/shuttle/science{
+	icon_state = "5,17"
+	},
+/area/shuttle/dropship/alamo)
+"aA" = (
+/turf/closed/shuttle/science{
+	icon_state = "6,17"
+	},
+/area/shuttle/dropship/alamo)
+"aB" = (
+/turf/closed/shuttle/science{
+	icon_state = "5,10"
+	},
+/area/shuttle/dropship/alamo)
+"aC" = (
+/turf/closed/shuttle/science{
+	icon_state = "7,10"
+	},
+/area/shuttle/dropship/alamo)
+"aD" = (
+/turf/closed/shuttle/science{
+	icon_state = "9,10"
+	},
+/area/shuttle/dropship/alamo)
+"aE" = (
+/turf/closed/shuttle/science{
+	icon_state = "10,17"
+	},
+/area/shuttle/dropship/alamo)
+"aF" = (
+/turf/closed/shuttle/science{
+	icon_state = "12,17"
+	},
+/area/shuttle/dropship/alamo)
+"aG" = (
+/turf/closed/shuttle/science{
+	icon_state = "11,10"
+	},
+/area/shuttle/dropship/alamo)
+"aH" = (
+/turf/closed/shuttle/science{
+	icon_state = "4,16"
+	},
+/area/shuttle/dropship/alamo)
+"aI" = (
+/turf/closed/shuttle/science{
+	icon_state = "5,16"
+	},
+/area/shuttle/dropship/alamo)
+"aJ" = (
+/turf/closed/shuttle/science{
+	icon_state = "6,16"
+	},
+/area/shuttle/dropship/alamo)
+"aK" = (
+/turf/closed/shuttle/science{
+	icon_state = "7,16"
+	},
+/area/shuttle/dropship/alamo)
+"aL" = (
+/turf/closed/shuttle/science{
+	icon_state = "1,8"
+	},
+/area/shuttle/dropship/alamo)
+"aM" = (
+/turf/closed/shuttle/science{
+	icon_state = "10,16"
+	},
+/area/shuttle/dropship/alamo)
+"aN" = (
+/turf/closed/shuttle/science{
+	icon_state = "11,16"
+	},
+/area/shuttle/dropship/alamo)
+"aO" = (
+/turf/closed/shuttle/science{
+	icon_state = "12,16"
+	},
+/area/shuttle/dropship/alamo)
+"aP" = (
+/turf/closed/shuttle/science{
+	icon_state = "15,8"
+	},
+/area/shuttle/dropship/alamo)
+"aQ" = (
+/turf/closed/shuttle/science{
+	icon_state = "12,8"
+	},
+/area/shuttle/dropship/alamo)
+"aR" = (
+/turf/closed/shuttle/science{
+	icon_state = "4,15"
+	},
+/area/shuttle/dropship/alamo)
+"aS" = (
+/turf/closed/shuttle/science{
+	icon_state = "6,13"
+	},
+/area/shuttle/dropship/alamo)
+"aT" = (
+/turf/closed/shuttle/science{
+	icon_state = "15,7"
+	},
+/area/shuttle/dropship/alamo)
+"aU" = (
+/turf/closed/shuttle/science{
+	icon_state = "14,3"
+	},
+/area/shuttle/dropship/alamo)
+"aV" = (
+/turf/closed/shuttle/science{
+	icon_state = "12,15"
+	},
+/area/shuttle/dropship/alamo)
+"aW" = (
+/turf/closed/shuttle/science{
+	icon_state = "15,3"
+	},
+/area/shuttle/dropship/alamo)
+"aX" = (
+/turf/closed/shuttle/science{
+	icon_state = "1,2"
+	},
+/area/shuttle/dropship/alamo)
+"aY" = (
+/turf/closed/shuttle/science{
+	icon_state = "4,14"
+	},
+/area/shuttle/dropship/alamo)
+"aZ" = (
+/turf/closed/shuttle/science{
+	icon_state = "2,2"
+	},
+/area/shuttle/dropship/alamo)
+"ba" = (
+/turf/closed/shuttle/science{
+	icon_state = "12,14"
+	},
+/area/shuttle/dropship/alamo)
+"bb" = (
+/turf/closed/shuttle/science{
+	icon_state = "14,2"
+	},
+/area/shuttle/dropship/alamo)
+"bc" = (
+/turf/closed/shuttle/science{
+	icon_state = "12,13"
+	},
+/area/shuttle/dropship/alamo)
+"bd" = (
+/turf/closed/shuttle/science{
+	icon_state = "7,13"
+	},
+/area/shuttle/dropship/alamo)
+"be" = (
+/turf/closed/shuttle/science{
+	icon_state = "9,13"
+	},
+/area/shuttle/dropship/alamo)
+"bf" = (
+/turf/closed/shuttle/science{
+	icon_state = "15,2"
+	},
+/area/shuttle/dropship/alamo)
+"bg" = (
+/turf/closed/shuttle/science{
+	icon_state = "1,1"
+	},
+/area/shuttle/dropship/alamo)
+"bh" = (
+/turf/closed/shuttle/science{
+	icon_state = "2,1"
+	},
+/area/shuttle/dropship/alamo)
+"bi" = (
+/turf/closed/shuttle/science{
+	icon_state = "4,10"
+	},
+/area/shuttle/dropship/alamo)
+"bj" = (
+/turf/closed/shuttle/science{
+	icon_state = "6,10"
+	},
+/area/shuttle/dropship/alamo)
+"bk" = (
+/turf/closed/shuttle/science{
+	icon_state = "3,1"
+	},
+/area/shuttle/dropship/alamo)
+"bl" = (
+/turf/closed/shuttle/science{
+	icon_state = "10,10"
+	},
+/area/shuttle/dropship/alamo)
+"bm" = (
+/turf/closed/shuttle/science{
+	icon_state = "12,10"
+	},
+/area/shuttle/dropship/alamo)
+"bn" = (
+/turf/closed/shuttle/science{
+	icon_state = "4,9"
+	},
+/area/shuttle/dropship/alamo)
+"bo" = (
+/turf/closed/shuttle/science{
+	icon_state = "5,1"
+	},
+/area/shuttle/dropship/alamo)
+"bp" = (
+/turf/closed/shuttle/science{
+	icon_state = "11,1"
+	},
+/area/shuttle/dropship/alamo)
+"bq" = (
+/turf/closed/shuttle/science{
+	icon_state = "13,1"
+	},
+/area/shuttle/dropship/alamo)
+"br" = (
+/turf/closed/shuttle/science{
+	icon_state = "12,9"
+	},
+/area/shuttle/dropship/alamo)
+"bs" = (
+/turf/closed/shuttle/science{
+	icon_state = "1,7"
+	},
+/area/shuttle/dropship/alamo)
+"bt" = (
+/turf/closed/shuttle/science{
+	icon_state = "4,8"
+	},
+/area/shuttle/dropship/alamo)
+"bu" = (
+/turf/closed/shuttle/science{
+	icon_state = "14,1"
+	},
+/area/shuttle/dropship/alamo)
+"bv" = (
+/turf/closed/shuttle/science{
+	icon_state = "15,1"
+	},
+/area/shuttle/dropship/alamo)
+"bw" = (
+/turf/closed/shuttle/science{
+	icon_state = "1,0"
+	},
+/area/shuttle/dropship/alamo)
+"bx" = (
+/turf/closed/shuttle/science{
+	icon_state = "5,0"
+	},
+/area/shuttle/dropship/alamo)
+"by" = (
+/turf/closed/shuttle/science{
+	icon_state = "11,0"
+	},
+/area/shuttle/dropship/alamo)
+"bB" = (
+/turf/closed/shuttle/science{
+	icon_state = "1,6"
+	},
+/area/shuttle/dropship/alamo)
+"bC" = (
+/turf/closed/shuttle/science{
+	icon_state = "4,7"
+	},
+/area/shuttle/dropship/alamo)
+"bD" = (
+/turf/closed/shuttle/science{
+	icon_state = "15,0"
+	},
+/area/shuttle/dropship/alamo)
+"bE" = (
+/turf/closed/shuttle/science{
+	icon_state = "12,7"
+	},
+/area/shuttle/dropship/alamo)
+"bF" = (
+/turf/closed/shuttle/science{
+	icon_state = "15,6"
+	},
+/area/shuttle/dropship/alamo)
+"bG" = (
+/turf/closed/shuttle/science{
+	icon_state = "1,5"
+	},
+/area/shuttle/dropship/alamo)
+"bH" = (
+/turf/closed/shuttle/science{
+	icon_state = "2,5"
+	},
+/area/shuttle/dropship/alamo)
+"bK" = (
+/turf/closed/shuttle/science{
+	icon_state = "14,5"
+	},
+/area/shuttle/dropship/alamo)
+"bL" = (
+/turf/closed/shuttle/science{
+	icon_state = "15,5"
+	},
+/area/shuttle/dropship/alamo)
+"bM" = (
+/turf/closed/shuttle/science{
+	icon_state = "1,4"
+	},
+/area/shuttle/dropship/alamo)
+"bN" = (
+/turf/closed/shuttle/science{
+	icon_state = "2,4"
+	},
+/area/shuttle/dropship/alamo)
+"bQ" = (
+/turf/closed/shuttle/science{
+	icon_state = "14,4"
+	},
+/area/shuttle/dropship/alamo)
+"bR" = (
+/turf/closed/shuttle/science{
+	icon_state = "15,4"
+	},
+/area/shuttle/dropship/alamo)
+"bS" = (
+/turf/closed/shuttle/science{
+	icon_state = "1,3"
+	},
+/area/shuttle/dropship/alamo)
+"bT" = (
+/turf/closed/shuttle/science{
+	icon_state = "2,3"
+	},
+/area/shuttle/dropship/alamo)
+"bY" = (
+/turf/closed/shuttle/science{
+	icon_state = "5,2"
+	},
+/area/shuttle/dropship/alamo)
+"bZ" = (
+/turf/closed/shuttle/science{
+	icon_state = "11,2"
+	},
+/area/shuttle/dropship/alamo)
+"cc" = (
+/turf/closed/shuttle/science{
+	icon_state = "4,1"
+	},
+/area/shuttle/dropship/alamo)
+"cd" = (
+/turf/closed/shuttle/science{
+	icon_state = "12,1"
+	},
+/area/shuttle/dropship/alamo)
+"ce" = (
+/turf/closed/shuttle/science{
+	icon_state = "2,0"
+	},
+/area/shuttle/dropship/alamo)
+"cf" = (
+/turf/closed/shuttle/science{
+	icon_state = "3,0"
+	},
+/area/shuttle/dropship/alamo)
+"cg" = (
+/turf/closed/shuttle/science{
+	icon_state = "4,0"
+	},
+/area/shuttle/dropship/alamo)
+"ci" = (
+/turf/closed/shuttle/science{
+	icon_state = "12,0"
+	},
+/area/shuttle/dropship/alamo)
+"cj" = (
+/turf/closed/shuttle/science{
+	icon_state = "13,0"
+	},
+/area/shuttle/dropship/alamo)
+"ck" = (
+/turf/closed/shuttle/science{
+	icon_state = "14,0"
+	},
+/area/shuttle/dropship/alamo)
+"Ki" = (
+/turf/closed/shuttle/science{
+	icon_state = "8,19"
+	},
+/area/shuttle/dropship/alamo)
+
+(1,1,1) = {"
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+aL
+bs
+bB
+bG
+bM
+bS
+aX
+bg
+bw
+"}
+(2,1,1) = {"
+ao
+ao
+ao
+ao
+ay
+aH
+aR
+aY
+ac
+al
+al
+bi
+bn
+bt
+bC
+bH
+bN
+bT
+aZ
+bh
+ce
+"}
+(3,1,1) = {"
+ao
+ao
+ao
+ao
+az
+aI
+al
+al
+au
+al
+al
+aB
+al
+al
+al
+al
+al
+al
+al
+bk
+cf
+"}
+(4,1,1) = {"
+ao
+ae
+aj
+ar
+aA
+aJ
+al
+al
+aS
+al
+al
+bj
+al
+al
+al
+al
+al
+al
+al
+cc
+cg
+"}
+(5,1,1) = {"
+ab
+af
+ak
+al
+al
+aK
+as
+al
+bd
+al
+al
+aC
+al
+al
+al
+al
+al
+al
+bY
+bo
+bx
+"}
+(6,1,1) = {"
+aa
+ag
+Ki
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+"}
+(7,1,1) = {"
+ad
+ah
+am
+al
+al
+aq
+at
+al
+be
+al
+al
+aD
+al
+al
+al
+al
+al
+al
+bZ
+bp
+by
+"}
+(8,1,1) = {"
+ao
+ai
+an
+av
+aE
+aM
+al
+al
+aw
+al
+al
+bl
+al
+al
+al
+al
+al
+al
+al
+cd
+ci
+"}
+(9,1,1) = {"
+ao
+ao
+ao
+ao
+ap
+aN
+al
+al
+ax
+al
+al
+aG
+al
+al
+al
+al
+al
+al
+al
+bq
+cj
+"}
+(10,1,1) = {"
+ao
+ao
+ao
+ao
+aF
+aO
+aV
+ba
+bc
+al
+al
+bm
+br
+aQ
+bE
+bK
+bQ
+aU
+bb
+bu
+ck
+"}
+(11,1,1) = {"
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+aP
+aT
+bF
+bL
+bR
+aW
+bf
+bv
+bD
+"}

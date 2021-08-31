@@ -161,7 +161,7 @@
 	if(istype(I, /obj/item/tool/pickaxe/plasmacutter) && !user.do_actions)
 		var/obj/item/tool/pickaxe/plasmacutter/P = I
 		if(!ismineralturf(src) && !istype(src, /turf/closed/gm/dense) && !istype(src, /turf/closed/glass) && !istype(src, /turf/closed/desertdamrockwall) && !istype(src, /turf/closed/brock))
-			to_chat(user, "<span class='warning'>[P] can't cut through this!</span>")
+			to_chat(user, span_warning("[P] can't cut through this!"))
 			return
 		if(!P.start_cut(user, name, src))
 			return
@@ -214,7 +214,7 @@
 	if(istype(I, /obj/item/tool/pickaxe/plasmacutter) && !user.do_actions)
 		var/obj/item/tool/pickaxe/plasmacutter/P = I
 		if(!ismineralturf(src) && !istype(src, /turf/closed/gm/dense) && !istype(src, /turf/closed/ice) && !istype(src, /turf/closed/desertdamrockwall) && !istype(src, /turf/closed/brock))
-			to_chat(user, "<span class='warning'>[P] can't cut through this!</span>")
+			to_chat(user, span_warning("[P] can't cut through this!"))
 			return
 		if(!P.start_cut(user, name, src))
 			return
@@ -371,6 +371,15 @@
 /turf/closed/shuttle/dropship1/transparent
 	opacity = FALSE
 
+/turf/closed/shuttle/dropship3
+	name = "\improper Triumph"
+	icon = 'icons/turf/dropship.dmi'
+	icon_state = "1"
+	plane = GAME_PLANE
+
+/turf/closed/shuttle/dropship3/transparent
+	opacity = FALSE
+
 /turf/closed/shuttle/dropship2
 	name = "\improper Normandy"
 	icon = 'icons/turf/dropship2.dmi'
@@ -380,6 +389,75 @@
 /turf/closed/shuttle/dropship2/transparent
 	opacity = FALSE
 
+/turf/closed/shuttle/science
+	icon = 'icons/turf/shuttlescience.dmi'
+
+/turf/closed/shuttle/lucifer
+	icon = 'icons/turf/lucifer.dmi'
+	plane = GAME_PLANE
+
+/turf/closed/shuttle/lucifer/l1
+ 	icon_state = "l1"
+
+/turf/closed/shuttle/lucifer/l3
+ 	icon_state = "l3"
+
+/turf/closed/shuttle/lucifer/l4
+ 	icon_state = "l4"
+
+/turf/closed/shuttle/lucifer/l5
+ 	icon_state = "l5"
+
+/turf/closed/shuttle/lucifer/l6
+ 	icon_state = "l6"
+
+/turf/closed/shuttle/lucifer/l7
+ 	icon_state = "l7"
+
+/turf/closed/shuttle/lucifer/r1
+ 	icon_state = "r1"
+
+/turf/closed/shuttle/lucifer/r3
+ 	icon_state = "r3"
+
+/turf/closed/shuttle/lucifer/r4
+ 	icon_state = "r4"
+
+/turf/closed/shuttle/lucifer/r5
+ 	icon_state = "r5"
+
+/turf/closed/shuttle/lucifer/r6
+ 	icon_state = "r6"
+
+/turf/closed/shuttle/lucifer/r7
+ 	icon_state = "r7"
+
+/turf/closed/shuttle/lucifer/m4
+ 	icon_state = "m4"
+
+/turf/closed/shuttle/lucifer/m5
+ 	icon_state = "m5"
+
+/turf/closed/shuttle/lucifer/m6
+ 	icon_state = "m6"
+
+/turf/closed/shuttle/lucifer/transparent
+	opacity = FALSE
+
+/turf/closed/shuttle/lucifer/transparent/window
+ 	icon_state = "window"
+
+/turf/closed/shuttle/lucifer/transparent/windowl1
+ 	icon_state = "windowl1"
+
+/turf/closed/shuttle/lucifer/transparent/windowl2
+ 	icon_state = "windowl2"
+
+/turf/closed/shuttle/lucifer/transparent/windowr1
+ 	icon_state = "windowr1"
+
+/turf/closed/shuttle/lucifer/transparent/windowr2
+ 	icon_state = "windowr2"
 
 /turf/closed/shuttle/escapepod
 	name = "wall"
@@ -396,4 +474,3 @@
 	icon_state = "0"
 	can_bloody = FALSE
 	light_power = 0.25
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
