@@ -1694,6 +1694,8 @@
 #include "code\modules\vehicles\unmanned\unmanned_vehicle_remote.dm"
 #include "code\modules\xenomorph\xeno_structures.dm"
 #include "cygnus\code\game\area\mainship.dm"
+#include "cygnus\code\game\turfs\closed.dm"
+#include "cygnus\code\modules\shuttle\marine_dropship.dm"
 #include "interface\interface.dm"
 #include "interface\menu.dm"
 #include "interface\stylesheet.dm"
