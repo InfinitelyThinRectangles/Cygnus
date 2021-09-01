@@ -12,10 +12,10 @@
 #define RESEARCH (1<<6) // get some science done
 
 // Objective completion_factors, some other perfect 5 letter prefixes if needed: hyper, ultra, turbo
-#define SUPER_SUCCESS "Super Success"
-#define MAJOR_SUCCESS "Major Success"
-#define MINOR_SUCCESS "Minor Success"
-#define NO_COMPLETION "Nothing"
-#define MINOR_FAILURE "Minor Failure"
-#define MAJOR_FAILURE "Major Failure"
-#define SUPER_FAILURE "Super Failure"
+#define SUPER_SUCCESS "3"
+#define MAJOR_SUCCESS "2"
+#define MINOR_SUCCESS "1"
+#define NO_COMPLETION "0"
+#define MINOR_FAILURE "-1"
+#define MAJOR_FAILURE "-2"
+#define SUPER_FAILURE "-3"

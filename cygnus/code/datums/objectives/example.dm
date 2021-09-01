@@ -9,14 +9,17 @@
 		MAJOR_FAILURE = -1337,
 	)
 
+/datum/objective/example/start()
+	message_admins("Starting [name] [ADMIN_VV(src)]")
+
 // Each objective below demonstrates methods of operations which can be mixed and matched
 /datum/objective/example/processing
 	name = "Example Processing Objective"
 	description = "Witness this processing"
 
 /datum/objective/example/processing/start()
-	message_admins("Starting [name]")
 	START_PROCESSING(SSveryslow, src)
+	return ..()
 
 /datum/objective/example/processing/end()
 	STOP_PROCESSING(SSveryslow, src)
@@ -38,8 +41,8 @@
 	var/logins = 0
 
 /datum/objective/example/signaled/start()
-	message_admins("Starting [name]")
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGIN, .proc/mob_login)
+	return ..()
 
 /datum/objective/example/signaled/end()
 	UnregisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGIN)
@@ -59,6 +62,3 @@
 	name = "Example Forced Objective"
 	description = "Witness this appear from nowhere in current_objectives"
 	forced = TRUE
-
-/datum/objective/example/forced/start()
-	message_admins("Starting [name]")

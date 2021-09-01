@@ -12,5 +12,5 @@
 	possible_maps = list("_maps/cygnus_map_files/example_mission_map.json")
 
 /datum/mission/example/start()
-	message_admins("Starting [name]")
+	message_admins("Starting [name] [ADMIN_VV(src)]")
 	return ..()
