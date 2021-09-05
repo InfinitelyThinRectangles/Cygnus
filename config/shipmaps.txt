@@ -17,8 +17,10 @@ map debugdalus
 	voteweight 0
 endmap
 
-map lucifer
+#CYGNUS ADDITION BEGIN - morningstar
+map morningstar
 endmap
+#CYGNUS ADDITION END
 
 map theseus
 endmap
