@@ -17,26 +17,23 @@ map debugdalus
 	voteweight 0
 endmap
 
+#CYGNUS ADDITION BEGIN - morningstar
 map morningstar
 endmap
+#CYGNUS ADDITION END
 
 map theseus
-	disabled
 endmap
 
 map pillar_of_spring
-	disabled
 endmap
 
 map risingstar
-	disabled
 endmap
 
 map sulaco
-	disabled
 endmap
 
 map twin_pillars
-	disabled
 	voteweight 0
 endmap
