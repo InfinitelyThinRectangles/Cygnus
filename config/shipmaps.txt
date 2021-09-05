@@ -17,21 +17,26 @@ map debugdalus
 	voteweight 0
 endmap
 
-map lucifer
+map morningstar
 endmap
 
 map theseus
+	disabled
 endmap
 
 map pillar_of_spring
+	disabled
 endmap
 
 map risingstar
+	disabled
 endmap
 
 map sulaco
+	disabled
 endmap
 
 map twin_pillars
+	disabled
 	voteweight 0
 endmap
