@@ -1,0 +1,242 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/dropship_piece/lucifer/r9,
+/turf/open/space/basic,
+/area/shuttle/minidropship)
+"c" = (
+/obj/structure/dropship_piece/lucifer/m1,
+/turf/open/space/basic,
+/area/shuttle/minidropship)
+"d" = (
+/turf/closed/shuttle/lucifer/r3,
+/area/shuttle/minidropship)
+"g" = (
+/obj/structure/dropship_piece/lucifer/m2,
+/turf/open/space/basic,
+/area/shuttle/minidropship)
+"h" = (
+/turf/closed/shuttle/lucifer/r6,
+/area/shuttle/minidropship)
+"i" = (
+/obj/structure/dropship_piece/lucifer/l8,
+/turf/open/space/basic,
+/area/shuttle/minidropship)
+"j" = (
+/obj/structure/dropship_piece/lucifer/r8,
+/turf/open/space/basic,
+/area/shuttle/minidropship)
+"k" = (
+/obj/structure/dropship_piece/lucifer/m3,
+/turf/open/space/basic,
+/area/shuttle/minidropship)
+"l" = (
+/turf/closed/shuttle/lucifer/m4,
+/area/shuttle/minidropship)
+"n" = (
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"o" = (
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"p" = (
+/turf/closed/shuttle/lucifer/m5,
+/area/shuttle/minidropship)
+"q" = (
+/turf/closed/shuttle/lucifer/m6,
+/area/shuttle/minidropship)
+"r" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 2
+	},
+/obj/machinery/door/poddoor/shutters/transit{
+	dir = 2
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"u" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"v" = (
+/turf/closed/shuttle/lucifer/transparent/windowl2,
+/area/shuttle/minidropship)
+"w" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/obj/machinery/door_control{
+	id = "minidropship_podlock";
+	name = "outer door-control";
+	pixel_y = 32
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"y" = (
+/turf/closed/shuttle/lucifer/transparent/windowr2,
+/area/shuttle/minidropship)
+"A" = (
+/turf/closed/shuttle/lucifer/transparent/window,
+/area/shuttle/minidropship)
+"D" = (
+/obj/structure/dropship_piece/lucifer/r2,
+/turf/open/space/basic,
+/area/shuttle/minidropship)
+"E" = (
+/obj/structure/dropship_piece/lucifer/l9,
+/turf/open/space/basic,
+/area/shuttle/minidropship)
+"F" = (
+/obj/structure/bed/chair/dropship/passenger,
+/obj/docking_port/mobile/marine_dropship/minidropship/snubship,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"H" = (
+/turf/closed/shuttle/lucifer/r1,
+/area/shuttle/minidropship)
+"I" = (
+/turf/closed/shuttle/lucifer/transparent/windowl1,
+/area/shuttle/minidropship)
+"J" = (
+/obj/effect/attach_point/weapon/minidropship,
+/turf/closed/shuttle/lucifer/l7,
+/area/shuttle/minidropship)
+"K" = (
+/turf/closed/shuttle/lucifer/transparent/windowr1,
+/area/shuttle/minidropship)
+"L" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"N" = (
+/obj/structure/bed/chair/dropship/passenger,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"O" = (
+/obj/effect/attach_point/weapon/minidropship,
+/turf/closed/shuttle/lucifer/r5,
+/area/shuttle/minidropship)
+"P" = (
+/turf/closed/shuttle/lucifer/l3,
+/area/shuttle/minidropship)
+"S" = (
+/obj/machinery/door/airlock/mainship/generic,
+/obj/machinery/door/poddoor/shutters/transit,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"T" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"U" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"V" = (
+/turf/closed/shuttle/lucifer/l6,
+/area/shuttle/minidropship)
+"W" = (
+/turf/closed/shuttle/lucifer/l1,
+/area/shuttle/minidropship)
+"Y" = (
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/minidropship)
+"Z" = (
+/obj/structure/dropship_piece/lucifer/l2,
+/turf/open/space/basic,
+/area/shuttle/minidropship)
+
+(1,1,1) = {"
+E
+i
+v
+I
+S
+J
+V
+P
+Z
+"}
+(2,1,1) = {"
+c
+l
+L
+L
+Y
+L
+T
+L
+W
+"}
+(3,1,1) = {"
+g
+p
+Y
+Y
+Y
+Y
+Y
+Y
+r
+"}
+(4,1,1) = {"
+g
+o
+n
+N
+F
+N
+N
+N
+A
+"}
+(5,1,1) = {"
+g
+p
+Y
+Y
+Y
+Y
+Y
+Y
+r
+"}
+(6,1,1) = {"
+k
+q
+w
+U
+Y
+U
+u
+U
+H
+"}
+(7,1,1) = {"
+a
+j
+y
+K
+S
+O
+h
+d
+D
+"}
