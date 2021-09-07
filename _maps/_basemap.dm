@@ -6,6 +6,7 @@
 	#ifdef ALL_MAPS
 		#include "map_files\BigRed_v2\BigRed_v2.dmm"
 		#include "map_files\Debugdalus\TGS_Debugdalus.dmm"
+		#include "map_files\desertdam\desertdam.dmm"
 		#include "map_files\Ice_Colony_v2\Ice_Colony_v2.dmm"
 		#include "cygnus_map_files\morningstar\Morningstar.dmm" // CYGNUS MAP
 		#include "map_files\LV624\LV624.dmm"
