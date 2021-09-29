@@ -1,0 +1,1815 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ac" = (
+/turf/closed/shuttle/argo/r5,
+/area/template_noop)
+"aj" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 10
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 9
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"ao" = (
+/turf/open/space/basic,
+/area/template_noop)
+"aN" = (
+/obj/structure/dropship_piece/argo/bb4,
+/turf/open/space/basic,
+/area/template_noop)
+"aQ" = (
+/obj/structure/dropship_piece/argo/l10,
+/turf/open/space/basic,
+/area/template_noop)
+"aU" = (
+/obj/effect/decal/warning_stripes/thin,
+/obj/machinery/door/airlock/dropship_hatch/argo,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"aZ" = (
+/obj/machinery/power/fusion_engine/random,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"bh" = (
+/turf/closed/shuttle/argo/b1,
+/area/shuttle/dropship/alamo)
+"bq" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/table/mainship,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"bu" = (
+/turf/closed/shuttle/argo/transparent/right{
+	dir = 1
+	},
+/area/template_noop)
+"bK" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/chem_master,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"bV" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/structure/sink{
+	dir = 1
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"bW" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/chem_master,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"bY" = (
+/obj/structure/bed,
+/obj/item/bedsheet/hos,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"bZ" = (
+/obj/machinery/sleeper,
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"ch" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/machinery/power/monitor,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"cJ" = (
+/obj/structure/bed,
+/obj/item/bedsheet/hos,
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"di" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 10
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 6
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"dj" = (
+/turf/closed/shuttle/argo/l2,
+/area/template_noop)
+"dm" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/toilet,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"dC" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/window/reinforced/tinted,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"dE" = (
+/obj/structure/dropship_piece/argo/r7,
+/turf/open/space/basic,
+/area/shuttle/dropship/alamo)
+"dU" = (
+/obj/structure/dropship_piece/argo/r10,
+/turf/open/space/basic,
+/area/template_noop)
+"dW" = (
+/obj/item/radio/intercom/dropship{
+	pixel_x = 21;
+	pixel_y = 16
+	},
+/obj/machinery/door/window{
+	dir = 2
+	},
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"ed" = (
+/turf/closed/shuttle/argo/c1{
+	dir = 4
+	},
+/area/template_noop)
+"ef" = (
+/obj/machinery/fuelcell_recycler,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"el" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/iv_drip,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"eo" = (
+/obj/structure/sink,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"eL" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/bed,
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/item/bedsheet/brown,
+/obj/machinery/door/window,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"eP" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/machinery/door/airlock/dropship_hatch/argo,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"fA" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"fF" = (
+/obj/structure/window/reinforced/tinted,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"fH" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"ge" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"gx" = (
+/obj/structure/dropship_piece/argo/l1,
+/turf/open/space/basic,
+/area/template_noop)
+"gF" = (
+/obj/structure/dropship_piece/argo/l7,
+/turf/open/space/basic,
+/area/template_noop)
+"hr" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/vending/MarineMed/Blood,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"hG" = (
+/obj/machinery/sleeper,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"ia" = (
+/obj/effect/decal/warning_stripes/thin,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"ib" = (
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"iy" = (
+/obj/machinery/door/window{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"iR" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/structure/bed/chair/dropship/passenger,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"iT" = (
+/obj/machinery/door/window{
+	dir = 2
+	},
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"je" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/structure/table/mainship,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"jm" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 5
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"jv" = (
+/turf/closed/shuttle/argo/l6,
+/area/template_noop)
+"jE" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/table/mainship,
+/obj/machinery/computer/camera_advanced/overwatch,
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"ko" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 5
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"kO" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/window/reinforced/tinted,
+/obj/machinery/vending/security,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"kR" = (
+/obj/structure/dropship_piece/argo/l8,
+/turf/open/space/basic,
+/area/template_noop)
+"li" = (
+/obj/machinery/optable,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
+/obj/structure/window/reinforced/tinted,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"lm" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"lQ" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 6
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"lU" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/bioprinter/stocked,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"lW" = (
+/obj/structure/table/mainship,
+/obj/machinery/cic_maptable,
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"lZ" = (
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"mt" = (
+/turf/closed/shuttle/argo/b5,
+/area/shuttle/dropship/alamo)
+"mP" = (
+/obj/machinery/door/window,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"na" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/machinery/door/airlock/dropship_hatch/argo,
+/turf/open/floor/mainship/black/full,
+/area/template_noop)
+"nz" = (
+/turf/closed/shuttle/argo/l5,
+/area/shuttle/dropship/alamo)
+"nC" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/sink{
+	dir = 4
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"nP" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/machinery/chem_dispenser,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"oA" = (
+/obj/structure/dropship_piece/argo/r7,
+/turf/open/space/basic,
+/area/template_noop)
+"oK" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"oR" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"oZ" = (
+/turf/closed/shuttle/argo/c1{
+	dir = 8
+	},
+/area/template_noop)
+"pl" = (
+/obj/structure/window/reinforced/tinted,
+/obj/structure/bed,
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/item/bedsheet/brown,
+/obj/machinery/door/window{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"pt" = (
+/turf/open/space/basic,
+/area/space)
+"pR" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/computer/camera_advanced/overwatch,
+/obj/structure/table/mainship,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"qP" = (
+/obj/structure/dropship_piece/argo/r1,
+/turf/open/space/basic,
+/area/template_noop)
+"sj" = (
+/obj/effect/decal/warning_stripes/thin,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 5
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"so" = (
+/obj/structure/dropship_piece/argo/ll9,
+/turf/open/space/basic,
+/area/template_noop)
+"sq" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"sr" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 9
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"sL" = (
+/obj/machinery/computer/security/dropship/one,
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"sP" = (
+/turf/closed/shuttle/argo/l3,
+/area/template_noop)
+"sT" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/window/reinforced/tinted,
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 1
+	},
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"to" = (
+/obj/machinery/body_scanconsole,
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"tp" = (
+/obj/machinery/body_scanconsole,
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"tx" = (
+/obj/structure/sink{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"tB" = (
+/obj/structure/dropship_piece/argo/r8,
+/turf/open/space/basic,
+/area/template_noop)
+"tC" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"ua" = (
+/turf/closed/shuttle/argo/transparent/left{
+	dir = 1
+	},
+/area/template_noop)
+"ve" = (
+/turf/closed/shuttle/argo/l4,
+/area/shuttle/dropship/alamo)
+"vg" = (
+/obj/machinery/door/airlock/multi_tile/mainship/dropshiprear/argo,
+/turf/open/space/basic,
+/area/template_noop)
+"vw" = (
+/turf/closed/shuttle/argo/r5,
+/area/shuttle/dropship/alamo)
+"vA" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/table/reinforced,
+/obj/item/storage/surgical_tray,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"vF" = (
+/obj/structure/window/reinforced/tinted,
+/obj/effect/decal/warning_stripes/thin,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"vJ" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/table/mainship,
+/obj/machinery/computer/camera_advanced/overwatch,
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"vX" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/machinery/vending/medical,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"wy" = (
+/obj/structure/window/reinforced/tinted,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"wV" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/obj/structure/window/reinforced/tinted,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"wX" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/structure/toilet,
+/obj/structure/sink{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"xf" = (
+/obj/machinery/optable,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"xl" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 9
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"xA" = (
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"xB" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 6
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 5
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"xZ" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"yi" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/obj/machinery/door/window,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"yo" = (
+/obj/machinery/power/fusion_engine/random,
+/obj/structure/cable,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"yy" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/marine_selector/clothes,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"yz" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/bed,
+/obj/item/bedsheet/medical,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"zI" = (
+/obj/machinery/loadout_vendor,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"zS" = (
+/obj/structure/window/reinforced/tinted,
+/obj/effect/decal/warning_stripes/thin,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 5
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"As" = (
+/obj/structure/dropship_piece/argo/bb2,
+/turf/open/space/basic,
+/area/template_noop)
+"Az" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/structure/table/mainship,
+/obj/machinery/computer/secure_data,
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"AC" = (
+/turf/closed/shuttle/argo/t5,
+/area/template_noop)
+"AG" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 6
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 10
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Bj" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"BE" = (
+/obj/structure/table/mainship,
+/obj/machinery/faxmachine/brig,
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Ci" = (
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Cn" = (
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"CP" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"CR" = (
+/obj/machinery/power/smes/preset,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"CS" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"CX" = (
+/turf/closed/shuttle/argo/l6,
+/area/shuttle/dropship/alamo)
+"Dg" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/effect/decal/warning_stripes/thin,
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"DU" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/iv_drip,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Ee" = (
+/obj/machinery/computer/shuttle/marine_dropship/one,
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"Eg" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/structure/bed,
+/obj/item/bedsheet/hos,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Ej" = (
+/obj/machinery/vending/marine/shared,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"EF" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/table/reinforced,
+/obj/item/storage/surgical_tray,
+/obj/structure/window/reinforced/tinted,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"EL" = (
+/obj/machinery/sleep_console,
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"EM" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/table/mainship,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"ES" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/effect/decal/warning_stripes/thin,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"EW" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Fh" = (
+/obj/structure/window/reinforced/tinted,
+/obj/machinery/telecomms/relay/preset/telecomms,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Fl" = (
+/turf/closed/shuttle/argo/c1{
+	dir = 4
+	},
+/area/shuttle/dropship/alamo)
+"FB" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Gg" = (
+/turf/closed/shuttle/argo/l4,
+/area/template_noop)
+"GA" = (
+/turf/closed/shuttle/argo/r6,
+/area/shuttle/dropship/alamo)
+"GH" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Hg" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted,
+/obj/structure/bed,
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/item/bedsheet/brown,
+/obj/machinery/door/window,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Hj" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Im" = (
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1
+	},
+/obj/structure/window/reinforced/tinted,
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"IE" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/machinery/door/airlock/dropship_hatch/argo{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/template_noop)
+"IW" = (
+/turf/closed/shuttle/argo/r3,
+/area/template_noop)
+"Jf" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 9
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 10
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"JF" = (
+/turf/closed/shuttle/argo/r4,
+/area/shuttle/dropship/alamo)
+"JS" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/obj/machinery/door/window{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"JW" = (
+/obj/machinery/power/monitor,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Kp" = (
+/obj/structure/dropship_piece/argo/bb1,
+/turf/open/space/basic,
+/area/template_noop)
+"KD" = (
+/obj/structure/window/reinforced/tinted,
+/obj/machinery/cic_maptable,
+/obj/structure/table/mainship,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"KH" = (
+/obj/effect/decal/warning_stripes/thin,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Le" = (
+/obj/structure/window/reinforced/tinted,
+/obj/structure/table/mainship,
+/obj/machinery/faxmachine/brig,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"LF" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/bodyscanner,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"LX" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/item/bedsheet/medical,
+/obj/structure/bed,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Mk" = (
+/obj/structure/dropship_piece/argo/l7,
+/turf/open/space/basic,
+/area/shuttle/dropship/alamo)
+"Mq" = (
+/obj/structure/bed/chair/dropship/passenger,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Mv" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/machinery/vending/engivend,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Mx" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/machinery/door/airlock/dropship_hatch/argo{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"My" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/table/mainship,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"ML" = (
+/turf/closed/shuttle/argo/r6,
+/area/template_noop)
+"MY" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/vending/MarineMed/Blood,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Nb" = (
+/obj/machinery/sleep_console,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Nw" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted,
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 1
+	},
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"Nx" = (
+/obj/machinery/door/airlock/hatch/cockpit/argo,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"NS" = (
+/obj/machinery/loadout_vendor,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"NU" = (
+/obj/machinery/atmospherics/components/unary/cryo_cell,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Ob" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"On" = (
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Op" = (
+/obj/machinery/door/window{
+	dir = 2
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Ou" = (
+/obj/structure/dropship_piece/argo/r9,
+/turf/open/space/basic,
+/area/template_noop)
+"ON" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/machinery/chem_dispenser,
+/obj/structure/window/reinforced/tinted,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"OS" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/machinery/vending/medical,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Po" = (
+/turf/closed/shuttle/argo/t2,
+/area/template_noop)
+"Qi" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/structure/toilet,
+/obj/machinery/door/window,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Qv" = (
+/obj/structure/toilet,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"QM" = (
+/turf/closed/shuttle/argo/r4,
+/area/template_noop)
+"RD" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/bioprinter/stocked,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Tn" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 10
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Tu" = (
+/obj/structure/closet/secure_closet/evidence,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"TO" = (
+/obj/machinery/fuelcell_recycler,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"TR" = (
+/obj/structure/dropship_piece/argo/r8,
+/turf/open/space/basic,
+/area/shuttle/dropship/alamo)
+"TT" = (
+/obj/structure/window/reinforced/tinted,
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"Uk" = (
+/obj/structure/dropship_piece/argo/l8,
+/turf/open/space/basic,
+/area/shuttle/dropship/alamo)
+"Uq" = (
+/turf/closed/shuttle/argo/c1{
+	dir = 1
+	},
+/area/template_noop)
+"UF" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/bodyscanner,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Vn" = (
+/obj/structure/bed,
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/item/bedsheet/brown,
+/obj/machinery/door/window{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Vr" = (
+/obj/machinery/computer/dropship_weapons/dropship1,
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"VL" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"VS" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/obj/machinery/vending/security,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"VW" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 9
+	},
+/obj/effect/decal/warning_stripes/thin,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Wz" = (
+/turf/closed/shuttle/argo/r2,
+/area/template_noop)
+"WD" = (
+/obj/structure/window/reinforced/tinted,
+/obj/effect/decal/warning_stripes/thin,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 9
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"WE" = (
+/obj/structure/table/mainship,
+/obj/machinery/computer/secure_data,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"WO" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/obj/effect/decal/warning_stripes/thin,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"WX" = (
+/turf/closed/shuttle/argo/c1{
+	dir = 8
+	},
+/area/shuttle/dropship/alamo)
+"Xb" = (
+/obj/machinery/door/window{
+	dir = 2
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Xc" = (
+/turf/closed/shuttle/argo/l5,
+/area/template_noop)
+"Xk" = (
+/obj/machinery/vending/marine/shared,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Xp" = (
+/obj/machinery/marine_selector/clothes,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"XN" = (
+/obj/structure/window/reinforced/tinted,
+/obj/structure/bed,
+/obj/item/bedsheet/hos,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"XW" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"XZ" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/structure/bed/chair/dropship/passenger,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Yb" = (
+/turf/closed/shuttle/argo/b4,
+/area/shuttle/dropship/alamo)
+"Yx" = (
+/turf/closed/shuttle/argo/b2,
+/area/shuttle/dropship/alamo)
+"YC" = (
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1
+	},
+/obj/structure/window/reinforced/tinted,
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/turf/open/floor/mainship/tcomms,
+/area/shuttle/dropship/alamo)
+"YJ" = (
+/obj/effect/decal/warning_stripes/thin,
+/obj/machinery/door/airlock/dropship_hatch/argo{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"YM" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/structure/table/mainship,
+/obj/machinery/computer/communications,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"YR" = (
+/obj/machinery/power/smes/preset,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Zc" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/evidence,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Zf" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Zh" = (
+/obj/structure/dropship_piece/argo/bb5,
+/turf/open/space/basic,
+/area/template_noop)
+"Zj" = (
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"Zs" = (
+/obj/machinery/marine_selector/clothes,
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"Zw" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"ZA" = (
+/obj/structure/toilet,
+/obj/machinery/door/window{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/floor,
+/area/space)
+"ZE" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 1
+	},
+/obj/machinery/vending/engivend,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+"ZJ" = (
+/obj/machinery/door/window,
+/turf/open/floor/mainship/black/full,
+/area/shuttle/dropship/alamo)
+
+(1,1,1) = {"
+aQ
+so
+kR
+gF
+jv
+Xc
+WX
+eP
+aU
+Uk
+Mk
+CX
+nz
+WX
+ve
+na
+oZ
+Gg
+sP
+dj
+gx
+"}
+(2,1,1) = {"
+ua
+XW
+XW
+XW
+XW
+XW
+wV
+xZ
+Tn
+Bj
+Dg
+hr
+OS
+bK
+ON
+ES
+ZE
+TO
+aZ
+bh
+Kp
+"}
+(3,1,1) = {"
+bu
+VL
+VL
+VL
+xB
+VL
+Op
+sr
+Zw
+jm
+di
+On
+Zj
+oK
+wy
+ES
+On
+Zj
+FB
+Yx
+As
+"}
+(4,1,1) = {"
+Uq
+XW
+XW
+XW
+KH
+Zf
+fA
+vJ
+Nw
+XZ
+ia
+bZ
+Zj
+ib
+dC
+ES
+je
+Zj
+YR
+Yb
+aN
+"}
+(5,1,1) = {"
+vg
+Ob
+Ob
+Ob
+WD
+sL
+YC
+lW
+TT
+XZ
+ia
+EL
+Zj
+el
+li
+ES
+bq
+ZJ
+ch
+mt
+Zh
+"}
+(6,1,1) = {"
+AC
+Zj
+Zj
+Zj
+vF
+Ee
+dW
+Cn
+iT
+Zj
+ia
+LF
+Zj
+On
+wy
+AG
+tC
+tC
+tC
+Nx
+ao
+"}
+(7,1,1) = {"
+Po
+Zw
+Zw
+Zw
+zS
+Vr
+Im
+lW
+TT
+XZ
+ia
+tp
+ZJ
+lU
+EF
+ES
+Az
+BE
+VS
+bh
+Kp
+"}
+(8,1,1) = {"
+Uq
+Zf
+Zf
+Zf
+ES
+XW
+wV
+jE
+sT
+XZ
+Tn
+Bj
+Jf
+Bj
+Bj
+VW
+On
+Zj
+Tu
+Yx
+As
+"}
+(9,1,1) = {"
+ua
+VL
+VL
+VL
+aj
+VL
+Op
+ko
+Ob
+xl
+lQ
+Zw
+Zw
+Zw
+Zw
+sj
+lm
+CP
+bV
+Yb
+aN
+"}
+(10,1,1) = {"
+bu
+Zf
+Zf
+Zf
+Zf
+Zf
+fA
+xZ
+lQ
+GH
+WO
+Xp
+zI
+Ej
+Xp
+KH
+wX
+XN
+bY
+mt
+Zh
+"}
+(11,1,1) = {"
+dU
+Ou
+tB
+oA
+ML
+ac
+Fl
+Mx
+YJ
+TR
+dE
+GA
+vw
+Fl
+JF
+IE
+ed
+QM
+IW
+Wz
+qP
+"}
+(12,1,1) = {"
+pt
+Qv
+tx
+lZ
+WE
+Le
+Ci
+Ci
+UF
+EW
+hG
+DU
+xf
+iR
+fF
+JW
+CR
+CS
+yo
+pt
+pt
+"}
+(13,1,1) = {"
+pt
+cJ
+Eg
+Hj
+Ci
+Xb
+Ci
+Ci
+to
+Ci
+Nb
+lZ
+Ci
+iR
+Xb
+Ci
+Ci
+Ci
+ef
+pt
+pt
+"}
+(14,1,1) = {"
+pt
+dm
+nC
+ge
+Zc
+kO
+Mq
+Ci
+LX
+yz
+mP
+RD
+vA
+iR
+fF
+Mv
+EM
+sq
+mP
+pt
+pt
+"}
+(15,1,1) = {"
+pt
+pt
+pt
+pR
+EW
+KD
+Mq
+Ci
+EW
+EW
+Ci
+EW
+EW
+Ci
+Ci
+EW
+EW
+EW
+Ci
+pt
+pt
+"}
+(16,1,1) = {"
+pt
+pt
+pt
+Ci
+Ci
+Ci
+Ci
+Ci
+Ci
+Ci
+Ci
+Ci
+Ci
+Ci
+Ci
+Ci
+Ci
+Ci
+Ci
+pt
+pt
+"}
+(17,1,1) = {"
+pt
+pt
+pt
+YM
+oR
+Fh
+Mq
+Ci
+oR
+oR
+Ci
+oR
+oR
+Ci
+Ci
+oR
+oR
+oR
+Ci
+pt
+pt
+"}
+(18,1,1) = {"
+pt
+Qi
+yi
+eL
+eL
+Hg
+Mq
+Ci
+MY
+vX
+iy
+bW
+nP
+iR
+fF
+My
+My
+My
+iy
+pt
+pt
+"}
+(19,1,1) = {"
+pt
+eo
+lZ
+Ci
+Ci
+Xb
+Ci
+Ci
+lZ
+Ci
+Ci
+fH
+Ci
+iR
+Xb
+Ci
+Ci
+Ci
+Ci
+pt
+pt
+"}
+(20,1,1) = {"
+pt
+ZA
+JS
+Vn
+Vn
+pl
+Ci
+Ci
+Hj
+NU
+Ci
+xA
+Ci
+iR
+fF
+yy
+NS
+Xk
+Zs
+pt
+pt
+"}
