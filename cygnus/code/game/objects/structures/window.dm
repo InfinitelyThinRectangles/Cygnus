@@ -2,9 +2,9 @@
 /obj/structure/window/reinforced/argo
 	name = "thin wall"
 	desc = "A steel wall. It looks rather strong despite how thin it is."
-	icon = 'icons/obj/structures/windows.dmi'
-	icon_state = "window"
-	basestate = "window"
+	icon = 'cygnus/icons/obj/structures/windows.dmi'
+	icon_state = "wall"
+	basestate = "wall"
 	max_integrity = 500
 	opacity = TRUE
 
