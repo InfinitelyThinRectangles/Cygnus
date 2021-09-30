@@ -11,9 +11,6 @@
 /turf/closed/shuttle/lucifer/l3
  	icon_state = "l3"
 
-/turf/closed/shuttle/lucifer/l4
- 	icon_state = "l4"
-
 /turf/closed/shuttle/lucifer/l5
  	icon_state = "l5"
 
@@ -28,9 +25,6 @@
 
 /turf/closed/shuttle/lucifer/r3
  	icon_state = "r3"
-
-/turf/closed/shuttle/lucifer/r4
- 	icon_state = "r4"
 
 /turf/closed/shuttle/lucifer/r5
  	icon_state = "r5"

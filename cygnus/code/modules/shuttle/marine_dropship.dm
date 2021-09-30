@@ -46,6 +46,9 @@
 /obj/structure/dropship_piece/argo/l1
 	icon_state = "l1"
 
+/obj/structure/dropship_piece/argo/l4
+	icon_state = "l4"
+
 /obj/structure/dropship_piece/argo/l7
 	icon_state = "l7"
 
@@ -60,6 +63,9 @@
 
 /obj/structure/dropship_piece/argo/r1
 	icon_state = "r1"
+
+/obj/structure/dropship_piece/argo/r4
+	icon_state = "r4"
 
 /obj/structure/dropship_piece/argo/r7
 	icon_state = "r7"

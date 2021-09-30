@@ -1709,6 +1709,7 @@
 #include "cygnus\code\game\area\mainship.dm"
 #include "cygnus\code\game\objects\machinery\doors\airlock_types.dm"
 #include "cygnus\code\game\objects\machinery\doors\multi_tile.dm"
+#include "cygnus\code\game\objects\structures\window.dm"
 #include "cygnus\code\game\turfs\closed.dm"
 #include "cygnus\code\modules\shuttle\marine_dropship.dm"
 #include "cygnus\code\modules\shuttle\mini_dropship.dm"
