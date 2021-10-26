@@ -41,7 +41,7 @@
 	icon_state = "m3"
 
 /obj/structure/dropship_piece/argo
-	name = "Argo
+	name = "Argo"
 	icon = 'cygnus/icons/turf/argo.dmi'
 	opacity = FALSE
 
