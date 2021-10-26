@@ -9,6 +9,7 @@
 	control_flags = SHUTTLE_MARINE_PRIMARY_DROPSHIP
 
 /obj/structure/dropship_piece/lucifer
+	name = "shuttle"
 	icon = 'cygnus/icons/turf/lucifer.dmi'
 	opacity = FALSE
 
@@ -40,6 +41,7 @@
 	icon_state = "m3"
 
 /obj/structure/dropship_piece/argo
+	name = "Argo
 	icon = 'cygnus/icons/turf/argo.dmi'
 	opacity = FALSE
 

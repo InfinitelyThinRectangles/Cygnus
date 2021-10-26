@@ -1,4 +1,5 @@
 /turf/closed/shuttle/lucifer
+	name = "shuttle"
 	icon = 'cygnus/icons/turf/lucifer.dmi'
 	plane = GAME_PLANE
 
@@ -64,6 +65,7 @@
  	icon_state = "windowr2"
 
 /turf/closed/shuttle/argo
+	name = "Argo"
 	icon = 'cygnus/icons/turf/argo.dmi'
 	plane = GAME_PLANE
 

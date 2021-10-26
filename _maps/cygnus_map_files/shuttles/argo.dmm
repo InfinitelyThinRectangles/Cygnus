@@ -200,6 +200,10 @@
 	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
+"kB" = (
+/obj/docking_port/mobile/marine_dropship/argo,
+/turf/open/shuttle/argo/catwalk,
+/area/shuttle/dropship/alamo)
 "kR" = (
 /obj/structure/dropship_piece/argo/l8,
 /turf/open/space/basic,
@@ -912,7 +916,7 @@ aM
 aM
 oz
 oz
-oz
+kB
 oz
 oz
 oz

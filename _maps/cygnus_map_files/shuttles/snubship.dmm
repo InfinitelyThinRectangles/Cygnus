@@ -67,7 +67,7 @@
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/minidropship)
 "v" = (
-/turf/closed/shuttle/lucifer/transparent/windowl2,
+/turf/closed/shuttle/lucifer/transparent/left2,
 /area/shuttle/minidropship)
 "w" = (
 /obj/structure/bed/chair/dropship/passenger{
@@ -81,10 +81,10 @@
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/minidropship)
 "y" = (
-/turf/closed/shuttle/lucifer/transparent/windowr2,
+/turf/closed/shuttle/lucifer/transparent/right2,
 /area/shuttle/minidropship)
 "A" = (
-/turf/closed/shuttle/lucifer/transparent/window,
+/turf/closed/shuttle/lucifer/transparent,
 /area/shuttle/minidropship)
 "D" = (
 /obj/structure/dropship_piece/lucifer/r2,
@@ -103,14 +103,14 @@
 /turf/closed/shuttle/lucifer/r1,
 /area/shuttle/minidropship)
 "I" = (
-/turf/closed/shuttle/lucifer/transparent/windowl1,
+/turf/closed/shuttle/lucifer/transparent/left1,
 /area/shuttle/minidropship)
 "J" = (
 /obj/effect/attach_point/weapon/minidropship,
 /turf/closed/shuttle/lucifer/l7,
 /area/shuttle/minidropship)
 "K" = (
-/turf/closed/shuttle/lucifer/transparent/windowr1,
+/turf/closed/shuttle/lucifer/transparent/right1,
 /area/shuttle/minidropship)
 "L" = (
 /obj/structure/bed/chair/dropship/passenger{
