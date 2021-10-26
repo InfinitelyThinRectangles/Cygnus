@@ -1,6 +1,3 @@
-/turf/closed/shuttle/science
-	icon = 'cygnus/icons/turf/shuttlescience.dmi'
-
 /turf/closed/shuttle/lucifer
 	icon = 'cygnus/icons/turf/lucifer.dmi'
 	plane = GAME_PLANE

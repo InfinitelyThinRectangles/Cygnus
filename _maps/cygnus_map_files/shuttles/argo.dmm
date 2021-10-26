@@ -32,7 +32,7 @@
 /turf/open/space/basic,
 /area/template_noop)
 "aZ" = (
-/obj/machinery/power/fusion_engine/random,
+/obj/machinery/fuelcell_recycler,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "bh" = (
@@ -61,30 +61,30 @@
 /obj/structure/window/reinforced/argo{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/cryo_cell,
+/obj/structure/bed,
+/obj/item/bedsheet/medical,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "cL" = (
-/obj/machinery/sleep_console,
+/obj/machinery/bodyscanner,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "di" = (
 /obj/machinery/body_scanconsole,
-/obj/machinery/door/window{
-	dir = 1
-	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "dj" = (
 /turf/closed/shuttle/argo/l2,
 /area/template_noop)
+"dB" = (
+/turf/open/shuttle/argo/logo/two,
+/area/shuttle/dropship/alamo)
 "dC" = (
-/obj/machinery/bioprinter/stocked,
 /obj/structure/window/reinforced/argo{
 	dir = 4
 	},
-/obj/structure/window/reinforced/argo{
-	dir = 1
+/obj/machinery/sleeper{
+	orient = "RIGHT"
 	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
@@ -107,10 +107,10 @@
 /turf/open/floor/mainship/black/full,
 /area/shuttle/dropship/alamo)
 "fp" = (
-/obj/machinery/optable,
-/obj/item/tank/anesthetic,
-/obj/item/clothing/mask/breath/medical,
-/obj/structure/window/reinforced/argo,
+/obj/machinery/iv_drip,
+/obj/structure/window/reinforced/argo{
+	dir = 1
+	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "gx" = (
@@ -126,15 +126,8 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "hx" = (
-/obj/effect/decal/warning_stripes/thin{
-	dir = 1
-	},
-/obj/machinery/door/airlock/dropship_hatch/argo{
-	dir = 8
-	},
-/obj/effect/decal/warning_stripes/thin,
-/turf/open/floor/mainship/black/full,
-/area/template_noop)
+/turf/closed/shuttle/argo/l5,
+/area/shuttle/dropship/alamo)
 "ia" = (
 /obj/structure/window/reinforced/argo{
 	dir = 4
@@ -142,6 +135,8 @@
 /obj/structure/window/reinforced/argo{
 	dir = 1
 	},
+/obj/structure/bed,
+/obj/item/bedsheet/medical,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "ib" = (
@@ -155,14 +150,11 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "iC" = (
-/obj/structure/window/reinforced/argo{
-	dir = 8
-	},
-/obj/structure/window/reinforced/argo{
-	dir = 1
-	},
-/obj/machinery/cryopod,
+/obj/machinery/autodoc,
 /turf/open/shuttle/argo,
+/area/shuttle/dropship/alamo)
+"iN" = (
+/turf/open/shuttle/argo/logo/seven,
 /area/shuttle/dropship/alamo)
 "iT" = (
 /obj/machinery/computer/dropship_weapons/dropship1,
@@ -178,6 +170,9 @@
 "jv" = (
 /turf/closed/shuttle/argo/l6,
 /area/template_noop)
+"ka" = (
+/turf/open/shuttle/argo/logo/six,
+/area/shuttle/dropship/alamo)
 "kl" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window{
@@ -196,12 +191,13 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "kw" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/surgical_tray,
+/obj/machinery/bioprinter/stocked,
 /obj/structure/window/reinforced/argo{
 	dir = 4
 	},
-/obj/structure/window/reinforced/argo,
+/obj/structure/window/reinforced/argo{
+	dir = 1
+	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "kR" = (
@@ -240,21 +236,17 @@
 /turf/closed/shuttle/argo/b5,
 /area/shuttle/dropship/alamo)
 "mA" = (
-/obj/structure/window/reinforced/argo{
-	dir = 1
-	},
-/obj/structure/window/reinforced/argo{
-	dir = 4
-	},
-/obj/machinery/vending/engivend,
+/obj/machinery/door/window,
+/obj/machinery/power/terminal,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "nz" = (
-/obj/structure/dropship_piece/argo/l8,
-/turf/open/space/basic,
+/turf/closed/shuttle/argo/c2{
+	dir = 8
+	},
 /area/shuttle/dropship/alamo)
 "oa" = (
-/obj/structure/window/reinforced/argo,
+/obj/machinery/autodoc_console,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "oz" = (
@@ -342,8 +334,9 @@
 	},
 /area/template_noop)
 "va" = (
-/obj/structure/window/reinforced/argo,
-/obj/machinery/marine_selector/clothes,
+/obj/machinery/sleep_console{
+	orient = "RIGHT"
+	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "vg" = (
@@ -361,6 +354,15 @@
 	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
+"vY" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/turf/open/shuttle/argo,
+/area/shuttle/dropship/alamo)
 "wI" = (
 /obj/structure/table/mainship,
 /obj/structure/window/reinforced/argo/toughened,
@@ -368,10 +370,13 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "wX" = (
-/obj/effect/decal/warning_stripes/thin,
-/obj/effect/decal/warning_stripes/thin{
+/obj/structure/window/reinforced/argo{
+	dir = 8
+	},
+/obj/structure/window/reinforced/argo{
 	dir = 1
 	},
+/obj/machinery/cryopod/right,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "xl" = (
@@ -379,13 +384,28 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "xv" = (
-/obj/machinery/door/airlock/dropship_hatch/argo{
-	dir = 8
+/obj/structure/table/reinforced,
+/obj/item/storage/surgical_tray,
+/obj/structure/window/reinforced/argo{
+	dir = 4
 	},
-/turf/open/floor/mainship/black/full,
-/area/template_noop)
+/obj/structure/window/reinforced/argo,
+/turf/open/shuttle/argo,
+/area/shuttle/dropship/alamo)
+"xE" = (
+/turf/open/shuttle/argo/logo/one,
+/area/shuttle/dropship/alamo)
 "xZ" = (
 /obj/effect/decal/warning_stripes/thin,
+/turf/open/shuttle/argo,
+/area/shuttle/dropship/alamo)
+"yr" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/obj/structure/window/reinforced/argo{
+	dir = 8
+	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "As" = (
@@ -393,17 +413,18 @@
 /turf/open/space/basic,
 /area/template_noop)
 "Az" = (
-/obj/effect/decal/warning_stripes/thin{
-	dir = 6
+/obj/structure/window/reinforced/argo{
+	dir = 1
 	},
-/obj/effect/decal/warning_stripes/thin{
-	dir = 5
-	},
+/obj/machinery/cryopod/right,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "Bj" = (
 /obj/machinery/chem_dispenser,
 /turf/open/shuttle/argo,
+/area/shuttle/dropship/alamo)
+"Cm" = (
+/turf/open/shuttle/argo/logo/eight,
 /area/shuttle/dropship/alamo)
 "CP" = (
 /obj/machinery/door/window{
@@ -412,18 +433,23 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "CX" = (
-/turf/closed/shuttle/argo/l5,
+/turf/closed/shuttle/argo/l6,
 /area/shuttle/dropship/alamo)
 "Da" = (
 /obj/machinery/door/airlock/multi_tile/mainship/dropshiprear/argo{
 	dir = 2
 	},
-/turf/open/space/basic,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "Dg" = (
-/obj/machinery/bodyscanner,
 /obj/structure/window/reinforced/argo{
 	dir = 1
+	},
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
 	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
@@ -443,15 +469,16 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "FB" = (
-/obj/machinery/power/terminal{
-	dir = 4
-	},
+/obj/machinery/power/fusion_engine/random,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "Gg" = (
 /obj/structure/dropship_piece/argo/l4,
 /turf/open/space/basic,
 /area/template_noop)
+"Gj" = (
+/turf/open/shuttle/argo/logo/nine,
+/area/shuttle/dropship/alamo)
 "GA" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 1
@@ -489,6 +516,9 @@
 	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
+"Kg" = (
+/turf/open/shuttle/argo/logo/five,
+/area/shuttle/dropship/alamo)
 "Kp" = (
 /obj/structure/dropship_piece/argo/bb1,
 /turf/open/space/basic,
@@ -503,7 +533,8 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "Mk" = (
-/turf/closed/shuttle/argo/l6,
+/obj/structure/dropship_piece/argo/l7,
+/turf/open/space/basic,
 /area/shuttle/dropship/alamo)
 "Mx" = (
 /obj/effect/decal/warning_stripes/thin,
@@ -533,18 +564,16 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "Nx" = (
-/turf/open/space/basic,
-/area/shuttle/dropship/alamo)
-"On" = (
 /obj/effect/decal/warning_stripes/thin{
-	dir = 1
-	},
-/obj/effect/decal/warning_stripes/thin{
-	dir = 6
+	dir = 9
 	},
 /obj/effect/decal/warning_stripes/thin{
 	dir = 10
 	},
+/turf/open/shuttle/argo,
+/area/shuttle/dropship/alamo)
+"On" = (
+/obj/structure/window/reinforced/argo,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "Op" = (
@@ -561,14 +590,12 @@
 /turf/open/space/basic,
 /area/template_noop)
 "ON" = (
-/obj/machinery/iv_drip,
-/obj/structure/window/reinforced/argo{
-	dir = 1
+/obj/effect/decal/warning_stripes/thin{
+	dir = 5
 	},
-/turf/open/shuttle/argo,
-/area/shuttle/dropship/alamo)
-"OS" = (
-/obj/machinery/sleeper,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 6
+	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "QM" = (
@@ -586,6 +613,9 @@
 	dir = 1
 	},
 /turf/open/shuttle/argo,
+/area/shuttle/dropship/alamo)
+"SC" = (
+/turf/open/shuttle/argo/logo/four,
 /area/shuttle/dropship/alamo)
 "SP" = (
 /turf/closed/shuttle/argo/b3,
@@ -611,14 +641,11 @@
 /obj/structure/window/reinforced/argo{
 	dir = 8
 	},
-/obj/machinery/cryopod,
+/obj/machinery/cryopod/right,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "TO" = (
-/obj/structure/window/reinforced/argo{
-	dir = 1
-	},
-/obj/machinery/fuelcell_recycler,
+/obj/structure/table/mainship,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "Uq" = (
@@ -626,12 +653,6 @@
 	dir = 1
 	},
 /area/template_noop)
-"Vj" = (
-/obj/structure/window/reinforced/argo{
-	dir = 8
-	},
-/turf/open/shuttle/argo,
-/area/shuttle/dropship/alamo)
 "Vy" = (
 /obj/structure/window/reinforced/argo,
 /obj/structure/bed/chair/comfy{
@@ -644,7 +665,7 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "VT" = (
-/obj/machinery/door/window{
+/obj/machinery/door/window/secure/bridge{
 	dir = 2
 	},
 /turf/open/shuttle/argo,
@@ -653,7 +674,7 @@
 /obj/structure/window/reinforced/argo{
 	dir = 8
 	},
-/obj/structure/window/reinforced/argo,
+/obj/structure/table/mainship,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "Wz" = (
@@ -674,7 +695,7 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "WX" = (
-/obj/structure/dropship_piece/argo/l7,
+/obj/structure/dropship_piece/argo/l8,
 /turf/open/space/basic,
 /area/shuttle/dropship/alamo)
 "Xc" = (
@@ -684,13 +705,6 @@
 /obj/structure/table/mainship,
 /obj/machinery/faxmachine/brig,
 /obj/structure/window/reinforced/argo,
-/turf/open/shuttle/argo,
-/area/shuttle/dropship/alamo)
-"XN" = (
-/obj/structure/window/reinforced/argo{
-	dir = 1
-	},
-/obj/machinery/cryopod/right,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "XW" = (
@@ -719,8 +733,9 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "YJ" = (
-/obj/structure/dropship_piece/argo/r8,
-/turf/open/space/basic,
+/turf/closed/shuttle/argo/c2{
+	dir = 4
+	},
 /area/shuttle/dropship/alamo)
 "YR" = (
 /obj/machinery/power/smes/preset,
@@ -755,10 +770,10 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "ZE" = (
-/obj/effect/decal/warning_stripes/thin{
-	dir = 1
-	},
-/obj/effect/decal/warning_stripes/thin,
+/obj/machinery/optable,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
+/obj/structure/window/reinforced/argo,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "ZJ" = (
@@ -766,6 +781,9 @@
 	dir = 5
 	},
 /turf/open/shuttle/argo,
+/area/shuttle/dropship/alamo)
+"ZK" = (
+/turf/open/shuttle/argo/logo/three,
 /area/shuttle/dropship/alamo)
 
 (1,1,1) = {"
@@ -781,11 +799,11 @@ nz
 WX
 Mk
 CX
-nz
+hx
 WX
 Mk
+jv
 Xc
-xv
 Gg
 sP
 dj
@@ -803,10 +821,10 @@ xZ
 Tn
 Bj
 Dg
+cL
 XW
-OS
+iC
 XW
-ON
 fp
 ZE
 TO
@@ -825,14 +843,14 @@ Op
 sr
 kl
 aM
+CP
 di
 aM
-cL
-aM
-CP
 oa
-On
+va
 CP
+On
+aM
 FB
 Yx
 As
@@ -854,7 +872,7 @@ MV
 ib
 dC
 kw
-ZE
+xv
 mA
 YR
 SP
@@ -863,9 +881,9 @@ rz
 (5,1,1) = {"
 vg
 aj
-aj
-aj
-aj
+iN
+SC
+xE
 aj
 YC
 lW
@@ -875,16 +893,23 @@ WD
 WD
 YC
 lW
+vY
 WD
 WD
-YC
-WD
+Nx
 WD
 Da
 ao
 "}
 (6,1,1) = {"
 Zj
+aM
+Cm
+Kg
+dB
+aM
+aM
+aM
 oz
 oz
 oz
@@ -896,22 +921,15 @@ oz
 oz
 oz
 oz
-oz
-oz
-oz
-oz
-oz
-oz
-oz
-Nx
+aM
 ao
 "}
 (7,1,1) = {"
 Zj
 bV
-bV
-bV
-bV
+Gj
+ka
+ZK
 bV
 ZJ
 sr
@@ -923,18 +941,18 @@ ZJ
 sr
 Zw
 Zw
-Az
 Zw
+ON
 Zw
-Nx
+bV
 ao
 "}
 (8,1,1) = {"
 Uq
 Zf
+yr
 Zf
-Zf
-Zf
+yr
 kX
 GA
 xZ
@@ -944,10 +962,10 @@ rk
 qx
 Jf
 ie
-Vj
+VW
 VW
 wX
-iC
+ie
 Tu
 SP
 rz
@@ -968,10 +986,10 @@ Vy
 jm
 aM
 aM
-VT
-On
-CP
 aM
+Az
+aM
+bY
 Yb
 aN
 "}
@@ -991,9 +1009,9 @@ Xp
 Ej
 xl
 QW
-va
-wX
-XN
+QW
+Az
+aM
 bY
 mt
 Zh
@@ -1008,6 +1026,7 @@ ac
 ed
 Mx
 YJ
+tB
 oA
 ML
 ac
@@ -1015,7 +1034,6 @@ tB
 oA
 ML
 ac
-hx
 QM
 IW
 Wz
