@@ -10,7 +10,7 @@
 /area/shuttle/dropship/alamo)
 "ao" = (
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "aw" = (
 /obj/machinery/cic_maptable,
 /obj/structure/table/mainship,
@@ -26,11 +26,11 @@
 "aN" = (
 /obj/structure/dropship_piece/argo/bb4,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "aQ" = (
 /obj/structure/dropship_piece/argo/l10,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "bh" = (
 /turf/closed/shuttle/argo/b1,
 /area/shuttle/dropship/alamo)
@@ -61,12 +61,19 @@
 /obj/item/bedsheet/medical,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
+"cw" = (
+/obj/machinery/vending/marine/shared,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/shuttle/argo,
+/area/shuttle/dropship/alamo)
 "cL" = (
-/obj/machinery/bodyscanner,
+/obj/machinery/autodoc,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "di" = (
-/obj/machinery/body_scanconsole,
+/obj/machinery/autodoc_console,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "dj" = (
@@ -84,7 +91,7 @@
 "dU" = (
 /obj/structure/dropship_piece/argo/r10,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "ed" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 1
@@ -109,11 +116,11 @@
 "gx" = (
 /obj/structure/dropship_piece/argo/l1,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "gF" = (
 /obj/structure/dropship_piece/argo/l7,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "hl" = (
 /turf/open/shuttle/argo/logo/two,
 /area/shuttle/dropship/alamo)
@@ -146,7 +153,7 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "iC" = (
-/obj/machinery/autodoc,
+/obj/machinery/bodyscanner,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "iT" = (
@@ -157,7 +164,15 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "jm" = (
-/obj/structure/bed/chair/dropship/passenger,
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "jv" = (
@@ -200,7 +215,7 @@
 "kR" = (
 /obj/structure/dropship_piece/argo/l8,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "kX" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
@@ -222,6 +237,9 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced/argo/toughened,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "lW" = (
@@ -245,7 +263,7 @@
 	},
 /area/shuttle/dropship/alamo)
 "oa" = (
-/obj/machinery/autodoc_console,
+/obj/machinery/body_scanconsole,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "oz" = (
@@ -254,10 +272,13 @@
 "oA" = (
 /obj/structure/dropship_piece/argo/r7,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "oK" = (
 /obj/structure/bed/chair/dropship/pilot{
 	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
@@ -279,7 +300,7 @@
 "qP" = (
 /obj/structure/dropship_piece/argo/r1,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "rk" = (
 /obj/structure/closet/secure_closet/evidence,
 /obj/structure/window/reinforced/argo/toughened{
@@ -290,17 +311,20 @@
 "rz" = (
 /obj/structure/dropship_piece/argo/bb3,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "rB" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "so" = (
 /obj/structure/dropship_piece/argo/ll9,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "sr" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 6
@@ -325,7 +349,7 @@
 "tB" = (
 /obj/structure/dropship_piece/argo/r8,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "tC" = (
 /obj/item/radio/intercom/dropship{
 	pixel_x = 21;
@@ -388,7 +412,7 @@
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "xl" = (
-/obj/machinery/vending/marine/shared,
+/obj/machinery/loadout_vendor,
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "xv" = (
@@ -420,7 +444,7 @@
 "As" = (
 /obj/structure/dropship_piece/argo/bb2,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "Az" = (
 /obj/structure/window/reinforced/argo{
 	dir = 1
@@ -460,8 +484,8 @@
 /obj/structure/window/reinforced/argo{
 	dir = 1
 	},
-/obj/structure/bed/chair/dropship/passenger{
-	dir = 4
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
@@ -472,7 +496,12 @@
 /turf/open/shuttle/argo/logo/three,
 /area/shuttle/dropship/alamo)
 "Ej" = (
-/obj/machinery/loadout_vendor,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "EI" = (
@@ -537,7 +566,7 @@
 "Kp" = (
 /obj/structure/dropship_piece/argo/bb1,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "KH" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 8
@@ -608,7 +637,7 @@
 "Ou" = (
 /obj/structure/dropship_piece/argo/r9,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "ON" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 5
@@ -649,6 +678,9 @@
 /obj/structure/window/reinforced/argo{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "Tp" = (
@@ -659,6 +691,12 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced/argo/window,
+/turf/open/shuttle/argo,
+/area/shuttle/dropship/alamo)
+"Tt" = (
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "Tu" = (
@@ -724,6 +762,9 @@
 "WO" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/secure_data,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
 "WX" = (
@@ -744,6 +785,9 @@
 "XW" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/open/shuttle/argo,
 /area/shuttle/dropship/alamo)
@@ -790,7 +834,7 @@
 "Zh" = (
 /obj/structure/dropship_piece/argo/bb5,
 /turf/open/space/basic,
-/area/template_noop)
+/area/shuttle/dropship/alamo)
 "Zj" = (
 /turf/open/floor/mainship/black/full,
 /area/shuttle/dropship/alamo)
@@ -853,12 +897,12 @@ Tn
 Bj
 Dg
 cL
-XW
+Tt
 iC
 XW
 fp
 ZE
-aM
+Tt
 FB
 bh
 Kp
@@ -1014,7 +1058,7 @@ Li
 aM
 aM
 Vy
-jm
+aM
 aM
 aM
 aM
@@ -1027,9 +1071,9 @@ aN
 (10,1,1) = {"
 Uq
 Zw
+jm
 Zw
-Zw
-Zw
+jm
 Tp
 GA
 xZ
@@ -1039,7 +1083,7 @@ WO
 Xp
 Ej
 xl
-QW
+cw
 QW
 Qj
 rB
