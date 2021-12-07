@@ -96,17 +96,17 @@
 
 /obj/docking_port/stationary/marine_dropship/hangar/one
 	name = "Shipside 'Alamo' Hangar Pad"
-	id = "alamo"
+	id = SHUTTLE_ALAMO
 	roundstart_template = /datum/map_template/shuttle/dropship_one
 
 /obj/docking_port/stationary/marine_dropship/hangar/rebel
 	name = "Shipside 'Triumph' Hangar Pad"
-	id = "triumph"
+	id = SHUTTLE_TRIUMPH
 	roundstart_template = /datum/map_template/shuttle/dropship_three
 
 /obj/docking_port/stationary/marine_dropship/hangar/two
 	name = "Shipside 'Normandy' Hangar Pad"
-	id = "normandy"
+	id = SHUTTLE_NORMANDY
 	roundstart_template = /datum/map_template/shuttle/dropship_two
 	dheight = 6
 	dwidth = 4
@@ -143,6 +143,12 @@
 	var/list/equipments = list()
 
 	var/hijack_state = HIJACK_STATE_NORMAL
+	///If the automatic cycle system is activated
+	var/automatic_cycle_on = FALSE
+	///How long will the shuttle wait to launch again if the automatic mode is on. In seconds
+	var/time_between_cycle = 0
+	///The timer to launch the dropship in automatic mode
+	var/cycle_timer
 
 /obj/docking_port/mobile/marine_dropship/register()
 	. = ..()
@@ -215,16 +221,32 @@
 	if(crashing)
 		force = TRUE
 
+	if(automatic_cycle_on && destination == new_dock)
+		if(cycle_timer)
+			deltimer(cycle_timer)
+		cycle_timer = addtimer(CALLBACK(src, .proc/prepare_going_to_previous_destination), rechargeTime + time_between_cycle SECONDS - 20 SECONDS, TIMER_STOPPABLE)
+
 	return ..()
+
+///Announce that the dropship will departure soon
+/obj/docking_port/mobile/marine_dropship/proc/prepare_going_to_previous_destination()
+	if(hijack_state != HIJACK_STATE_NORMAL)
+		return
+	cycle_timer = addtimer(CALLBACK(src, .proc/go_to_previous_destination), 20 SECONDS, TIMER_STOPPABLE)
+	priority_announce("Dropship taking off in 20 seconds towards [previous.name]", "Dropship Automatic Departure")
+
+///Send the dropship to its previous dock
+/obj/docking_port/mobile/marine_dropship/proc/go_to_previous_destination()
+	SSshuttle.moveShuttle(id, previous.id, TRUE)
 
 /obj/docking_port/mobile/marine_dropship/one
 	name = "Alamo"
-	id = "Alamo"
+	id = SHUTTLE_ALAMO
 	control_flags = SHUTTLE_MARINE_PRIMARY_DROPSHIP
 
 /obj/docking_port/mobile/marine_dropship/two
 	name = "Normandy"
-	id = "Normandy"
+	id = SHUTTLE_NORMANDY
 	control_flags = SHUTTLE_MARINE_PRIMARY_DROPSHIP
 	callTime = 28 SECONDS //smaller shuttle go whoosh
 	rechargeTime = 1.5 MINUTES
@@ -235,7 +257,7 @@
 
 /obj/docking_port/mobile/marine_dropship/three
 	name = "Triumph"
-	id = "triumph"
+	id = SHUTTLE_TRIUMPH
 	control_flags = SHUTTLE_REBEL_PRIMARY_DROPSHIP
 
 // queen calldown
@@ -276,6 +298,7 @@
 
 /obj/docking_port/mobile/marine_dropship/proc/set_hijack_state(new_state)
 	hijack_state = new_state
+	deltimer(cycle_timer)
 
 /obj/docking_port/mobile/marine_dropship/on_prearrival()
 	. = ..()
@@ -288,7 +311,7 @@
 		return "Control integrity compromised"
 	else if(hijack_state == HIJACK_STATE_UNLOCKED)
 		return "Remote control compromised"
-	return ..()
+	return ..() + (timeleft(cycle_timer) ? (" Automatic cycle : [round(timeleft(cycle_timer) / 10 + 20, 1)] seconds before departure towards [previous.name]") : "")
 
 
 /obj/docking_port/mobile/marine_dropship/can_move_topic(mob/user)
@@ -403,6 +426,8 @@
 			var/mob/living/carbon/human/H = m
 			if(isnestedhost(H))
 				continue
+			if(H.faction == FACTION_XENO)
+				continue
 			humans_on_ground++
 	if(length(GLOB.alive_human_list) && ((humans_on_ground / length(GLOB.alive_human_list)) > ALIVE_HUMANS_FOR_CALLDOWN))
 		to_chat(user, span_warning("There's too many tallhosts still on the ground. They interfere with our psychic field. We must dispatch them before we are able to do this."))
@@ -460,7 +485,7 @@
 		M.unlock_all()
 		dat += "<A href='?src=[REF(src)];abduct=1'>Capture the [M]</A><br>"
 		if(M.hijack_state != HIJACK_STATE_CALLED_DOWN)
-			M.hijack_state = HIJACK_STATE_CALLED_DOWN
+			M.set_hijack_state(HIJACK_STATE_CALLED_DOWN)
 			M.do_start_hijack_timer()
 
 	var/datum/browser/popup = new(X, "computer", M ? M.name : "shuttle", 300, 200)
@@ -499,6 +524,8 @@
 	.["dest_select"] = !(shuttle.mode == SHUTTLE_CALL || shuttle.mode == SHUTTLE_IDLE)
 	.["hijack_state"] = shuttle.hijack_state != HIJACK_STATE_CALLED_DOWN
 	.["ship_status"] = shuttle.getStatusText()
+	.["automatic_cycle_on"] = shuttle.automatic_cycle_on
+	.["time_between_cycle"] = shuttle.time_between_cycle
 
 	var/locked = 0
 	var/reardoor = 0
@@ -584,6 +611,12 @@
 		if("unlock")
 			M.unlock_airlocks(params["unlock"])
 			. = TRUE
+		if("automation_on")
+			M.automatic_cycle_on = params["automation_on"]
+			if(!M.automatic_cycle_on)
+				deltimer(M.cycle_timer)
+		if("cycle_time_change")
+			M.time_between_cycle = params["cycle_time_change"]
 
 /obj/machinery/computer/shuttle/marine_dropship/Topic(href, href_list)
 	var/obj/docking_port/mobile/marine_dropship/M = SSshuttle.getShuttle(shuttleId)
@@ -1263,7 +1296,7 @@
 	icon_state = "shuttle"
 	resistance_flags = RESIST_ALL
 	req_one_access = list(ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LEADER) // TLs can only operate the remote console
-	shuttleId = "Alamo"
+	shuttleId = SHUTTLE_ALAMO
 	possible_destinations = "lz1;lz2;alamo"
 	compatible_control_flags = SHUTTLE_MARINE_PRIMARY_DROPSHIP
 
@@ -1271,20 +1304,20 @@
 /obj/machinery/computer/shuttle/shuttle_control/dropship/two
 	name = "\improper 'Normandy' dropship console"
 	desc = "The remote controls for the 'Normandy' Dropship. Named after a department in France, noteworthy for the famous naval invasion of Normandy on the 6th of June 1944, a bloody but decisive victory in World War II and the campaign for the Liberation of France."
-	shuttleId = "Normandy"
+	shuttleId = SHUTTLE_NORMANDY
 	possible_destinations = "lz1;lz2;alamo;normandy"
 
 /obj/machinery/computer/shuttle/shuttle_control/dropship/rebel
 	name = "\improper 'Triumph' dropship console"
 	desc = "The remote controls for the 'Triumph' Dropship."
-	shuttleId = "Triumph"
+	shuttleId = SHUTTLE_TRIUMPH
 	possible_destinations = "lz1;triumph"
 	compatible_control_flags = SHUTTLE_REBEL_PRIMARY_DROPSHIP
 
 /obj/machinery/computer/shuttle/shuttle_control/dropship/loyalist
 	name = "\improper 'Alamo' dropship console"
 	desc = "The remote controls for the 'Alamo' Dropship."
-	shuttleId = "Alamo"
+	shuttleId = SHUTTLE_ALAMO
 	possible_destinations = "lz2;alamo"
 
 /obj/machinery/computer/shuttle/shuttle_control/canterbury
@@ -1293,7 +1326,7 @@
 	icon = 'icons/obj/machines/computer.dmi'
 	icon_state = "shuttle"
 	resistance_flags = RESIST_ALL
-	shuttleId = "tgs_canterbury"
+	shuttleId = SHUTTLE_CANTERBURY
 	possible_destinations = "canterbury_loadingdock"
 
 /obj/machinery/computer/shuttle/shuttle_control/canterbury/ui_interact(mob/user)

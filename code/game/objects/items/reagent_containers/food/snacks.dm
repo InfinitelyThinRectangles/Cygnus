@@ -50,6 +50,11 @@
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
 
+/obj/item/reagant_containers/food/snacks/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(!CONFIG_GET(flag/fun_allowed))
+		return FALSE
+	attack_hand(X)
+
 /obj/item/reagent_containers/food/snacks/attack(mob/M, mob/user, def_zone)
 	if(!reagents.total_volume)						//Shouldn't be needed but it checks to see if it has anything left in it.
 		to_chat(user, span_warning("None of [src] left, oh no!"))
@@ -65,34 +70,30 @@
 		var/mob/living/carbon/C = M
 		var/fullness = C.nutrition + (C.reagents.get_reagent_amount(/datum/reagent/consumable/nutriment) * 25)
 		if(M == user)								//If you're eating it yourself
-			if(istype(M,/mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
-				if(H.species.species_flags & IS_SYNTHETIC)
-					to_chat(H, span_warning("You have a monitor for a head, where do you think you're going to put that?"))
-					return
+			var/mob/living/carbon/H = M
+			if(ishuman(H) && (H.species.species_flags & ROBOTIC_LIMBS))
+				to_chat(H, span_warning("You have a monitor for a head, where do you think you're going to put that?"))
+				return
 			if (fullness <= 50)
-				to_chat(M, span_warning("You hungrily chew out a piece of [src] and gobble it!"))
+				to_chat(M, span_warning("You hungrily chew out a piece of \the [src] and gobble it!"))
 			if (fullness > 50 && fullness <= 150)
-				to_chat(M, span_warning("You hungrily begin to eat [src]."))
+				to_chat(M, span_warning("You hungrily begin to eat \the [src]."))
 			if (fullness > 150 && fullness <= 350)
-				to_chat(M, span_warning("You take a bite of [src]."))
+				to_chat(M, span_warning("You take a bite of \the [src]."))
 			if (fullness > 350 && fullness <= 550)
-				to_chat(M, span_warning("You unwillingly chew a bit of [src]."))
+				to_chat(M, span_warning("You unwillingly chew a bit of \the [src]."))
 			if (fullness > (550 * (1 + C.overeatduration / 2000)))	// The more you eat - the more you can eat
-				to_chat(M, span_warning("You cannot force any more of [src] to go down your throat."))
+				to_chat(M, span_warning("You cannot force any more of \the [src] to go down your throat."))
 				return FALSE
 		else
-			if(istype(M,/mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
-				if(H.species.species_flags & IS_SYNTHETIC)
-					to_chat(H, span_warning("They have a monitor for a head, where do you think you're going to put that?"))
-					return
-
-
+			var/mob/living/carbon/H = M
+			if(ishuman(H) && (H.species.species_flags & ROBOTIC_LIMBS))
+				to_chat(user, span_warning("They have a monitor for a head, where do you think you're going to put that?"))
+				return
 			if (fullness <= (550 * (1 + C.overeatduration / 1000)))
-				visible_message(span_warning("[user] attempts to feed [M] [src]."))
+				M.visible_message(span_warning("[user] attempts to feed \the [M] [src]."))
 			else
-				visible_message(span_warning("[user] cannot force anymore of [src] down [M]'s throat."))
+				M.visible_message(span_warning("[user] cannot force anymore of \the [src] down [M]'s throat."))
 				return FALSE
 
 			if(!do_mob(user, M, 30, BUSY_ICON_FRIENDLY))
@@ -102,7 +103,7 @@
 
 			log_combat(user, M, "fed", src, "Reagents: [rgt_list_text]")
 
-			visible_message(span_warning("[user] feeds [M] [src]."))
+			M.visible_message(span_warning("[user] feeds [M] [src]."))
 
 
 		if(reagents)								//Handle ingestion of the reagent.
@@ -2556,6 +2557,17 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	tastes = list("meat" = 1)
 
+/obj/item/reagent_containers/food/snacks/rawcutlet/attackby(obj/item/I, mob/user, params)
+	. = ..()
+
+	if(istype(I, /obj/item/tool/kitchen/knife))
+		new /obj/item/reagent_containers/food/snacks/rawmeatball(src)
+		new /obj/item/reagent_containers/food/snacks/rawmeatball(src)
+		new /obj/item/reagent_containers/food/snacks/rawmeatball(src)
+		to_chat(user, "You cut the strips and roll them into balls.")
+		qdel(src)
+
+
 /obj/item/reagent_containers/food/snacks/cutlet
 	name = "cutlet"
 	desc = "A tasty meat slice."
@@ -2573,6 +2585,10 @@
 	icon_state = "rawmeatball"
 	bitesize = 2
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
+
+/obj/item/reagent_containers/food/snacks/rawmeatball/Initialize()
+	. = ..()
+	AddComponent(/datum/component/grillable, /obj/item/reagent_containers/food/snacks/meatball, rand(40 SECONDS, 50 SECONDS), TRUE, TRUE)
 
 /obj/item/reagent_containers/food/snacks/hotdog
 	name = "hotdog"
@@ -2823,7 +2839,7 @@
 	var/headcolor = rgb(0, 0, 0)
 	var/succ_int = 100
 	var/next_succ = 0
-	var/mob/living/carbon/human/owner
+	var/mob/living/carbon/owner
 
 /obj/item/reagent_containers/food/snacks/lollipop/Initialize()
 	. = ..()

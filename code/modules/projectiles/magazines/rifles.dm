@@ -311,11 +311,11 @@
 //Marine magazine automatic sniper, or the T-81.
 /obj/item/ammo_magazine/rifle/autosniper
 	name = "\improper T-81 automatic sniper rifle magazine"
-	desc = "A box magazine filled with 8.6x70mm rifle rounds for the T-81."
+	desc = "A box magazine filled with low pressure 8.6x70mm rifle rounds for the T-81."
 	caliber = CALIBER_86X70
 	icon_state = "t81"
 	default_ammo = /datum/ammo/bullet/sniper/auto
-	max_rounds = 12
+	max_rounds = 20
 	gun_type = /obj/item/weapon/gun/rifle/standard_autosniper
 	icon_state_mini = "mag_sniper"
 
@@ -341,4 +341,31 @@
 	default_ammo = /datum/ammo/bullet/rifle/heavy
 	max_rounds = 30
 	gun_type = /obj/item/weapon/gun/rifle/standard_skirmishrifle
+	icon_state_mini = "mag_rifle"
+
+//ALF-51B
+
+/obj/item/ammo_magazine/rifle/alf_machinecarbine
+	name = "\improper ALF-51B box magazine (10x25mm)"
+	desc = "A box magazine for the ALF-51B machinecarbine."
+	icon_state = "t60"
+	caliber = CALIBER_10X25_CASELESS
+	default_ammo = /datum/ammo/bullet/rifle/heavy
+	w_class = WEIGHT_CLASS_NORMAL
+	max_rounds = 80
+	reload_delay = 1 SECONDS
+	gun_type = /obj/item/weapon/gun/rifle/alf_machinecarbine
+	icon_state_mini = "mag_t42"
+
+//-------------------------------------------------------
+//MKH98
+
+/obj/item/ammo_magazine/rifle/mkh
+	name = "\improper MKH-98 storm rifle magazine"
+	desc = "A magazine filled with 7.62X39 rifle rounds for the MKH."
+	caliber = CALIBER_762X39
+	icon_state = "mkh98"
+	default_ammo = /datum/ammo/bullet/rifle/heavy
+	max_rounds = 26
+	gun_type = /obj/item/weapon/gun/rifle/mkh
 	icon_state_mini = "mag_rifle"

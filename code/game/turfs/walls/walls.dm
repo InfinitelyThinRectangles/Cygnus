@@ -74,7 +74,7 @@
 				T.relativewall()
 
 			//nearby glowshrooms updated
-			for(var/obj/effect/glowshroom/shroom in T)
+			for(var/obj/structure/glowshroom/shroom in T)
 				if(!shroom.floor) //shrooms drop to the floor
 					shroom.floor = 1
 					shroom.icon_state = "glowshroomf"
@@ -281,11 +281,6 @@
 				dismantle_wall(TRUE, TRUE)
 		if(EXPLODE_LIGHT)
 			take_damage(rand(0, 250))
-
-//Interactions
-/turf/closed/wall/attack_paw(mob/living/carbon/human/user)
-	return attack_hand(user)
-
 
 /turf/closed/wall/attack_animal(mob/living/M as mob)
 	if(M.wall_smash)

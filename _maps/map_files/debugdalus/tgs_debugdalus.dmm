@@ -53,6 +53,7 @@
 /obj/effect/landmark/start/job/crash/squadleader,
 /obj/structure/cable,
 /obj/effect/landmark/start/latejoin,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
 /area/mainship/living/cryo_cells)
 "aal" = (
@@ -80,8 +81,7 @@
 /turf/open/floor/mainship,
 /area/mainship/living/cryo_cells)
 "aaq" = (
-/obj/structure/cable,
-/obj/machinery/landinglight/ds1/delaytwo,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
 "aar" = (
@@ -98,7 +98,7 @@
 /turf/open/floor/mainship,
 /area/mainship/living/cryo_cells)
 "aau" = (
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/marine/shared/cigarette,
 /turf/open/floor/mainship,
 /area/mainship/living/cryo_cells)
 "aav" = (
@@ -336,9 +336,10 @@
 /turf/open/floor/plating,
 /area/mainship/living/port_garden)
 "abi" = (
-/obj/item/reagent_containers/food/snacks/grown/poppy,
+/obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/living/port_garden)
+/area/mainship/squads/general)
 "abl" = (
 /obj/machinery/cryopod/right,
 /obj/machinery/light{
@@ -641,8 +642,10 @@
 /turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
 "acI" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/command/self_destruct)
+/area/mainship/hallways/hangar)
 "acJ" = (
 /obj/structure/ship_ammo/heavygun,
 /turf/open/floor/mainship,
@@ -686,8 +689,10 @@
 /area/mainship/living/port_garden)
 "acT" = (
 /obj/structure/cable,
+/obj/machinery/landinglight/ds1/delaytwo,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/engineering/engineering_workshop)
+/area/mainship/hallways/hangar)
 "acX" = (
 /obj/item/storage/box/sentry,
 /obj/structure/rack,
@@ -736,8 +741,9 @@
 /area/mainship/command/self_destruct)
 "ade" = (
 /obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/squads/general)
+/area/mainship/engineering/engineering_workshop)
 "adh" = (
 /obj/structure/prop/mainship/ship_memorial,
 /turf/open/floor/mainship,
@@ -867,8 +873,13 @@
 /turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
 "adG" = (
+/obj/machinery/landinglight/ds1/delaytwo{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/hallways/exoarmor)
+/area/mainship/hallways/hangar)
 "adH" = (
 /obj/machinery/telecomms/receiver/preset_left,
 /turf/open/floor/mainship,
@@ -944,9 +955,12 @@
 /turf/closed/wall/mainship,
 /area/mainship/squads/req)
 "adU" = (
-/obj/structure/cable,
+/obj/machinery/landinglight/ds1/delaytwo{
+	dir = 8
+	},
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/squads/req)
+/area/mainship/hallways/hangar)
 "adV" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/skills,
@@ -990,10 +1004,11 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
 "aet" = (
-/obj/vehicle/powerloader,
+/obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship,
 /area/mainship/squads/req)
 "aev" = (
@@ -1086,12 +1101,9 @@
 /turf/open/floor/mainship,
 /area/mainship/command/telecomms)
 "aeN" = (
-/obj/machinery/landinglight/ds1/delaytwo{
-	dir = 4
-	},
-/obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/hallways/hangar)
+/area/mainship/command/telecomms)
 "aeP" = (
 /obj/machinery/telecomms/processor/preset_two,
 /turf/open/floor/mainship,
@@ -1146,13 +1158,11 @@
 /turf/open/floor/mainship,
 /area/mainship/command/telecomms)
 "afe" = (
-/obj/machinery/landinglight/ds1/delaytwo{
-	dir = 8
-	},
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/hallways/hangar)
+/area/mainship/command/cic)
 "afg" = (
-/obj/vehicle/powerloader,
+/obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
 "afh" = (
@@ -1172,6 +1182,7 @@
 "afj" = (
 /obj/effect/landmark/start/job/shiptech,
 /obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
 /area/mainship/squads/req)
 "afk" = (
@@ -1295,6 +1306,7 @@
 	name = "Quartermaster's stamp"
 	},
 /obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
 /area/mainship/squads/req)
 "afI" = (
@@ -1487,12 +1499,13 @@
 /turf/open/floor/mainship,
 /area/mainship/shipboard/weapon_room)
 "agV" = (
-/obj/structure/cable,
-/obj/machinery/landinglight/ds1/delaytwo{
-	dir = 1
+/obj/machinery/door/poddoor/railing{
+	id = "supply_elevator_railing"
 	},
+/obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/hallways/hangar)
+/area/mainship/squads/req)
 "agW" = (
 /obj/machinery/light,
 /obj/structure/cable,
@@ -1530,8 +1543,12 @@
 /area/mainship/shipboard/weapon_room)
 "ahc" = (
 /obj/structure/cable,
+/obj/machinery/landinglight/ds1/delaytwo{
+	dir = 1
+	},
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/shipboard/weapon_room)
+/area/mainship/hallways/hangar)
 "ahd" = (
 /obj/structure/rack,
 /obj/item/binoculars/tactical,
@@ -1541,9 +1558,11 @@
 /turf/closed/wall/mainship,
 /area/mainship/medical/lower_medical)
 "ahh" = (
+/obj/machinery/light,
 /obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/medical/lower_medical)
+/area/mainship/hallways/hangar)
 "ahi" = (
 /obj/machinery/telecomms/server/presets/alpha,
 /turf/open/floor/mainship,
@@ -1574,9 +1593,9 @@
 /turf/open/floor/mainship,
 /area/mainship/command/cic)
 "aho" = (
-/obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/command/cic)
+/area/mainship/medical/lower_medical)
 "ahq" = (
 /turf/closed/wall/mainship,
 /area/mainship/medical/medical_science)
@@ -1596,7 +1615,7 @@
 /area/mainship/shipboard/weapon_room)
 "ahs" = (
 /obj/machinery/light,
-/obj/vehicle/powerloader,
+/obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship,
 /area/mainship/shipboard/weapon_room)
 "aht" = (
@@ -1787,6 +1806,7 @@
 /turf/open/floor/mainship,
 /area/mainship/medical/lower_medical)
 "ahY" = (
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
 /area/mainship/medical/medical_science)
 "ahZ" = (
@@ -1873,8 +1893,10 @@
 /turf/open/floor/mainship,
 /area/mainship/medical/medical_science)
 "ail" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/command/telecomms)
+/area/mainship/shipboard/weapon_room)
 "aim" = (
 /obj/structure/closet/secure_closet/pilot_officer,
 /turf/open/floor/mainship,
@@ -1884,8 +1906,10 @@
 /turf/open/floor/mainship,
 /area/mainship/medical/medical_science)
 "ais" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
-/area/mainship/command/cic)
+/area/mainship/medical/lower_medical)
 "ait" = (
 /obj/structure/foamedmetal,
 /turf/open/floor/plating,
@@ -2016,10 +2040,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship,
 /area/mainship/medical/lower_medical)
-"aiU" = (
-/obj/structure/cable,
-/turf/open/floor/mainship,
-/area/mainship/medical/medical_science)
 "aiV" = (
 /obj/machinery/vending/medical,
 /obj/structure/cable,
@@ -2280,20 +2300,6 @@
 /obj/structure/closet/secure_closet/guncabinet/incendiary,
 /turf/open/floor/mainship,
 /area/mainship/medical/medical_science)
-"aky" = (
-/obj/machinery/door/poddoor/railing{
-	id = "supply_elevator_railing"
-	},
-/obj/structure/cable,
-/turf/open/floor/mainship,
-/area/mainship/squads/req)
-"amH" = (
-/obj/structure/cable,
-/turf/open/floor/mainship,
-/area/mainship/hallways/hangar)
-"aob" = (
-/turf/open/floor/mainship,
-/area/mainship/hallways/hangar)
 "aoI" = (
 /turf/closed/wall/mainship/outer/reinforced,
 /area/mainship/command/telecomms)
@@ -2311,6 +2317,9 @@
 /obj/structure/window/framed/mainship,
 /turf/open/floor/plating,
 /area/mainship/command/telecomms)
+"azU" = (
+/turf/open/floor/mainship,
+/area/mainship/command/cic)
 "aGU" = (
 /obj/machinery/light,
 /turf/open/floor/mainship,
@@ -2321,6 +2330,11 @@
 /area/mainship/hallways/hangar)
 "bgb" = (
 /turf/closed/wall/mainship,
+/area/mainship/hallways/hangar)
+"bhC" = (
+/obj/structure/cable,
+/obj/machinery/landinglight/ds1/delaytwo,
+/turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
 "bkg" = (
 /obj/effect/decal/warning_stripes/thin,
@@ -2372,10 +2386,22 @@
 	},
 /turf/open/floor/mainship,
 /area/mainship/squads/general)
+"dwY" = (
+/turf/open/floor/mainship,
+/area/mainship/hallways/hangar)
+"dZo" = (
+/obj/structure/cable,
+/turf/open/floor/mainship,
+/area/mainship/medical/lower_medical)
+"ecz" = (
+/obj/structure/cable,
+/turf/open/floor/mainship,
+/area/mainship/squads/req)
 "ekJ" = (
 /obj/machinery/camera/autoname/mainship{
 	dir = 4
 	},
+/obj/effect/ai_node,
 /turf/open/floor/mainship,
 /area/mainship/command/telecomms)
 "eBB" = (
@@ -2413,6 +2439,13 @@
 /obj/machinery/camera/autoname/mainship,
 /turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
+"fVU" = (
+/obj/machinery/door/poddoor/railing{
+	id = "supply_elevator_railing"
+	},
+/obj/structure/cable,
+/turf/open/floor/mainship,
+/area/mainship/squads/req)
 "gas" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/med_data/laptop,
@@ -2455,6 +2488,14 @@
 	},
 /turf/open/floor/mainship/plate,
 /area/mainship/hallways/hangar)
+"hni" = (
+/obj/structure/cable,
+/turf/open/floor/mainship,
+/area/mainship/hallways/hangar)
+"hyS" = (
+/obj/structure/cable,
+/turf/open/floor/mainship,
+/area/mainship/medical/medical_science)
 "hCx" = (
 /obj/machinery/camera/autoname/mainship{
 	dir = 8
@@ -2473,6 +2514,12 @@
 /area/mainship/hallways/hangar)
 "ivf" = (
 /turf/open/floor/mainship/plate,
+/area/mainship/hallways/hangar)
+"ivw" = (
+/obj/machinery/landinglight/ds1/delaytwo{
+	dir = 8
+	},
+/turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
 "iSK" = (
 /obj/effect/landmark/start/job/staffofficer,
@@ -2497,11 +2544,19 @@
 /obj/machinery/light,
 /turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
+"jxJ" = (
+/obj/structure/cable,
+/turf/open/floor/mainship,
+/area/mainship/shipboard/weapon_room)
 "jzm" = (
 /obj/machinery/landinglight/ds2,
 /obj/effect/decal/warning_stripes/thin,
 /turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
+"jRy" = (
+/obj/item/reagent_containers/food/snacks/grown/poppy,
+/turf/open/floor/mainship,
+/area/mainship/living/port_garden)
 "kdt" = (
 /obj/effect/decal/warning_stripes/thin,
 /obj/machinery/landinglight/ds2,
@@ -2520,6 +2575,9 @@
 	},
 /turf/open/floor/mainship,
 /area/mainship/squads/req)
+"kso" = (
+/turf/open/floor/mainship,
+/area/mainship/command/self_destruct)
 "ksL" = (
 /obj/machinery/camera/autoname/mainship{
 	dir = 1
@@ -2682,6 +2740,10 @@
 /obj/machinery/camera/autoname/mainship,
 /turf/open/floor/mainship,
 /area/mainship/command/cic)
+"qEm" = (
+/obj/structure/cable,
+/turf/open/floor/mainship,
+/area/mainship/squads/general)
 "qRv" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 1
@@ -2692,6 +2754,13 @@
 /turf/open/floor/mainship/cargo/arrow{
 	dir = 1
 	},
+/area/mainship/hallways/hangar)
+"rmh" = (
+/obj/structure/cable,
+/obj/machinery/landinglight/ds1/delaytwo{
+	dir = 1
+	},
+/turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
 "rmt" = (
 /obj/structure/ship_ammo/heavygun,
@@ -2705,6 +2774,9 @@
 /obj/structure/cable,
 /turf/open/floor/mainship,
 /area/mainship/engineering/engineering_workshop)
+"rDw" = (
+/turf/open/floor/mainship,
+/area/mainship/command/telecomms)
 "rSb" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/shuttle/shuttle_control/dropship,
@@ -2729,6 +2801,13 @@
 	},
 /turf/open/floor/mainship,
 /area/mainship/hallways/hangar)
+"syF" = (
+/obj/machinery/landinglight/ds1/delaytwo{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/mainship,
+/area/mainship/hallways/hangar)
 "sAD" = (
 /obj/machinery/floodlight/landing/hq,
 /turf/open/floor/mainship,
@@ -2739,10 +2818,23 @@
 	},
 /turf/open/floor/mainship,
 /area/mainship/medical/medical_science)
+"tmK" = (
+/obj/effect/landmark/start/job/crash/squadleader,
+/obj/structure/cable,
+/obj/effect/landmark/start/latejoin,
+/turf/open/floor/mainship,
+/area/mainship/living/cryo_cells)
+"tpB" = (
+/obj/structure/cable,
+/turf/open/floor/mainship,
+/area/mainship/engineering/engineering_workshop)
 "tQD" = (
 /obj/machinery/light,
 /turf/open/floor/mainship,
 /area/mainship/squads/general)
+"tZD" = (
+/turf/open/floor/mainship,
+/area/mainship/medical/medical_science)
 "ual" = (
 /obj/structure/cable,
 /obj/machinery/camera/autoname/mainship{
@@ -2768,6 +2860,10 @@
 /obj/docking_port/stationary/marine_dropship/hangar/two,
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
+"vHf" = (
+/obj/structure/cable,
+/turf/open/floor/mainship,
+/area/mainship/command/cic)
 "vPb" = (
 /obj/machinery/camera/autoname/mainship{
 	dir = 4
@@ -2847,6 +2943,9 @@
 /obj/machinery/camera/autoname/mainship,
 /turf/open/floor/mainship,
 /area/mainship/squads/req)
+"xTV" = (
+/turf/open/floor/mainship,
+/area/mainship/hallways/exoarmor)
 "ybc" = (
 /obj/machinery/light{
 	dir = 4
@@ -3071,11 +3170,11 @@ aaa
 aaa
 aoI
 ahj
-ail
+rDw
 ahJ
 aez
 aeP
-ail
+rDw
 afm
 aoI
 aaa
@@ -3131,11 +3230,11 @@ aaa
 aaa
 aoI
 ahk
-ail
+rDw
 ahK
-ail
+rDw
 aeR
-ail
+rDw
 afn
 aoI
 aaa
@@ -3191,11 +3290,11 @@ aaa
 aaa
 aoJ
 ahl
-ail
+rDw
 ahL
-ail
+rDw
 aig
-ail
+rDw
 afp
 aoJ
 aaa
@@ -3251,11 +3350,11 @@ aoI
 aoI
 aoJ
 adE
-ail
-ail
-ail
-ail
-ail
+rDw
+rDw
+rDw
+rDw
+rDw
 afu
 aoI
 aoI
@@ -3311,12 +3410,12 @@ afd
 adu
 aoJ
 qko
-ail
-ail
-ail
-ail
-ail
-ail
+rDw
+aeN
+rDw
+rDw
+rDw
+rDw
 afQ
 ekJ
 agi
@@ -3371,14 +3470,14 @@ adk
 adv
 awM
 adH
-ail
-ail
+rDw
+rDw
 aeA
-ail
-ail
+rDw
+rDw
 afv
 awM
-ail
+rDw
 agj
 aoJ
 aaa
@@ -3431,14 +3530,14 @@ adl
 adv
 awM
 adI
-ail
-ail
+rDw
+rDw
 aeB
-ail
-ail
+rDw
+rDw
 afw
 awM
-ail
+rDw
 agk
 aoJ
 aaa
@@ -3498,7 +3597,7 @@ awM
 awM
 aoJ
 aoJ
-ail
+rDw
 aoJ
 aoJ
 aaa
@@ -3548,7 +3647,7 @@ aaa
 aaa
 aji
 kmz
-aho
+vHf
 aji
 ahm
 ahB
@@ -3558,7 +3657,7 @@ aeS
 aim
 afx
 aji
-ais
+azU
 lGz
 aji
 aaa
@@ -3581,15 +3680,15 @@ aaa
 aaa
 aaa
 bgb
-aob
-aob
-aob
-aob
-aob
-aob
-aob
+dwY
+dwY
+dwY
+dwY
+dwY
+dwY
+dwY
 xpb
-aob
+dwY
 oQb
 oQb
 oQb
@@ -3608,17 +3707,17 @@ bwS
 bwS
 aji
 qCi
-aho
-aho
-aho
-ais
-ais
-ais
-ais
-ais
-ais
-ais
-ais
+vHf
+vHf
+vHf
+azU
+azU
+azU
+azU
+afe
+azU
+azU
+afe
 eLW
 aji
 aaa
@@ -3643,11 +3742,11 @@ aaa
 bgb
 wQV
 ivf
-aob
+dwY
 ivf
-aob
+dwY
 ivf
-aob
+aaq
 ivf
 vrS
 bOu
@@ -3658,27 +3757,27 @@ bOu
 mek
 bgb
 bgb
-aob
-aob
+dwY
+dwY
 bgb
 aaa
 aaa
 bgb
-aob
-aob
+dwY
+dwY
 aji
 wYp
-ais
+azU
 aji
 ahn
-ais
-ais
-ais
-ais
-ais
+azU
+azU
+azU
+azU
+azU
 afy
 aji
-ais
+azU
 qrl
 aji
 aaa
@@ -3731,11 +3830,11 @@ aji
 aji
 aji
 adJ
-ais
+azU
 adW
 aeD
 adW
-ais
+azU
 afz
 aji
 aji
@@ -3784,19 +3883,19 @@ adF
 abV
 ael
 bEy
-aob
+dwY
 acB
 aji
 agd
 agt
 iSK
-aho
-ais
-ais
+vHf
+azU
+azU
 nak
-ais
-ais
-ais
+azU
+azU
+azU
 agJ
 afZ
 ajb
@@ -3839,24 +3938,24 @@ qRv
 bgb
 aaZ
 ada
-aob
-aob
+dwY
+dwY
 abW
 acd
 acs
-aob
+dwY
 ljx
 aji
 adr
 adx
 adC
-aho
-ais
+vHf
+azU
 mXV
 aeE
 aeT
-ais
-ais
+azU
+azU
 adC
 aga
 ago
@@ -3898,24 +3997,24 @@ bOu
 qRv
 bgb
 rmt
-aob
-aob
-aob
-aob
-aob
-aob
-aob
+dwY
+dwY
+dwY
+dwY
+dwY
+dwY
+dwY
 acD
 aji
 aji
 ady
 aji
 adK
-ais
+azU
 aef
 aeF
 aeU
-ais
+azU
 afA
 aji
 ady
@@ -3958,25 +4057,25 @@ bOu
 qRv
 bgb
 acJ
-aob
-aob
+dwY
+dwY
 nHZ
-aob
-aob
-aob
+dwY
+dwY
+dwY
 acw
 acE
 aji
 adr
 adz
 adC
-aho
-ais
+vHf
+azU
 rSb
 aeG
 aeV
-ais
-ais
+azU
+azU
 adC
 aiS
 ajd
@@ -3985,7 +4084,7 @@ agB
 agB
 agB
 agB
-ahc
+jxJ
 ahr
 agB
 agB
@@ -4021,22 +4120,22 @@ aba
 ada
 adm
 abI
-aob
-aob
-aob
-aob
+dwY
+dwY
+dwY
+dwY
 qcB
 aji
 agd
 agt
 agJ
-aho
-ais
-ais
-ais
-ais
-ais
-ais
+vHf
+azU
+azU
+azU
+azU
+azU
+azU
 agJ
 afZ
 ajb
@@ -4045,7 +4144,7 @@ agB
 agB
 ung
 agB
-ahc
+jxJ
 ahs
 agB
 agB
@@ -4079,23 +4178,23 @@ jdb
 bgb
 wpk
 ada
-aob
-aob
+dwY
+dwY
 afg
-aob
-aob
-aob
+dwY
+dwY
+dwY
 ldZ
 aji
 aji
 aji
 aji
 adL
-ais
+azU
 aeh
 aeH
 aeW
-ais
+azU
 afB
 aji
 aji
@@ -4105,7 +4204,7 @@ agB
 agO
 agU
 agB
-ahc
+jxJ
 agB
 agB
 agB
@@ -4121,13 +4220,13 @@ aaa
 aaa
 aaa
 bgb
-aob
+dwY
 ivf
-aob
+dwY
 ivf
-aob
+dwY
 ivf
-aob
+aaq
 ivf
 jzm
 bOu
@@ -4136,36 +4235,36 @@ bOu
 bOu
 bOu
 mQf
-amH
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-aeN
-amH
+acI
+syF
+syF
+syF
+syF
+syF
+adG
+syF
+syF
+syF
+syF
+syF
+adG
+syF
+syF
+syF
+syF
+syF
+syF
+adG
+syF
+syF
+acI
 agB
 agB
 agB
 agB
 agB
 agB
-ahc
+ail
 agB
 agB
 agB
@@ -4181,22 +4280,22 @@ aaa
 aaa
 aaa
 bgb
-aob
-aob
-aob
-aob
-aob
-aob
-aob
+dwY
+dwY
+dwY
+dwY
+dwY
+dwY
+dwY
 spp
-aob
+dwY
 hJn
 vSw
 vSw
 vSw
 vSw
-aob
-aaq
+dwY
+bhC
 bOu
 bOu
 bOu
@@ -4218,7 +4317,7 @@ bOu
 bOu
 bOu
 bOu
-agV
+rmh
 agB
 agB
 agB
@@ -4256,7 +4355,7 @@ agN
 agN
 agN
 agN
-aaq
+bhC
 bOu
 bOu
 bOu
@@ -4278,7 +4377,7 @@ bOu
 bOu
 bOu
 bOu
-agV
+rmh
 ahg
 ahg
 ahg
@@ -4306,17 +4405,17 @@ aaa
 aaa
 aaa
 agN
-acI
-acI
+kso
+kso
 adc
-acI
+kso
 aiF
-acI
+kso
 adc
-acI
-acI
+kso
+kso
 agN
-aaq
+bhC
 bOu
 bOu
 bOu
@@ -4338,7 +4437,7 @@ bOu
 bOu
 bOu
 bOu
-agV
+rmh
 ahg
 ahv
 ahS
@@ -4366,15 +4465,15 @@ aaa
 aaa
 aaa
 agN
-acI
+kso
 aax
 add
 add
-acI
+kso
 add
 add
 aax
-acI
+kso
 agN
 acf
 bOu
@@ -4402,13 +4501,13 @@ agW
 ahg
 ahw
 lIR
-ahh
-ahh
-ahh
+dZo
+dZo
+dZo
 ahy
 ahy
 ahy
-ahh
+dZo
 ajP
 ahg
 aaa
@@ -4428,15 +4527,15 @@ aaa
 agN
 aav
 aay
-acI
-acI
-acI
-acI
-acI
+kso
+kso
+kso
+kso
+kso
 abC
 abK
 agN
-aaq
+bhC
 bOu
 bOu
 bOu
@@ -4458,17 +4557,17 @@ bOu
 bOu
 bOu
 bOu
-agV
+rmh
 ahg
 ahx
 ahU
 aic
 ahF
-ahh
+dZo
 aiR
 ahg
 ajt
-ahh
+dZo
 ajQ
 ahg
 aaa
@@ -4486,17 +4585,17 @@ aaa
 aaa
 aaa
 agN
-acI
+kso
 aay
-acI
-acI
-acI
-acI
-acI
+kso
+kso
+kso
+kso
+kso
 abC
 bOe
 agN
-aaq
+bhC
 bOu
 bOu
 bOu
@@ -4518,7 +4617,7 @@ bOu
 bOu
 bOu
 bOu
-agV
+rmh
 ahg
 ahg
 ahg
@@ -4528,7 +4627,7 @@ mlP
 ahy
 ahy
 ajw
-ahh
+dZo
 ajR
 ahg
 aaa
@@ -4546,17 +4645,17 @@ aaa
 aaa
 aaa
 agN
-acI
+kso
 aax
-acI
-acI
+kso
+kso
 aaO
-acI
-acI
+kso
+kso
 aax
 abb
 abX
-aaq
+acT
 bOu
 bOu
 bOu
@@ -4578,17 +4677,17 @@ bOu
 bOu
 bOu
 bOu
-agV
-ahh
-ahh
-ahh
+ahc
+dZo
+dZo
+dZo
 aid
-ahh
-ahh
-ahh
-ahh
-ahh
-ahh
+dZo
+dZo
+ais
+dZo
+dZo
+dZo
 ajR
 ahg
 aaa
@@ -4608,15 +4707,15 @@ aaa
 agN
 afY
 aay
-acI
-acI
-acI
-acI
-acI
+kso
+kso
+kso
+kso
+kso
 abC
 abb
 agN
-aaq
+bhC
 bOu
 bOu
 bOu
@@ -4638,14 +4737,14 @@ bOu
 bOu
 bOu
 bOu
-agV
+rmh
 ahy
 ahy
 ahy
 ahy
 ahy
 ahy
-ahh
+dZo
 ahy
 ahy
 ahT
@@ -4668,15 +4767,15 @@ aaa
 agN
 aav
 aay
-acI
-acI
-acI
-acI
-acI
+kso
+kso
+kso
+kso
+kso
 abC
 abM
 agN
-aaq
+bhC
 bOu
 bOu
 bOu
@@ -4698,14 +4797,14 @@ bOu
 bOu
 bOu
 bOu
-agV
+rmh
 ahg
 ahz
 ahy
 ahz
 ahy
 ahy
-ahh
+dZo
 aie
 ahy
 ahy
@@ -4726,11 +4825,11 @@ aaa
 aaa
 aaa
 agN
-acI
+kso
 aax
 aaD
 aaD
-acI
+kso
 aaD
 aaD
 aax
@@ -4765,7 +4864,7 @@ ahy
 ahA
 aiw
 ahy
-ahh
+dZo
 aif
 ahy
 ajN
@@ -4786,17 +4885,17 @@ aaa
 aaa
 aaa
 agN
-acI
-acI
+kso
+kso
 aaE
-acI
+kso
 aaQ
 abb
 abt
 abb
 abb
 agN
-aaq
+bhC
 bOu
 bOu
 bOu
@@ -4818,7 +4917,7 @@ bOu
 bOu
 bOu
 bOu
-agV
+rmh
 ahg
 ahg
 ahV
@@ -4857,35 +4956,35 @@ agN
 agN
 agN
 aen
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-afe
-agX
+ivw
+ivw
+ivw
+ivw
+ivw
+adU
+ivw
+ivw
+ivw
+ivw
+ivw
+adU
+ivw
+ivw
+ivw
+ivw
+ivw
+ivw
+ivw
+ivw
+ivw
+ahh
 ahg
 ahC
 ahy
 ahy
 ahg
 aiE
-ahh
+dZo
 ahF
 ajC
 ahS
@@ -4916,13 +5015,13 @@ abu
 abD
 abN
 aaC
-amH
+hni
 bOu
 bOu
 bOu
 bOu
 bOu
-aob
+dwY
 bOu
 bOu
 bOu
@@ -4938,16 +5037,16 @@ bOu
 bOu
 bOu
 bOu
-amH
+hni
 ahg
 ahD
 ahT
 ahy
 ahy
 ahy
-ahh
-ahh
-ahh
+ais
+dZo
+dZo
 lIR
 ajV
 ahg
@@ -4976,19 +5075,13 @@ aaA
 aaA
 tQD
 aaC
-amH
+hni
 bOu
 bOu
 bOu
 bOu
 bOu
-aob
-bOu
-bOu
-bOu
-bOu
-bOu
-bOu
+dwY
 bOu
 bOu
 bOu
@@ -4998,14 +5091,20 @@ bOu
 bOu
 bOu
 bOu
-amH
+bOu
+bOu
+bOu
+bOu
+bOu
+bOu
+hni
 ahg
 ahE
 ahX
 aih
 ahg
-ahy
-ahh
+aho
+dZo
 ahF
 aic
 ahU
@@ -5036,19 +5135,13 @@ aaA
 aaS
 cCb
 aaC
-amH
+hni
 bOu
 bOu
 bOu
 bOu
 bOu
-aob
-bOu
-bOu
-bOu
-bOu
-bOu
-bOu
+dwY
 bOu
 bOu
 bOu
@@ -5058,7 +5151,13 @@ bOu
 bOu
 bOu
 bOu
-amH
+bOu
+bOu
+bOu
+bOu
+bOu
+bOu
+hni
 ahg
 ahF
 ahF
@@ -5083,26 +5182,26 @@ aab
 aad
 aah
 aak
-aak
+tmK
 aam
 aar
 acL
-ade
-ade
-ade
-ade
-ade
-ade
-ade
+abi
+qEm
+qEm
+qEm
+qEm
+qEm
+abi
 abP
 aaC
-amH
+hni
 bOu
 bOu
 afq
 bOu
 bOu
-aob
+dwY
 bOu
 bOu
 bOu
@@ -5118,13 +5217,13 @@ bOu
 bOu
 bOu
 bOu
-amH
+hni
 ahq
 ahG
-ahY
+tZD
 aij
 aix
-ahY
+tZD
 bXN
 ahq
 ajD
@@ -5154,15 +5253,15 @@ aaT
 aaH
 aaA
 aaT
-ade
-ade
-amH
-aob
-aob
-aob
-aob
-aob
-aob
+abi
+qEm
+acI
+dwY
+dwY
+dwY
+dwY
+dwY
+aaq
 bOu
 bOu
 bOu
@@ -5178,17 +5277,17 @@ bOu
 bOu
 bOu
 bOu
-amH
+hni
 ahq
 ahH
 ahZ
-ahY
-ahY
-ahY
+tZD
+tZD
+tZD
 aiV
 ahq
 ajE
-ahY
+tZD
 ajX
 ahq
 aaa
@@ -5217,8 +5316,8 @@ aaA
 tQD
 aaC
 fAT
-aob
-aob
+dwY
+dwY
 acF
 acX
 sAD
@@ -5241,14 +5340,14 @@ bOu
 soy
 ahq
 ahO
-ahY
-ahY
-ahY
-ahY
+tZD
+tZD
+tZD
+tZD
 aiW
 ahq
 ajG
-ahY
+tZD
 ajY
 ahq
 aaa
@@ -5277,12 +5376,12 @@ abG
 abQ
 aaC
 acg
-aob
-aob
-aob
-aob
-aob
-aob
+dwY
+dwY
+dwY
+dwY
+dwY
+dwY
 bOu
 bOu
 bOu
@@ -5302,13 +5401,13 @@ agX
 ahq
 gas
 aia
-ahY
-ahY
-ahY
+tZD
+tZD
+tZD
 aiX
 ahq
 ahq
-ahY
+tZD
 ahq
 ahq
 aaa
@@ -5336,13 +5435,13 @@ abh
 abh
 abh
 aaM
-amH
+hni
 bOu
 bOu
 afs
 bOu
 bOu
-aob
+dwY
 bOu
 aht
 bOu
@@ -5358,17 +5457,17 @@ bOu
 bOu
 bOu
 bOu
-amH
+hni
 ahq
 ahQ
+tZD
+tZD
+tZD
 ahY
-ahY
-ahY
-ahY
-aiU
-aiU
-aiU
-aiU
+hyS
+hyS
+hyS
+hyS
 ajZ
 ahq
 aaa
@@ -5396,19 +5495,13 @@ abw
 abH
 abw
 abY
-amH
+hni
 bOu
 bOu
 bOu
 bOu
 bOu
-aob
-bOu
-bOu
-bOu
-bOu
-bOu
-bOu
+dwY
 bOu
 bOu
 bOu
@@ -5418,15 +5511,21 @@ bOu
 bOu
 bOu
 bOu
-amH
+bOu
+bOu
+bOu
+bOu
+bOu
+bOu
+hni
 ahq
 ahQ
 eBB
 ain
 leh
-ahY
-ahY
-ahY
+tZD
+tZD
+tZD
 ybc
 ajO
 aka
@@ -5456,19 +5555,13 @@ abx
 ado
 abR
 adZ
-amH
+hni
 bOu
 bOu
 bOu
 bOu
 bOu
-aob
-bOu
-bOu
-bOu
-bOu
-bOu
-bOu
+dwY
 bOu
 bOu
 bOu
@@ -5478,15 +5571,21 @@ bOu
 bOu
 bOu
 bOu
-amH
+bOu
+bOu
+bOu
+bOu
+bOu
+bOu
+hni
 ahq
 ahq
 ahq
 ahq
 ahq
-ahY
-ahY
-ahY
+tZD
+tZD
+tZD
 ahq
 ahq
 ahq
@@ -5513,16 +5612,16 @@ aaM
 aaW
 adi
 adi
-abi
+jRy
 abw
 adi
-amH
+hni
 bOu
 bOu
 bOu
 bOu
 bOu
-aob
+dwY
 bOu
 bOu
 bOu
@@ -5538,7 +5637,7 @@ bOu
 bOu
 bOu
 bOu
-amH
+hni
 bgb
 aaa
 ahq
@@ -5571,34 +5670,34 @@ aaa
 aaa
 aaM
 auM
-abi
+jRy
 adh
-abi
+jRy
 abS
 abY
-amH
-amH
-amH
-amH
+acI
+acI
+hni
+hni
 adR
-amH
-amH
-amH
+hni
+acI
+hni
 hCx
 adR
-amH
-amH
-amH
-amH
+hni
+hni
+hni
+hni
 afE
-amH
-amH
-amH
-amH
+hni
+hni
+hni
+hni
 adR
-amH
+acI
 ual
-amH
+acI
 bgb
 aaa
 ahq
@@ -5637,7 +5736,7 @@ adi
 abw
 aaM
 ach
-acT
+tpB
 ach
 ach
 ach
@@ -5656,7 +5755,7 @@ ajp
 ajp
 ajp
 adS
-adU
+ecz
 adS
 adS
 adS
@@ -5697,9 +5796,9 @@ acQ
 abS
 aaM
 aci
-acT
+tpB
 acx
-acT
+tpB
 acZ
 ads
 afO
@@ -5716,7 +5815,7 @@ age
 agp
 ajq
 agC
-adU
+ecz
 aek
 agY
 adS
@@ -5757,7 +5856,7 @@ aaM
 aaM
 aaM
 acj
-acT
+tpB
 afO
 afO
 acZ
@@ -5769,14 +5868,14 @@ adS
 aek
 aek
 aek
-adU
+ecz
 afH
-adU
+ecz
 agf
-aky
-aky
-aky
-aky
+fVU
+fVU
+fVU
+agV
 agP
 agh
 adS
@@ -5812,9 +5911,9 @@ aaa
 aaa
 aea
 abn
-adG
-adG
-adG
+xTV
+xTV
+xTV
 aea
 acn
 adA
@@ -5822,7 +5921,7 @@ afO
 afO
 acZ
 ads
-acT
+ade
 afO
 afO
 aek
@@ -5871,13 +5970,13 @@ aaa
 aaa
 aaa
 aea
-adG
-adG
-adG
+xTV
+xTV
+xTV
 abU
 abU
-acT
-acT
+tpB
+ade
 acy
 afO
 ach
@@ -5889,7 +5988,7 @@ adS
 aeK
 aek
 aek
-adU
+ecz
 aek
 aek
 agg
@@ -5932,8 +6031,8 @@ aaa
 aaa
 aea
 abo
-adG
-adG
+xTV
+xTV
 abU
 aea
 aco
@@ -5949,7 +6048,7 @@ adS
 xsM
 aek
 aek
-adU
+ecz
 afJ
 aek
 agg
@@ -5992,8 +6091,8 @@ aaa
 aaa
 aea
 abp
-adG
-adG
+xTV
+xTV
 ksL
 aea
 acp
@@ -6052,8 +6151,8 @@ aaa
 aaa
 aea
 abq
-adG
-adG
+xTV
+xTV
 abT
 aea
 acq
@@ -6061,8 +6160,8 @@ acv
 acA
 acO
 rrI
-acT
-acT
+tpB
+tpB
 afO
 adP
 adS
@@ -6112,8 +6211,8 @@ aaa
 aaa
 aea
 abr
-adG
-adG
+xTV
+xTV
 gOE
 aea
 afO
@@ -6121,7 +6220,7 @@ afO
 afO
 afO
 afO
-acT
+tpB
 afO
 afO
 adQ
@@ -6172,9 +6271,9 @@ aaa
 aaa
 aea
 abs
-adG
+xTV
 adp
-adG
+xTV
 aea
 aev
 aev

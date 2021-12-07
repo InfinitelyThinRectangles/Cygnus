@@ -515,12 +515,15 @@
 	icon_state = "template"
 	var/datum/action/source_action
 
-/obj/screen/action_button/Click()
+/obj/screen/action_button/Click(location, control, params)
 	if(!usr || !source_action)
 		return TRUE
 	if(usr.next_move >= world.time)
 		return TRUE
-
+	var/list/modifiers = params2list(params)
+	if(modifiers["right"])
+		source_action.alternate_action_activate()
+		return
 	if(source_action.can_use_action(FALSE, NONE, TRUE))
 		source_action.action_activate()
 	else
@@ -590,8 +593,8 @@
 	var/obj/item/weapon/gun/G = .
 	if(!G)
 		return
-	var/obj/item/attachable/flashlight/F = LAZYACCESS(G.attachments, ATTACHMENT_SLOT_RAIL)
-	if(F?.activate_attachment(usr))
+	var/obj/item/attachable/flashlight/F = LAZYACCESS(G.attachments_by_slot, ATTACHMENT_SLOT_RAIL)
+	if(F?.activate(usr))
 		playsound(usr, F.activation_sound, 15, 1)
 
 /obj/screen/firearms/magazine
@@ -673,19 +676,21 @@
 	name = "ammo"
 	icon = 'icons/mob/ammoHUD.dmi'
 	icon_state = "ammo"
-	screen_loc = ui_ammo
+	screen_loc = ui_ammo1
 	var/warned = FALSE
+	///List of possible screen locs
+	var/static/list/ammo_screen_loc_list = list(ui_ammo1, ui_ammo2, ui_ammo3 ,ui_ammo4)
 
 
 /obj/screen/ammo/proc/add_hud(mob/living/user, obj/item/weapon/gun/G)
 
-	if(!G)
+	if(isnull(G))
 		CRASH("/obj/screen/ammo/proc/add_hud() has been called from [src] without the required param of G")
 
 	if(!user?.client)
 		return
 
-	if((user.get_active_held_item() != G && user.get_inactive_held_item() != G && !CHECK_BITFIELD(G.flags_item, IS_DEPLOYED)) || !G.hud_enabled || !CHECK_BITFIELD(G.flags_gun_features, GUN_AMMO_COUNTER))
+	if(!CHECK_BITFIELD(G.flags_gun_features, GUN_AMMO_COUNTER))
 		return
 
 	user.client.screen += src
@@ -699,7 +704,7 @@
 	if(!user?.client?.screen.Find(src))
 		return
 
-	if(!G || !(G.flags_gun_features & GUN_AMMO_COUNTER) || !G.hud_enabled || !G.get_ammo_type() || isnull(G.get_ammo_count()))
+	if(!G || !(G.flags_gun_features & GUN_AMMO_COUNTER) || !G.get_ammo_type() || isnull(G.get_ammo_count()))
 		remove_hud(user)
 		return
 

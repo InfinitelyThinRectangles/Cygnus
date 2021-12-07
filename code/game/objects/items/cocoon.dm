@@ -15,8 +15,6 @@
 	var/mob/living/victim
 	///How much time the cocoon takes to deplete the life force of the marine
 	var/cocoon_life_time = 5 MINUTES
-	///How many psych points it is generating every 5 seconds
-	var/psych_points_output = COCOON_PSY_POINTS_REWARD
 	///Standard busy check
 	var/busy = FALSE
 	///How much larva points it gives at the end of its life time (8 points for one larva in distress)
@@ -33,7 +31,6 @@
 	START_PROCESSING(SSslowprocess, src)
 	addtimer(CALLBACK(src, .proc/life_draining_over, null, TRUE), cocoon_life_time)
 	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED, .proc/life_draining_over)
-	new /obj/effect/alien/weeds/node(loc)
 
 /obj/structure/cocoon/examine(mob/user, distance, infix, suffix)
 	. = ..()
@@ -41,6 +38,8 @@
 		to_chat(user, span_notice("There seems to be someone inside it. You think you can open it with a sharp object."))
 
 /obj/structure/cocoon/process()
+	var/psych_points_output = COCOON_PSY_POINTS_REWARD_MIN + (HIGH_PLAYER_POP - SSmonitor.maximum_connected_players_count / HIGH_PLAYER_POP * (COCOON_PSY_POINTS_REWARD_MAX - COCOON_PSY_POINTS_REWARD_MIN))
+	psych_points_output = clamp(psych_points_output, COCOON_PSY_POINTS_REWARD_MIN, COCOON_PSY_POINTS_REWARD_MAX)
 	SSpoints.add_psy_points(hivenumber, psych_points_output)
 
 /obj/structure/cocoon/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
@@ -117,4 +116,3 @@
 /obj/structure/cocoon/opened_cocoon/Initialize()
 	. = ..()
 	new /obj/structure/bed/nest(loc)
-	new /obj/effect/alien/weeds/node(loc)

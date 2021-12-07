@@ -34,9 +34,6 @@
 	else
 		. += image('icons/obj/kitchen.dmi', "gridle")
 
-/obj/machinery/gibber/attack_paw(mob/living/carbon/human/user)
-	return attack_hand(user)
-
 /obj/machinery/gibber/relaymove(mob/user)
 	if(user.incapacitated(TRUE))
 		return
@@ -153,9 +150,11 @@
 		var/sourcenutriment = C.nutrition / 15
 		var/sourcetotalreagents = 0
 
-		if(ismonkey(occupant) || istype(occupant, /mob/living/carbon/xenomorph)) // why are you gibbing aliens? oh well
+		if(ismonkey(occupant))
 			totalslabs = 3
 			sourcetotalreagents = src.occupant.reagents.total_volume
+		else if(istype(occupant, /mob/living/carbon/xenomorph)) // why are you gibbing aliens? oh well DELICIOUS
+			totalslabs = 2
 		else if(istype(occupant, /mob/living/simple_animal/cow) || istype(occupant, /mob/living/simple_animal/hostile/bear))
 			totalslabs = 2
 		else
