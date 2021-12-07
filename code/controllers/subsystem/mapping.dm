@@ -55,10 +55,12 @@ SUBSYSTEM_DEF(mapping)
 				to_chat(world, span_boldannounce("Unable to load next or default map config, defaulting."))
 				configs[i] = old_config
 
+	/* CYGNUS REMOVAL BEGIN - lazy load groundmap (code moved to InitGroundmap at bottom of file)
 	if(configs[GROUND_MAP])
 		for(var/datum/game_mode/M AS in config.votable_modes)
 			if(!(M.config_tag in configs[GROUND_MAP].gamemodes))
 				config.votable_modes -= M // remove invalid modes
+	*/ //CYGNUS REMOVAL END
 
 	loadWorld()
 	repopulate_sorted_areas()
@@ -162,6 +164,7 @@ SUBSYSTEM_DEF(mapping)
 		INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!")
 	return parsed_maps
 
+/* CYGNUS OVERRIDE BEGIN - lazy load groundmap (see modified loadWorld proc at bottom of file)
 /datum/controller/subsystem/mapping/proc/loadWorld()
 	//if any of these fail, something has gone horribly, HORRIBLY, wrong
 	var/list/FailedZs = list()
@@ -198,6 +201,7 @@ SUBSYSTEM_DEF(mapping)
 				msg += ", [FailedZs[I]]"
 		msg += ". Yell at your server host!"
 		INIT_ANNOUNCE(msg)
+*/ //CYGNUS OVERRIDE END
 #undef INIT_ANNOUNCE
 
 /datum/controller/subsystem/mapping/proc/changemap(datum/map_config/VM, maptype = GROUND_MAP)
@@ -361,3 +365,64 @@ SUBSYSTEM_DEF(mapping)
 	for(var/B in areas)
 		var/area/A = B
 		A.reg_in_areas_in_z()
+
+
+//CYGNUS ADDITIONS BEGIN - lazy load groundmap
+/datum/controller/subsystem/mapping/proc/InitGroundmap()
+	if(configs[GROUND_MAP])
+		for(var/datum/game_mode/M AS in config.votable_modes)
+			if(!(M.config_tag in configs[GROUND_MAP].gamemodes))
+				config.votable_modes -= M // remove invalid modes
+
+	loadWorld(TRUE)
+	repopulate_sorted_areas()
+
+#define INIT_ANNOUNCE(X) to_chat(world, "<span class='notice'>[X]</span>"); log_world(X)
+/datum/controller/subsystem/mapping/proc/loadWorld(lazy_ground = FALSE)
+	//if any of these fail, something has gone horribly, HORRIBLY, wrong
+	var/list/FailedZs = list()
+	var/datum/map_config/ground_map = configs[GROUND_MAP]
+	var/datum/map_config/ship_map = configs[SHIP_MAP]
+	if(lazy_ground)
+		// load the ground level
+		ground_start = world.maxz + 1
+
+		INIT_ANNOUNCE("Loading [ground_map.map_name]...")
+		var/list/parsed_maps = LoadGroup(FailedZs, ground_map.map_name, ground_map.map_path, ground_map.map_file, ground_map.traits, ZTRAITS_GROUND)
+		// ultra hack to lazy init all the things
+		var/init_hack_start_time = REALTIMEOFDAY
+		INIT_ANNOUNCE("Initializing [ground_map.map_name]...")
+		for(var/datum/parsed_map/parsed_map AS in parsed_maps)
+			parsed_map.initTemplateBounds(build_lighting = TRUE)
+		SSair.setup_atmos_machinery()
+		SSair.setup_pipenets()
+		SSminimaps.Initialize()
+		INIT_ANNOUNCE("Initialization completed in [(REALTIMEOFDAY - init_hack_start_time)/10]s!")
+	else
+		// ensure we have space_level datums for compiled-in maps
+		InitializeDefaultZLevels()
+
+		INIT_ANNOUNCE("Loading [ship_map.map_name]...")
+		LoadGroup(FailedZs, ship_map.map_name, ship_map.map_path, ship_map.map_file, ship_map.traits, ZTRAITS_MAIN_SHIP)
+
+	if(SSdbcore.Connect())
+		var/datum/db_query/query_round_map_name = SSdbcore.NewQuery({"
+			UPDATE [format_table_name("round")] SET map_name = :map_name WHERE id = :round_id
+		"}, list("map_name" = ground_map.map_name, "round_id" = GLOB.round_id))
+		query_round_map_name.Execute()
+		qdel(query_round_map_name)
+
+	if(lazy_ground)
+		SSblackbox.record_feedback("text", "ground_map", 1, ground_map.map_name)
+	else
+		// Also saving this as a feedback var as we don't have ship_map_name in the round table.
+		SSblackbox.record_feedback("text", "ship_map", 1, ship_map.map_name)
+
+	if(LAZYLEN(FailedZs))	//but seriously, unless the server's filesystem is messed up this will never happen
+		var/msg = "RED ALERT! The following map files failed to load: [FailedZs[1]]"
+		if(FailedZs.len > 1)
+			for(var/I in 2 to FailedZs.len)
+				msg += ", [FailedZs[I]]"
+		msg += ". Yell at your server host!"
+		INIT_ANNOUNCE(msg)
+#undef INIT_ANNOUNCE

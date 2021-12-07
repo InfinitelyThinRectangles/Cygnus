@@ -18,6 +18,7 @@ SUBSYSTEM_DEF(minimaps)
 	priority = FIRE_PRIORITY_MINIMAPS
 	wait = 10
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
+	flags = SS_NO_INIT //CYGNUS ADDITION - lazy init minimaps from SSmapping
 	///Minimap hud display datums sorted by zlevel
 	var/list/datum/hud_displays/minimaps_by_z = list()
 	///Assoc list of images we hold by their source
@@ -87,10 +88,19 @@ SUBSYSTEM_DEF(minimaps)
 
 	initialized = TRUE
 
+	var/list/early_targets = list() //CYGNUS ADDITION - skip earlyadd dupes
 	for(var/i=1 to length(earlyadds)) //lateload icons
+		//CYGNUS ADDITION BEGIN - skip earlyadd dupes
+		var/datum/callback/earlyadd = earlyadds[i]
+		if (earlyadd.arguments[1] in early_targets)
+			continue
+		early_targets += earlyadd.arguments[1]
+		//CYGNUS ADDITION END
 		earlyadds[i].Invoke()
 	earlyadds = null //then clear them
+	/* CYGNUS REMOVAL BEGIN - lazy init minimaps
 	return ..()
+	*/ //CYGNUS REMOVAL END
 
 /datum/controller/subsystem/minimaps/stat_entry(msg)
 	msg = "Upd:[length(update_targets_unsorted)] Mark: [length(removal_cbs)]"
